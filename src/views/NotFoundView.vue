@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <div class="home">
-    <h1>This is an home page</h1>
+  <div class="notFound">
+    <h1>This is an notFound page</h1>
   </div>
 </template>
 
