@@ -1,0 +1,13 @@
+.app,
+[data-theme="light"] {
+    --primaryColor: #fcfcfc;
+    --textColor: #3f3f3f;
+}
+
+[data-theme="dark"] {
+    --primaryColor: #3f3f3f;
+    --textColor: #fcfcfc;
+}
+
+$primaryColor: var(--primaryColor);
+$textColor: var(--textColor);

@@ -1,14 +1,23 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router';
+import Sidebar from '@/components/Sidebar.vue';
+import { ref } from 'vue';
+
+const theme = ref(null);
 </script>
 
 <template>
-  <RouterLink to="/">Home</RouterLink>
-  <RouterLink to="/github">GitHub</RouterLink>
+  <div class="app" :data-theme="theme">
+    <Sidebar />
 
-  <RouterView />
+    <RouterView />
+  </div>
 </template>
 
-<style>
+<style lang="scss">
+@import '@/assets/scss/main.scss';
 
+.app{
+    background-color: $primaryColor;
+}
 </style>
