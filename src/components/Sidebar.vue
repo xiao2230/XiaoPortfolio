@@ -5,8 +5,14 @@ import { RouterLink } from 'vue-router'
 <template>
     <aside>
         <div class="asideTop">
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/github">GitHub</RouterLink>
+            <RouterLink to="/">
+                <font-awesome-icon :icon="['fas', 'house']" />
+                Home
+            </RouterLink>
+            <RouterLink to="/github">
+                <font-awesome-icon :icon="['fab', 'github']" />
+                GitHub
+            </RouterLink>
         </div>
         <div class="asideBottom">
             <button type="button">Change Theme</button>
