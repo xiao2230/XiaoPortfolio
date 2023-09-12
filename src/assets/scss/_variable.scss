@@ -1,13 +1,21 @@
 .app,
 [data-theme="light"] {
     --primaryColor: #fcfcfc;
-    --textColor: #3f3f3f;
+    --secondaryColor: #3f3f3f;
 }
 
 [data-theme="dark"] {
     --primaryColor: #3f3f3f;
-    --textColor: #fcfcfc;
+    --secondaryColor: #fcfcfc;
+}
+
+@media (prefers-color-scheme: dark) {
+    .app,
+    [data-theme="auto"] {
+        --primaryColor: #3f3f3f;
+        --secondaryColor: #fcfcfc;
+    }
 }
 
 $primaryColor: var(--primaryColor);
-$textColor: var(--textColor);
+$secondaryColor: var(--secondaryColor);
