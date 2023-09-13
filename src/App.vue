@@ -1,9 +1,14 @@
 <script setup>
-import { RouterView } from 'vue-router';
-import Sidebar from '@/components/Sidebar.vue';
-import { ref } from 'vue';
+import { RouterView } from "vue-router";
+import { storeToRefs } from "pinia";
+import Sidebar from "@/components/Sidebar.vue";
+import { useThemeStore } from "@/stores/theme.js";
 
-const theme = ref("auto");
+const store = useThemeStore();
+const { theme } = storeToRefs(store);
+
+
+
 </script>
 
 <template>
