@@ -10,7 +10,21 @@ const { changeTheme } = store;
 
 <template>
     <aside>
-        <div class="asideTop">
+        <header>
+            <div class="logo">
+                <div class="pattern">XP</div>
+                <div class="text">
+                    <span>XiaoPortfolio</span>
+                    <span>Front-End Engineer</span>
+                </div>
+            </div>
+        </header>
+        <!-- <div class="asideTop">
+            <div class="logo">
+                <div class="logoIcon">XP</div>
+                <div class="logoName">XiaoPortfolio</div>
+            </div>
+
             <RouterLink to="/">
                 <font-awesome-icon :icon="['fas', 'house']" />
                 Home
@@ -22,22 +36,24 @@ const { changeTheme } = store;
         </div>
         <div class="asideBottom">
             <button type="button" @click="changeTheme()">Change Theme:{{ button }}</button>
-        </div>
+        </div> -->
     </aside>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 aside {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     min-height: 100vh;
     padding: 1rem;
     border-right: 2px solid $secondaryColor;
 
-    .asideTop {
+    header{
         display: flex;
-        flex-direction: column;
+        .text{
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 </style>
