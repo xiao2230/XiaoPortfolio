@@ -1,4 +1,5 @@
 .app,
+[data-theme="auto"],
 [data-theme="light"] {
     --primaryColor: #fcfcfc;
     --secondaryColor: #3f3f3f;
@@ -18,3 +19,4 @@
 
 $primaryColor: var(--primaryColor);
 $secondaryColor: var(--secondaryColor);
+$sideBarW: 300;

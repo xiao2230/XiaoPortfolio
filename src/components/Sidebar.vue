@@ -1,5 +1,11 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
+import { storeToRefs } from "pinia";
+import { useThemeStore } from "@/stores/theme.js";
+
+const store = useThemeStore();
+const { button } = storeToRefs(store);
+const { changeTheme } = store;
 </script>
 
 <template>
@@ -15,7 +21,7 @@ import { RouterLink } from 'vue-router'
             </RouterLink>
         </div>
         <div class="asideBottom">
-            <button type="button">Change Theme</button>
+            <button type="button" @click="changeTheme()">Change Theme:{{ button }}</button>
         </div>
     </aside>
 </template>

@@ -6,9 +6,6 @@ import { useThemeStore } from "@/stores/theme.js";
 
 const store = useThemeStore();
 const { theme } = storeToRefs(store);
-
-
-
 </script>
 
 <template>
