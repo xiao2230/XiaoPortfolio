@@ -9,9 +9,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 // import specific icons
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faDownLeftAndUpRightToCenter } from "@fortawesome/free-solid-svg-icons";
+import { faUpRightAndDownLeftFromCenter } from "@fortawesome/free-solid-svg-icons";
 
 // add icons to the library
-library.add(faHouse, faGithub);
+library.add(faHouse, faGithub, faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter);
 
 import App from "@/App.vue";
 import router from "@/router";
