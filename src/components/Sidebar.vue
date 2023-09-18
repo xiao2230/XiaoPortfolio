@@ -4,11 +4,13 @@ import { RouterLink } from 'vue-router';
 import { storeToRefs } from "pinia";
 import { useThemeStore } from "@/stores/theme.js";
 
+// 取得　pinia 變數與方法：判斷 & 控制深色模式
 const store = useThemeStore();
 const { button } = storeToRefs(store);
 const { changeTheme } = store;
 
-const show = ref(true);
+// 設定變數：控制選單開合
+const menuShow = ref(true);
 </script>
 
 <template>
@@ -23,30 +25,32 @@ const show = ref(true);
                     <span>Front-End Engineer</span>
                 </div>
             </div>
-            <div class="toggle" @click="show = !show">
-                <Transition name="show">
-                    <font-awesome-icon v-show="show" :icon="['fas', 'down-left-and-up-right-to-center']" />
+            <div class="menuToggle" @click="menuShow = !menuShow">
+                <Transition name="menuToggle">
+                    <font-awesome-icon v-show="menuShow" :icon="['fas', 'down-left-and-up-right-to-center']" />
                 </Transition>
-                <Transition name="show">
-                    <font-awesome-icon v-show="!show" :icon="['fas', 'up-right-and-down-left-from-center']" />
+                <Transition name="menuToggle">
+                    <font-awesome-icon v-show="!menuShow" :icon="['fas', 'up-right-and-down-left-from-center']" />
                 </Transition>
             </div>
         </header>
-        <!-- <div class="asideTop">
-            <div class="logo">
-                <div class="logoIcon">XP</div>
-                <div class="logoName">XiaoPortfolio</div>
-            </div>
-
-            <RouterLink to="/">
-                <font-awesome-icon :icon="['fas', 'house']" />
-                Home
-            </RouterLink>
-            <RouterLink to="/github">
-                <font-awesome-icon :icon="['fab', 'github']" />
-                GitHub
-            </RouterLink>
-        </div>
+        <nav>
+            <ul>
+                <li>
+                    <RouterLink to="/">
+                        <font-awesome-icon :icon="['fas', 'house']" />
+                        <span>Home</span>
+                    </RouterLink>
+                </li>
+                <li>
+                    <RouterLink to="/github">
+                        <font-awesome-icon :icon="['fab', 'github']" />
+                        <span>GitHub</span>
+                    </RouterLink>
+                </li>
+            </ul>
+        </nav>
+        <!-- 
         <div class="asideBottom">
             <button type="button" @click="changeTheme()">Change Theme:{{ button }}</button>
         </div> -->
@@ -54,25 +58,6 @@ const show = ref(true);
 </template>
 
 <style lang="scss" scoped>
-.show-enter-active {
-    transition: all 0.5s ease-out;
-    animation-delay: 0.5s;
-}
-
-.show-leave-active {
-    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.show-enter-from,
-.show-leave-to {
-    transform: scale(0);
-    opacity: 0;
-}
-
-.toggle svg{
-    position: absolute;
-}
-
 aside {
     display: flex;
     flex-direction: column;
@@ -81,6 +66,8 @@ aside {
     border-right: 2px solid $secondaryColor;
 
     header {
+        position: relative;
+
         .logo {
             display: flex;
 
@@ -88,7 +75,6 @@ aside {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-right: 0.4rem;
 
                 span {
                     font-family: "Poppins Bold 700", sans-serif;
@@ -104,6 +90,41 @@ aside {
             .text {
                 display: flex;
                 flex-direction: column;
+                padding-inline: 0.5rem;
+            }
+        }
+
+        .menuToggle {
+            width: 1.8rem;
+            height: 1.8rem;
+            position: absolute;
+            top: 50%;
+            right: -1.9rem;
+            transform: translateY(-50%);
+            color: $primaryColor;
+            background-color: $secondaryColor;
+            border-radius: 50%;
+            cursor: pointer;
+
+            svg {
+                position: absolute;
+                top: 0.4rem;
+                left: 0.4rem;
+
+                &.menuToggle-enter-active,
+                &.menuToggle-leave-active {
+                    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                }
+
+                &.menuToggle-enter-active {
+                    transition-delay: 0.3s;
+                }
+
+                &.menuToggle-enter-from,
+                &.menuToggle-leave-to {
+                    transform: scale(0);
+                    opacity: 0;
+                }
             }
         }
     }
