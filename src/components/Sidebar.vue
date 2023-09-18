@@ -50,10 +50,9 @@ const menuShow = ref(true);
                 </li>
             </ul>
         </nav>
-        <!-- 
-        <div class="asideBottom">
+        <footer>
             <button type="button" @click="changeTheme()">Change Theme:{{ button }}</button>
-        </div> -->
+        </footer>
     </aside>
 </template>
 
