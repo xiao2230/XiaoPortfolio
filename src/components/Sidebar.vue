@@ -6,15 +6,16 @@ import { useThemeStore } from "@/stores/theme.js";
 
 // 取得　pinia 變數與方法：判斷 & 控制深色模式
 const store = useThemeStore();
-const { button } = storeToRefs(store);
+const { themeBtn } = storeToRefs(store);
 const { changeTheme } = store;
 
-// 設定變數：控制選單開合
-const menuShow = ref(true);
+// 設定變數與方法：控制選單開合
+const menu = ref(false);
+const changeMenu = () => menu.value = !menu.value;
 </script>
 
 <template>
-    <aside>
+    <aside :data-menu="menu">
         <header>
             <div class="logo">
                 <div class="pattern">
@@ -25,12 +26,12 @@ const menuShow = ref(true);
                     <span>Front-End Engineer</span>
                 </div>
             </div>
-            <div class="menuToggle" @click="menuShow = !menuShow">
-                <Transition name="menuToggle">
-                    <font-awesome-icon v-show="menuShow" :icon="['fas', 'down-left-and-up-right-to-center']" />
+            <div class="menuBtn" @click="changeMenu">
+                <Transition name="menuBtn">
+                    <font-awesome-icon v-show="menu" :icon="['fas', 'down-left-and-up-right-to-center']" />
                 </Transition>
-                <Transition name="menuToggle">
-                    <font-awesome-icon v-show="!menuShow" :icon="['fas', 'up-right-and-down-left-from-center']" />
+                <Transition name="menuBtn">
+                    <font-awesome-icon v-show="!menu" :icon="['fas', 'up-right-and-down-left-from-center']" />
                 </Transition>
             </div>
         </header>
@@ -51,7 +52,7 @@ const menuShow = ref(true);
             </ul>
         </nav>
         <footer>
-            <button type="button" @click="changeTheme()">Change Theme:{{ button }}</button>
+            <button type="button" @click="changeTheme">Change Theme:{{ themeBtn }}</button>
         </footer>
     </aside>
 </template>
@@ -60,6 +61,7 @@ const menuShow = ref(true);
 aside {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     min-height: 100vh;
     padding: 1rem;
     border-right: 2px solid $secondaryColor;
@@ -90,10 +92,15 @@ aside {
                 display: flex;
                 flex-direction: column;
                 padding-inline: 0.5rem;
+
+                span:first-child {
+                    font-size: 1.2rem;
+                    font-family: "Poppins Medium 500", sans-serif;
+                }
             }
         }
 
-        .menuToggle {
+        .menuBtn {
             width: 1.8rem;
             height: 1.8rem;
             position: absolute;
@@ -110,20 +117,53 @@ aside {
                 top: 0.4rem;
                 left: 0.4rem;
 
-                &.menuToggle-enter-active,
-                &.menuToggle-leave-active {
+                &.menuBtn-enter-active,
+                &.menuBtn-leave-active {
                     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
                 }
 
-                &.menuToggle-enter-active {
+                &.menuBtn-enter-active {
                     transition-delay: 0.3s;
                 }
 
-                &.menuToggle-enter-from,
-                &.menuToggle-leave-to {
+                &.menuBtn-enter-from,
+                &.menuBtn-leave-to {
                     transform: scale(0);
                     opacity: 0;
                 }
+            }
+        }
+    }
+
+    nav ul {
+        list-style: none;
+
+        li {
+            &:hover {
+                background-color: aqua;
+            }
+
+            &:first-child {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    &[data-menu="false"] {
+        width: 4rem;
+        padding: 0;
+        align-items: center;
+        padding-block: 1rem;
+
+        header .menuBtn {
+            width: 1.6rem;
+            height: 1.6rem;
+            right: -1.6rem;
+
+            svg {
+                position: absolute;
+                top: 0.3rem;
+                left: 0.3rem;
             }
         }
     }

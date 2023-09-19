@@ -4,7 +4,7 @@ import { getStored, setStored } from "@/lib/localStorage.js";
 
 export const useThemeStore = defineStore("theme", () => {
   const theme = ref();
-  const button = ref();
+  const themeBtn = ref();
   const storedKey = "theme";
 
   const getPreferredTheme = (storedTheme) => storedTheme ? storedTheme : "auto";
@@ -15,17 +15,17 @@ export const useThemeStore = defineStore("theme", () => {
     const preferredTheme = getPreferredTheme(getStored(storedKey));
     const buttonMode = getButtonMode(getStored(storedKey));
     theme.value = preferredTheme;
-    button.value = buttonMode;
+    themeBtn.value = buttonMode;
     setStored(storedKey, preferredTheme);
   };
 
   const changeTheme = () => {
-    button.value = button.value === "dark" ? "light" : "dark";
-    theme.value = button.value;
-    setStored(storedKey, button.value);
+    themeBtn.value = themeBtn.value === "dark" ? "light" : "dark";
+    theme.value = themeBtn.value;
+    setStored(storedKey, themeBtn.value);
   };
 
   onMounted(() => { initTheme() });
 
-  return { theme, button, changeTheme };
+  return { theme, themeBtn, changeTheme };
 })
