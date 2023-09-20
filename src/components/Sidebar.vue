@@ -4,12 +4,12 @@ import { RouterLink } from 'vue-router';
 import { storeToRefs } from "pinia";
 import { useThemeStore } from "@/stores/theme.js";
 
-// 取得　pinia 變數與方法：判斷 & 控制深色模式
+// 判斷 & 控制深色模式：取得　pinia 變數與方法
 const store = useThemeStore();
 const { themeBtn } = storeToRefs(store);
 const { changeTheme } = store;
 
-// 設定變數與方法：控制選單開合
+// 判斷 & 控制選單開合：設定變數與方法
 const menu = ref("open");
 const changeMenu = () => menu.value = menu.value === "open" ? "close" : "open";
 const menuBtn = computed(() => menu.value === "open" ? true : false);
@@ -61,25 +61,31 @@ const menuBtn = computed(() => menu.value === "open" ? true : false);
 </template>
 
 <style lang="scss" scoped>
+$menuOpenW: 15rem;
+$menuCloseW: 3.5rem;
+
 aside {
-    width: 15rem;
+    width: $menuOpenW;
     min-height: 100vh;
-    border-right: 2px solid $secondaryColor;
+    box-shadow: 0 0 2px $secondaryColor;
     display: flex;
     flex-direction: column;
+    white-space: nowrap;
+    transition: width 0.3s ease-in-out;
 
     header {
         position: relative;
-        display: flex;
-        justify-content: center;
         padding-block: 1rem;
 
         .logo {
             display: flex;
+            pointer-events: none;
 
             .pattern {
                 display: flex;
                 align-items: center;
+                justify-content: center;
+                min-width: $menuCloseW;
 
                 span {
                     font-size: 1.2rem;
@@ -96,10 +102,15 @@ aside {
                 display: flex;
                 flex-direction: column;
                 padding-inline: 0.5rem;
+                transition: opacity 0.2s ease-in-out 0.1s, transform 0.2s ease-in-out 0.1s;
 
                 .name {
                     font-size: 1.2rem;
                     font-weight: 500;
+                }
+
+                .job {
+                    font-weight: 300;
                 }
             }
         }
@@ -109,12 +120,12 @@ aside {
             height: 1.8rem;
             position: absolute;
             top: 50%;
-            right: -0.9rem;
+            left: 100%;
             transform: translateY(-50%);
             color: $primaryColor;
             background-color: $secondaryColor;
-            border-radius: 50%;
             cursor: pointer;
+            transition: box-shadow 0.3s ease-in-out;
 
             svg {
                 position: absolute;
@@ -136,6 +147,10 @@ aside {
                     opacity: 0;
                 }
             }
+
+            &:hover {
+                box-shadow: 0 0 0.8rem var(--primaryColor) inset;
+            }
         }
     }
 
@@ -146,24 +161,53 @@ aside {
         flex-grow: 1;
         padding-block: 1rem;
 
-        &>* {
-            text-align: center;
+        .topNav ul {
+            list-style: none;
 
-            &.topNav {
-                ul {
-                    list-style: none;
+            a {
+                display: flex;
+                align-items: center;
+                height: 3rem;
+                line-height: 3rem;
+                border-right: 0rem solid $secondaryColor;
+                transition: border-right 0.2s ease-in-out;
+
+                &.router-link-exact-active {
+                    border-right: 0.3rem solid $secondaryColor;
+                }
+
+                svg {
+                    min-width: $menuCloseW;
+                    font-size: 1.2rem;
+                }
+
+                span {
+                    transition: opacity 0.2s ease-in-out 0.1s, transform 0.2s ease-in-out 0.1s;
                 }
             }
+        }
 
-            &.bottomNav {
-                button {
-                    margin: 0;
-                    padding: 0;
-                    border: none;
-                    outline: none;
-                    background-color: transparent;
-                }
+        .bottomNav {
+            button {
+                margin: 0;
+                padding: 0;
+                border: none;
+                outline: none;
+                background-color: transparent;
             }
+        }
+
+    }
+
+    &[data-menu="close"] {
+        width: $menuCloseW;
+
+        header .logo .text,
+        nav .topNav ul a span {
+            opacity: 0;
+            transform: translateX(-0.5rem);
+            pointer-events: none;
+            transition-delay: 0s;
         }
     }
 }
