@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { RouterLink } from 'vue-router';
 import { storeToRefs } from "pinia";
 import { useThemeStore } from "@/stores/theme.js";
@@ -10,8 +10,9 @@ const { themeBtn } = storeToRefs(store);
 const { changeTheme } = store;
 
 // 設定變數與方法：控制選單開合
-const menu = ref(false);
-const changeMenu = () => menu.value = !menu.value;
+const menu = ref("open");
+const changeMenu = () => menu.value = menu.value === "open" ? "close" : "open";
+const menuBtn = computed(() => menu.value === "open" ? true : false);
 </script>
 
 <template>
@@ -22,64 +23,67 @@ const changeMenu = () => menu.value = !menu.value;
                     <span>XP</span>
                 </div>
                 <div class="text">
-                    <span>XiaoPortfolio</span>
-                    <span>Front-End Engineer</span>
+                    <span class="name">XiaoPortfolio</span>
+                    <span class="job">Front-End Engineer</span>
                 </div>
             </div>
             <div class="menuBtn" @click="changeMenu">
                 <Transition name="menuBtn">
-                    <font-awesome-icon v-show="menu" :icon="['fas', 'down-left-and-up-right-to-center']" />
+                    <font-awesome-icon v-show="menuBtn" :icon="['fas', 'down-left-and-up-right-to-center']" />
                 </Transition>
                 <Transition name="menuBtn">
-                    <font-awesome-icon v-show="!menu" :icon="['fas', 'up-right-and-down-left-from-center']" />
+                    <font-awesome-icon v-show="!menuBtn" :icon="['fas', 'up-right-and-down-left-from-center']" />
                 </Transition>
             </div>
         </header>
         <nav>
-            <ul>
-                <li>
-                    <RouterLink to="/">
-                        <font-awesome-icon :icon="['fas', 'house']" />
-                        <span>Home</span>
-                    </RouterLink>
-                </li>
-                <li>
-                    <RouterLink to="/github">
-                        <font-awesome-icon :icon="['fab', 'github']" />
-                        <span>GitHub</span>
-                    </RouterLink>
-                </li>
-            </ul>
+            <div class="topNav">
+                <ul>
+                    <li>
+                        <RouterLink to="/">
+                            <font-awesome-icon :icon="['fas', 'house']" />
+                            <span>Home</span>
+                        </RouterLink>
+                    </li>
+                    <li>
+                        <RouterLink to="/github">
+                            <font-awesome-icon :icon="['fab', 'github']" />
+                            <span>GitHub</span>
+                        </RouterLink>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottomNav">
+                <button type="button" @click="changeTheme">Change Theme:{{ themeBtn }}</button>
+            </div>
         </nav>
-        <footer>
-            <button type="button" @click="changeTheme">Change Theme:{{ themeBtn }}</button>
-        </footer>
     </aside>
 </template>
 
 <style lang="scss" scoped>
 aside {
+    width: 15rem;
+    min-height: 100vh;
+    border-right: 2px solid $secondaryColor;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
-    padding: 1rem;
-    border-right: 2px solid $secondaryColor;
 
     header {
         position: relative;
+        display: flex;
+        justify-content: center;
+        padding-block: 1rem;
 
         .logo {
             display: flex;
 
             .pattern {
                 display: flex;
-                justify-content: center;
                 align-items: center;
 
                 span {
-                    font-family: "Poppins Bold 700", sans-serif;
                     font-size: 1.2rem;
+                    font-weight: 700;
                     display: inline-block;
                     padding: 0.4rem;
                     color: $primaryColor;
@@ -93,9 +97,9 @@ aside {
                 flex-direction: column;
                 padding-inline: 0.5rem;
 
-                span:first-child {
+                .name {
                     font-size: 1.2rem;
-                    font-family: "Poppins Medium 500", sans-serif;
+                    font-weight: 500;
                 }
             }
         }
@@ -105,7 +109,7 @@ aside {
             height: 1.8rem;
             position: absolute;
             top: 50%;
-            right: -1.9rem;
+            right: -0.9rem;
             transform: translateY(-50%);
             color: $primaryColor;
             background-color: $secondaryColor;
@@ -135,35 +139,30 @@ aside {
         }
     }
 
-    nav ul {
-        list-style: none;
-
-        li {
-            &:hover {
-                background-color: aqua;
-            }
-
-            &:first-child {
-                margin-bottom: 0.5rem;
-            }
-        }
-    }
-
-    &[data-menu="false"] {
-        width: 4rem;
-        padding: 0;
-        align-items: center;
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
         padding-block: 1rem;
 
-        header .menuBtn {
-            width: 1.6rem;
-            height: 1.6rem;
-            right: -1.6rem;
+        &>* {
+            text-align: center;
 
-            svg {
-                position: absolute;
-                top: 0.3rem;
-                left: 0.3rem;
+            &.topNav {
+                ul {
+                    list-style: none;
+                }
+            }
+
+            &.bottomNav {
+                button {
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                }
             }
         }
     }
