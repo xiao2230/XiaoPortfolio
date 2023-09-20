@@ -9,7 +9,7 @@ export const useThemeStore = defineStore("theme", () => {
 
   const getPreferredTheme = (storedTheme) => storedTheme ? storedTheme : "auto";
 
-  const getButtonMode = (storedTheme) => storedTheme ? storedTheme : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const getButtonMode = (storedTheme) => storedTheme ? storedTheme : window.matchMedia("(prefers-color-scheme: dark)").matches ? true : false;
 
   const initTheme = () => {
     const preferredTheme = getPreferredTheme(getStored(storedKey));
@@ -20,9 +20,9 @@ export const useThemeStore = defineStore("theme", () => {
   };
 
   const changeTheme = () => {
-    themeBtn.value = themeBtn.value === "dark" ? "light" : "dark";
-    theme.value = themeBtn.value;
-    setStored(storedKey, themeBtn.value);
+    themeBtn.value = !themeBtn.value;
+    theme.value = themeBtn.value === true ? "dark" : "light";
+    setStored(storedKey, theme.value);
   };
 
   onMounted(() => { initTheme() });

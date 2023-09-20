@@ -27,14 +27,14 @@ const menuBtn = computed(() => menu.value === "open" ? true : false);
                     <span class="job">Front-End Engineer</span>
                 </div>
             </div>
-            <div class="menuBtn" @click="changeMenu">
+            <button type="button" class="menuBtn" @click="changeMenu">
                 <Transition name="menuBtn">
                     <font-awesome-icon v-show="menuBtn" :icon="['fas', 'down-left-and-up-right-to-center']" />
                 </Transition>
                 <Transition name="menuBtn">
                     <font-awesome-icon v-show="!menuBtn" :icon="['fas', 'up-right-and-down-left-from-center']" />
                 </Transition>
-            </div>
+            </button>
         </header>
         <nav>
             <div class="topNav">
@@ -54,7 +54,14 @@ const menuBtn = computed(() => menu.value === "open" ? true : false);
                 </ul>
             </div>
             <div class="bottomNav">
-                <button type="button" @click="changeTheme">Change Theme:{{ themeBtn }}</button>
+                <button type="button" class="themeBtn" @click="changeTheme">
+                    <Transition name="themeBtn">
+                        <font-awesome-icon v-show="!themeBtn" :icon="['fas', 'moon']" />
+                    </Transition>
+                    <Transition name="themeBtn">
+                        <font-awesome-icon v-show="themeBtn" :icon="['fas', 'sun']" />
+                    </Transition>
+                </button>
             </div>
         </nav>
     </aside>
@@ -63,6 +70,14 @@ const menuBtn = computed(() => menu.value === "open" ? true : false);
 <style lang="scss" scoped>
 $menuOpenW: 15rem;
 $menuCloseW: 3.5rem;
+
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
 
 aside {
     width: $menuOpenW;
@@ -128,17 +143,17 @@ aside {
             transition: box-shadow 0.3s ease-in-out;
 
             svg {
+                font-size: 1rem;
                 position: absolute;
                 top: 0.4rem;
                 left: 0.4rem;
 
-                &.menuBtn-enter-active,
-                &.menuBtn-leave-active {
-                    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                &.menuBtn-enter-active {
+                    transition: transform 0.3s ease-in-out 0.1s, opacity 0.3s ease-in-out 0.1s;
                 }
 
-                &.menuBtn-enter-active {
-                    transition-delay: 0.3s;
+                &.menuBtn-leave-active {
+                    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
                 }
 
                 &.menuBtn-enter-from,
@@ -148,8 +163,8 @@ aside {
                 }
             }
 
-            &:hover {
-                box-shadow: 0 0 0.8rem var(--primaryColor) inset;
+            &:hover svg {
+                filter: drop-shadow(0 0 2px $primaryColor) drop-shadow(0 0 5px $primaryColor);
             }
         }
     }
@@ -174,6 +189,11 @@ aside {
 
                 &.router-link-exact-active {
                     border-right: 0.3rem solid $secondaryColor;
+                    pointer-events: none;
+                }
+
+                &:not(.router-link-exact-active):hover {
+                    filter: drop-shadow(0 0 2px $secondaryColor) drop-shadow(0 0 5px $secondaryColor);
                 }
 
                 svg {
@@ -188,13 +208,7 @@ aside {
         }
 
         .bottomNav {
-            button {
-                margin: 0;
-                padding: 0;
-                border: none;
-                outline: none;
-                background-color: transparent;
-            }
+            color: #000;
         }
 
     }
