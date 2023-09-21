@@ -127,6 +127,7 @@ aside {
     display: flex;
     flex-direction: column;
     background-color: $primaryColor;
+    overflow-x: hidden;
     white-space: nowrap;
     transition: width 0.3s ease-in-out;
 
