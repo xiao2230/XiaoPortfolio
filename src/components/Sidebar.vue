@@ -6,7 +6,7 @@ import { useThemeStore } from "@/stores/theme.js";
 
 // 判斷 & 控制深色模式：取得　pinia 變數與方法
 const store = useThemeStore();
-const { themeBtn } = storeToRefs(store);
+const { theme, themeBtn } = storeToRefs(store);
 const { changeTheme } = store;
 
 // 判斷 & 控制選單開合：設定變數與方法
@@ -41,14 +41,14 @@ const menuBtn = computed(() => menu.value === "open" ? true : false);
                 <ul>
                     <li>
                         <RouterLink to="/">
-                            <font-awesome-icon :icon="['fas', 'house']" />
-                            <span>Home</span>
+                            <font-awesome-icon :icon="['fas', 'house']" class="icon" />
+                            <span class="text">Home</span>
                         </RouterLink>
                     </li>
                     <li>
                         <RouterLink to="/github">
-                            <font-awesome-icon :icon="['fab', 'github']" />
-                            <span>GitHub</span>
+                            <font-awesome-icon :icon="['fab', 'github']" class="icon" />
+                            <span class="text">GitHub</span>
                         </RouterLink>
                     </li>
                 </ul>
@@ -56,11 +56,13 @@ const menuBtn = computed(() => menu.value === "open" ? true : false);
             <div class="bottomNav">
                 <button type="button" class="themeBtn" @click="changeTheme">
                     <Transition name="themeBtn">
-                        <font-awesome-icon v-show="!themeBtn" :icon="['fas', 'moon']" />
+                        <font-awesome-icon v-show="themeBtn" :icon="['fas', 'moon']" class="icon" />
                     </Transition>
                     <Transition name="themeBtn">
-                        <font-awesome-icon v-show="themeBtn" :icon="['fas', 'sun']" />
+                        <font-awesome-icon v-show="!themeBtn" :icon="['fas', 'sun']" class="icon" />
                     </Transition>
+                    <span class="text" v-show="themeBtn">Dark Mode</span>
+                    <span class="text" v-show="!themeBtn">Light Mode</span>
                 </button>
             </div>
         </nav>
@@ -77,6 +79,26 @@ button {
     border: none;
     outline: none;
     background-color: transparent;
+}
+
+.pattern,
+.icon {
+    font-size: 1.2rem;
+    min-width: $menuCloseW;
+}
+
+.text {
+    font-size: 1rem;
+    transition: opacity 0.2s ease-in-out 0.1s, transform 0.2s ease-in-out 0.1s;
+}
+
+.menuBtn:hover svg {
+    filter: drop-shadow(0 0 2px $primaryColor) drop-shadow(0 0 8px $primaryColor);
+}
+
+a:not(.router-link-exact-active):hover,
+.themeBtn:hover {
+    filter: drop-shadow(0 0 2px $secondaryColor) drop-shadow(0 0 8px $secondaryColor);
 }
 
 aside {
@@ -100,10 +122,8 @@ aside {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                min-width: $menuCloseW;
 
                 span {
-                    font-size: 1.2rem;
                     font-weight: 700;
                     display: inline-block;
                     padding: 0.4rem;
@@ -117,7 +137,6 @@ aside {
                 display: flex;
                 flex-direction: column;
                 padding-inline: 0.5rem;
-                transition: opacity 0.2s ease-in-out 0.1s, transform 0.2s ease-in-out 0.1s;
 
                 .name {
                     font-size: 1.2rem;
@@ -162,10 +181,6 @@ aside {
                     opacity: 0;
                 }
             }
-
-            &:hover svg {
-                filter: drop-shadow(0 0 2px $primaryColor) drop-shadow(0 0 5px $primaryColor);
-            }
         }
     }
 
@@ -191,24 +206,33 @@ aside {
                     border-right: 0.3rem solid $secondaryColor;
                     pointer-events: none;
                 }
-
-                &:not(.router-link-exact-active):hover {
-                    filter: drop-shadow(0 0 2px $secondaryColor) drop-shadow(0 0 5px $secondaryColor);
-                }
-
-                svg {
-                    min-width: $menuCloseW;
-                    font-size: 1.2rem;
-                }
-
-                span {
-                    transition: opacity 0.2s ease-in-out 0.1s, transform 0.2s ease-in-out 0.1s;
-                }
             }
         }
 
-        .bottomNav {
-            color: #000;
+        .bottomNav button {
+            height: 3rem;
+            line-height: 3rem;
+            display: flex;
+            align-items: center;
+            color: $secondaryColor;
+            cursor: pointer;
+
+            .icon {
+                &.themeBtn-enter-active {
+                    position: absolute;
+                    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                }
+
+                &.themeBtn-leave-active {
+                    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                }
+
+                &.themeBtn-enter-from,
+                &.themeBtn-leave-to {
+                    transform: scale(0) rotate(180deg);
+                    opacity: 0;
+                }
+            }
         }
 
     }
@@ -216,8 +240,8 @@ aside {
     &[data-menu="close"] {
         width: $menuCloseW;
 
-        header .logo .text,
-        nav .topNav ul a span {
+        header .text,
+        nav .text {
             opacity: 0;
             transform: translateX(-0.5rem);
             pointer-events: none;
