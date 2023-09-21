@@ -127,6 +127,7 @@ aside {
     display: flex;
     flex-direction: column;
     background-color: $primaryColor;
+    position: fixed;
     white-space: nowrap;
     transition: width 0.3s ease-in-out;
 
@@ -274,12 +275,6 @@ aside {
             pointer-events: none;
             transition-delay: 0s;
         }
-    }
-}
-
-@media (max-width: 767.98px) {
-    aside {
-        position: fixed;
     }
 }
 </style>

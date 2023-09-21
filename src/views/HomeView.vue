@@ -1,11 +1,13 @@
 <script setup>
+import Header from "@/components/home/Header.vue";
+import Main from "@/components/home/Main.vue";
 </script>
 
 <template>
   <div class="home">
-    <h1>This is an home page</h1>
+    <Header />
+    <Main />
   </div>
 </template>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
