@@ -237,7 +237,6 @@ aside {
             align-items: center;
             color: $secondaryColor;
             cursor: pointer;
-            overflow-x: hidden;
 
             .iconGroup {
                 display: flex;
