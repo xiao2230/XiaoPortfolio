@@ -207,7 +207,7 @@ aside {
     nav {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         flex-grow: 1;
         padding-block: 1rem;
 
