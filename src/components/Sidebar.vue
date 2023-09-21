@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { RouterLink } from 'vue-router';
 import { storeToRefs } from "pinia";
 import { useThemeStore } from "@/stores/theme.js";
