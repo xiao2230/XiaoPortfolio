@@ -3,19 +3,23 @@
 [data-theme="light"] {
     --primaryColor: #fcfcfc;
     --secondaryColor: #3f3f3f;
+    --thirdColor: #e2e2e2;
 }
 
 [data-theme="dark"] {
     --primaryColor: #3f3f3f;
     --secondaryColor: #fcfcfc;
+    --thirdColor: #575757;
 }
 
 @media (prefers-color-scheme: dark) {
     [data-theme="auto"] {
         --primaryColor: #3f3f3f;
         --secondaryColor: #fcfcfc;
+        --thirdColor: #575757;
     }
 }
 
 $primaryColor: var(--primaryColor);
 $secondaryColor: var(--secondaryColor);
+$thirdColor: var(--thirdColor);

@@ -1,8 +1,9 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { RouterLink } from 'vue-router';
 import { storeToRefs } from "pinia";
 import { useThemeStore } from "@/stores/theme.js";
+import { getStored, setStored } from "@/lib/localStorage.js";
 
 // 判斷 & 控制深色模式：取得　pinia 變數與方法
 const store = useThemeStore();
@@ -10,8 +11,19 @@ const { theme } = storeToRefs(store);
 const { changeTheme } = store;
 
 // 判斷 & 控制選單開合：設定變數與方法
-const menu = ref("open");
-const changeMenu = () => menu.value = menu.value === "open" ? "close" : "open";
+const menu = ref();
+const storedKey = "menu";
+const initMenu = () => {
+    const getStoredVal = getStored(storedKey);
+    menu.value = getStoredVal ? getStoredVal : "open";
+    setStored(storedKey, menu.value);
+};
+const changeMenu = () => {
+    menu.value = menu.value === "open" ? "close" : "open";
+    setStored(storedKey, menu.value);
+}
+
+onMounted(() => { initMenu() });
 </script>
 
 <template>
@@ -56,7 +68,8 @@ const changeMenu = () => menu.value = menu.value === "open" ? "close" : "open";
                 <button type="button" class="themeBtn" @click="changeTheme">
                     <span class="iconGroup">
                         <Transition name="themeBtn">
-                            <font-awesome-icon v-show="theme === 'auto'" :icon="['fas', 'circle-half-stroke']" class="icon"/>
+                            <font-awesome-icon v-show="theme === 'auto'" :icon="['fas', 'circle-half-stroke']"
+                                class="icon" />
                         </Transition>
                         <Transition name="themeBtn">
                             <font-awesome-icon v-show="theme === 'dark'" :icon="['fas', 'moon']" class="icon" />
@@ -113,6 +126,7 @@ aside {
     box-shadow: 0 0 2px $secondaryColor;
     display: flex;
     flex-direction: column;
+    background-color: $primaryColor;
     white-space: nowrap;
     transition: width 0.3s ease-in-out;
 
@@ -210,6 +224,7 @@ aside {
 
                 &.router-link-exact-active {
                     border-right: 0.3rem solid $secondaryColor;
+                    background-color: $thirdColor;
                     pointer-events: none;
                 }
             }
@@ -259,6 +274,12 @@ aside {
             pointer-events: none;
             transition-delay: 0s;
         }
+    }
+}
+
+@media (max-width: 767.98px) {
+    aside {
+        position: fixed;
     }
 }
 </style>
