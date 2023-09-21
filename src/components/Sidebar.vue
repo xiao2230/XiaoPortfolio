@@ -130,6 +130,7 @@ aside {
     position: fixed;
     white-space: nowrap;
     transition: width 0.3s ease-in-out;
+    z-index: 999;
 
     header {
         position: relative;
