@@ -6,13 +6,12 @@ import { useThemeStore } from "@/stores/theme.js";
 
 // 判斷 & 控制深色模式：取得　pinia 變數與方法
 const store = useThemeStore();
-const { theme, themeBtn } = storeToRefs(store);
+const { theme } = storeToRefs(store);
 const { changeTheme } = store;
 
 // 判斷 & 控制選單開合：設定變數與方法
 const menu = ref("open");
 const changeMenu = () => menu.value = menu.value === "open" ? "close" : "open";
-const menuBtn = computed(() => menu.value === "open" ? true : false);
 </script>
 
 <template>
@@ -29,10 +28,10 @@ const menuBtn = computed(() => menu.value === "open" ? true : false);
             </div>
             <button type="button" class="menuBtn" @click="changeMenu">
                 <Transition name="menuBtn">
-                    <font-awesome-icon v-show="menuBtn" :icon="['fas', 'down-left-and-up-right-to-center']" />
+                    <font-awesome-icon v-show="menu === 'open'" :icon="['fas', 'down-left-and-up-right-to-center']" />
                 </Transition>
                 <Transition name="menuBtn">
-                    <font-awesome-icon v-show="!menuBtn" :icon="['fas', 'up-right-and-down-left-from-center']" />
+                    <font-awesome-icon v-show="menu === 'close'" :icon="['fas', 'up-right-and-down-left-from-center']" />
                 </Transition>
             </button>
         </header>
@@ -55,14 +54,20 @@ const menuBtn = computed(() => menu.value === "open" ? true : false);
             </div>
             <div class="bottomNav">
                 <button type="button" class="themeBtn" @click="changeTheme">
-                    <Transition name="themeBtn">
-                        <font-awesome-icon v-show="themeBtn" :icon="['fas', 'moon']" class="icon" />
-                    </Transition>
-                    <Transition name="themeBtn">
-                        <font-awesome-icon v-show="!themeBtn" :icon="['fas', 'sun']" class="icon" />
-                    </Transition>
-                    <span class="text" v-show="themeBtn">Dark Mode</span>
-                    <span class="text" v-show="!themeBtn">Light Mode</span>
+                    <span class="iconGroup">
+                        <Transition name="themeBtn">
+                            <font-awesome-icon v-show="theme === 'auto'" :icon="['fas', 'circle-half-stroke']" class="icon"/>
+                        </Transition>
+                        <Transition name="themeBtn">
+                            <font-awesome-icon v-show="theme === 'dark'" :icon="['fas', 'moon']" class="icon" />
+                        </Transition>
+                        <Transition name="themeBtn">
+                            <font-awesome-icon v-show="theme === 'light'" :icon="['fas', 'sun']" class="icon" />
+                        </Transition>
+                    </span>
+                    <span class="text" v-show="theme === 'auto'">Auto Mode</span>
+                    <span class="text" v-show="theme === 'dark'">Dark Mode</span>
+                    <span class="text" v-show="theme === 'light'">Light Mode</span>
                 </button>
             </div>
         </nav>
@@ -82,7 +87,8 @@ button {
 }
 
 .pattern,
-.icon {
+.icon,
+.iconGroup {
     font-size: 1.2rem;
     min-width: $menuCloseW;
 }
@@ -217,20 +223,26 @@ aside {
             color: $secondaryColor;
             cursor: pointer;
 
-            .icon {
-                &.themeBtn-enter-active {
+            .iconGroup {
+                display: flex;
+                align-items: center;
+
+                .icon {
                     position: absolute;
-                    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-                }
 
-                &.themeBtn-leave-active {
-                    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-                }
+                    &.themeBtn-enter-active {
+                        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                    }
 
-                &.themeBtn-enter-from,
-                &.themeBtn-leave-to {
-                    transform: scale(0) rotate(180deg);
-                    opacity: 0;
+                    &.themeBtn-leave-active {
+                        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                    }
+
+                    &.themeBtn-enter-from,
+                    &.themeBtn-leave-to {
+                        transform: scale(0) rotate(180deg);
+                        opacity: 0;
+                    }
                 }
             }
         }
