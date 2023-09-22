@@ -2,21 +2,21 @@
 [data-theme="auto"],
 [data-theme="light"] {
     --primaryColor: #fcfcfc;
-    --secondaryColor: #3f3f3f;
+    --secondaryColor: #1a1a30;
     --thirdColor: #e2e2e2;
 }
 
 [data-theme="dark"] {
-    --primaryColor: #3f3f3f;
+    --primaryColor: #1a1a30;
     --secondaryColor: #fcfcfc;
-    --thirdColor: #575757;
+    --thirdColor: #2c2f54;
 }
 
 @media (prefers-color-scheme: dark) {
     [data-theme="auto"] {
-        --primaryColor: #3f3f3f;
+        --primaryColor: #1a1a30;
         --secondaryColor: #fcfcfc;
-        --thirdColor: #575757;
+        --thirdColor: #2c2f54;
     }
 }
 
