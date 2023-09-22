@@ -4,23 +4,64 @@
 
 <template>
     <header>
-        <img src="@/assets/img/aaa.jpg" alt="">
-        <img src="@/assets/img/ccc.png" alt="">
-        <img src="@/assets/img/bbb.png" alt="">
+        <div class="parallax bg"></div>
+        <div class="parallax planet-1"></div>
+        <div class="parallax planet-2"></div>
+        <div class="text">HELLO SPACE</div>
+        <div class="parallax planet-3"></div>
+        <div class="parallax land-1"></div>
+        <div class="parallax land-2"></div>
     </header>
 </template>
 
 <style lang="scss" scoped>
 header {
-    min-height: 100vh;
-    position: relative;
+    height: 100vh;
     width: 100vw;
+    overflow: hidden;
+    position: relative;
 
-    img{
-        position: absolute;
-        left: 0;
-        bottom: 0;
+    .parallax {
+        height: 100%;
         width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &.bg {
+            background: url(@/assets/img/bg.png) no-repeat center / cover;
+        }
+
+        &.planet-1 {
+            background: url(@/assets/img/planet_1.png) no-repeat center / cover;
+        }
+
+        &.planet-2 {
+            background: url(@/assets/img/planet_2.png) no-repeat center / cover;
+        }
+
+        &.planet-3 {
+            background: url(@/assets/img/planet_3.png) no-repeat center / cover;
+        }
+
+        &.land-1 {
+            background: url(@/assets/img/land_1.png) no-repeat center / cover;
+        }
+
+        &.land-2 {
+            background: url(@/assets/img/land_2.png) no-repeat center / cover;
+        }
     }
-}
-</style>
+
+    .text {
+        font-size: calc($rule / 20);
+        font-weight: 700;
+        position: absolute;
+        top: calc(50% - 15vh);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        letter-spacing: calc($rule / 120);
+        text-shadow: 0 0 20px $primaryColor;
+    }
+}</style>
