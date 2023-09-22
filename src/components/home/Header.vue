@@ -1,5 +1,14 @@
 <script setup>
+import { onMounted } from "vue";
+import imagesLoaded from "imagesLoaded";
 
+onMounted(() => {
+    const imgLoad = imagesLoaded('header', { background: '.parallax' });
+    console.log(imgLoad);
+    imgLoad.on("done", instance => {
+        console.log("OK");
+    })
+});
 </script>
 
 <template>
@@ -64,4 +73,5 @@ header {
         letter-spacing: calc($rule / 120);
         text-shadow: 0 0 20px $primaryColor;
     }
-}</style>
+}
+</style>
