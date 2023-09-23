@@ -152,7 +152,7 @@ aside {
                     padding: 0.4rem;
                     color: $primaryColor;
                     background-color: $secondaryColor;
-                    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+                    border-radius: 50%;
                 }
             }
 
