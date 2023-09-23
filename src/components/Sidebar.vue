@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onBeforeMount } from "vue";
 import { RouterLink } from 'vue-router';
 import { storeToRefs } from "pinia";
 import { useThemeStore } from "@/stores/theme.js";
@@ -23,7 +23,7 @@ const changeMenu = () => {
     setStored(storedKey, menu.value);
 }
 
-onMounted(() => { initMenu() });
+onBeforeMount(() => { initMenu() });
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-import { ref, onMounted } from "vue";
+import { ref, onBeforeMount } from "vue";
 import { defineStore } from "pinia";
 import { getStored, setStored } from "@/lib/localStorage.js";
 
@@ -19,7 +19,7 @@ export const useThemeStore = defineStore("theme", () => {
     theme.value = theme.value === "auto" ? autoTheme === "dark" ? "light" : "dark" : theme.value === "dark" ? "light" : "dark"; setStored(storedKey, theme.value);
   };
 
-  onMounted(() => { initTheme() });
+  onBeforeMount(() => { initTheme() });
 
   return { theme, changeTheme };
 })
