@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted,onUnmounted } from "vue";
 import imagesLoaded from "imagesLoaded";
 
 onMounted(() => {
@@ -8,6 +8,9 @@ onMounted(() => {
     imgLoad.on("done", instance => {
         console.log("OK");
     })
+});
+onUnmounted(()=>{
+    console.log("消滅");
 });
 </script>
 
