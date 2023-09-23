@@ -16,14 +16,14 @@ const storedKey = "menu";
 const initMenu = () => {
     const getStoredVal = getStored(storedKey);
     menu.value = getStoredVal ? getStoredVal : "open";
-    setStored(storedKey, menu.value);
+    if (!getStoredVal) setStored(storedKey, menu.value);
 };
 const changeMenu = () => {
     menu.value = menu.value === "open" ? "close" : "open";
     setStored(storedKey, menu.value);
 }
 
-onBeforeMount(() => { initMenu() });
+onBeforeMount(() => initMenu());
 </script>
 
 <template>
@@ -212,6 +212,7 @@ aside {
         justify-content: space-between;
         flex-grow: 1;
         padding-block: 1rem;
+        overflow-x: hidden;
 
         .topNav ul {
             list-style: none;

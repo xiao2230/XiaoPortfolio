@@ -19,7 +19,7 @@ export const useThemeStore = defineStore("theme", () => {
     theme.value = theme.value === "auto" ? autoTheme === "dark" ? "light" : "dark" : theme.value === "dark" ? "light" : "dark"; setStored(storedKey, theme.value);
   };
 
-  onBeforeMount(() => { initTheme() });
+  onBeforeMount(() => initTheme());
 
   return { theme, changeTheme };
 })
