@@ -1,14 +1,14 @@
 <script setup>
 import { onMounted } from "vue";
-import imagesLoaded from "imagesLoaded";
+// import imagesLoaded from "imagesLoaded";
 
-onMounted(() => {
-    const imgLoad = imagesLoaded('header', { background: '.parallax' });
-    console.log(imgLoad);
-    imgLoad.on("done", instance => {
-        console.log("OK");
-    })
-});
+// onMounted(() => {
+//     const imgLoad = imagesLoaded('header', { background: '.parallax' });
+//     console.log(imgLoad);
+//     imgLoad.on("done", instance => {
+//         console.log("OK");
+//     })
+// });
 </script>
 
 <template>
