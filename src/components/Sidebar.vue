@@ -126,7 +126,8 @@ aside {
     box-shadow: 0 0 2px $secondaryColor;
     display: flex;
     flex-direction: column;
-    background-color: $primaryColor;
+    background-color: $primaryColor-7;
+    backdrop-filter: blur(5px);
     position: fixed;
     white-space: nowrap;
     transition: width 0.3s ease-in-out;
@@ -227,7 +228,7 @@ aside {
 
                 &.router-link-exact-active {
                     border-right: 0.3rem solid $secondaryColor;
-                    background-color: $thirdColor;
+                    background-color: $thirdColor-7;
                     pointer-events: none;
                 }
             }
