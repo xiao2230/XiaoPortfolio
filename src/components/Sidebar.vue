@@ -212,7 +212,6 @@ aside {
         justify-content: space-between;
         flex-grow: 1;
         padding-block: 1rem;
-        overflow-x: hidden;
 
         .topNav ul {
             list-style: none;
