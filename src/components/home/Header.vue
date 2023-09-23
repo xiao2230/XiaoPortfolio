@@ -1,25 +1,15 @@
 <script setup>
-// import { onMounted } from "vue";
-// import imagesLoaded from "imagesLoaded";
-
-// onMounted(() => {
-//     const imgLoad = imagesLoaded('header', { background: '.parallax' });
-//     console.log(imgLoad);
-//     imgLoad.on("done", instance => {
-//         console.log("OK");
-//     })
-// });
 </script>
 
 <template>
     <header>
-        <div class="parallax bg"></div>
-        <div class="parallax planet-1"></div>
-        <div class="parallax planet-2"></div>
+        <img src="@/assets/img/bg.png" alt="bg" title="bg">
+        <img src="@/assets/img/planet_1.png" alt="planet_1" title="planet_1">
+        <img src="@/assets/img/planet_2.png" alt="planet_2" title="planet_2">
         <div class="text">HELLO SPACE</div>
-        <div class="parallax planet-3"></div>
-        <div class="parallax land-1"></div>
-        <div class="parallax land-2"></div>
+        <img src="@/assets/img/planet_3.png" alt="planet_3" title="planet_3">
+        <img src="@/assets/img/land_1.png" alt="land_1" title="land_1">
+        <img src="@/assets/img/land_2.png" alt="land_2" title="land_2">
     </header>
 </template>
 
@@ -28,38 +18,24 @@ header {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    position: relative;
 
-    .parallax {
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 20vh;
+        background: linear-gradient(to top, $primaryColor, transparent);
+    }
+
+    img {
         height: 100%;
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
-
-        &.bg {
-            background: url(@/assets/img/bg.png) no-repeat center / cover;
-        }
-
-        &.planet-1 {
-            background: url(@/assets/img/planet_1.png) no-repeat center / cover;
-        }
-
-        &.planet-2 {
-            background: url(@/assets/img/planet_2.png) no-repeat center / cover;
-        }
-
-        &.planet-3 {
-            background: url(@/assets/img/planet_3.png) no-repeat center / cover;
-        }
-
-        &.land-1 {
-            background: url(@/assets/img/land_1.png) no-repeat center / cover;
-        }
-
-        &.land-2 {
-            background: url(@/assets/img/land_2.png) no-repeat center / cover;
-        }
+        object-fit: cover;
     }
 
     .text {
