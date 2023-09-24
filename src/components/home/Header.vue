@@ -16,8 +16,7 @@
 <style lang="scss" scoped>
 header {
     height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+    width: 100%;
 
     &::after {
         content: "";

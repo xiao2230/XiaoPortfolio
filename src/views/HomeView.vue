@@ -11,7 +11,4 @@ import Main from "@/components/home/Main.vue";
 </template>
 
 <style lang="scss">
-.home {
-  overflow-x: hidden;
-}
 </style>
