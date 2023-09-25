@@ -34,8 +34,11 @@ onMounted(() => {
 
   &.loading {
     height: 100vh;
-    opacity: 0;
     overflow: hidden;
+
+    >*:not(.loading) {
+      opacity: 0;
+    }
   }
 }
 </style>
