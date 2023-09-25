@@ -19,8 +19,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="app" :data-theme="theme">
-    <!-- <Loading /> -->
+  <div class="app loading" :data-theme="theme">
+    <Loading />
     <Sidebar />
     <RouterView />
   </div>
