@@ -32,8 +32,9 @@ onMounted(() => {
   background-color: $primaryColor;
   display: flex;
 
-  &.loading{
+  &.loading {
     height: 100vh;
+    opacity: 0;
     overflow: hidden;
   }
 }
