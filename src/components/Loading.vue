@@ -29,7 +29,7 @@ onMounted(() => {
                 zIndex: -1,
                 duration: .1
             });
-    })
+    });
 });
 </script>
 
