@@ -22,6 +22,23 @@
     src: url("@/font/Poppins-Bold.ttf");
 }
 
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar:hover {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #999999;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #183689;
+    border-radius: 100px;
+}
+
 * {
     margin: 0;
     padding: 0;
