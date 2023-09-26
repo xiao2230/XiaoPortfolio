@@ -1,1 +1,0 @@
-import{_ as e,o as s,c as t,a as c}from"./index-4a51ba8d.js";const o={},a={class:"github"},n=c("h1",null,"This is an github page",-1),_=[n];function i(r,d){return s(),t("div",a,_)}const l=e(o,[["render",i]]);export{l as default};
