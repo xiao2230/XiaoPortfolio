@@ -120,6 +120,11 @@ a:not(.router-link-exact-active):hover,
     filter: drop-shadow(0 0 2px $secondaryColor) drop-shadow(0 0 8px $secondaryColor);
 }
 
+[data-load="loading"] aside{
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
 aside {
     width: $menuOpenW;
     min-height: 100vh;
@@ -130,7 +135,7 @@ aside {
     backdrop-filter: blur(5px);
     position: fixed;
     white-space: nowrap;
-    transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out,transform 2s ease-in-out,opacity 2s ease-in-out;
     z-index: 999;
 
     header {

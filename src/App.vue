@@ -28,7 +28,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="app" :data-theme="theme" class="app">
+  <div ref="app" :data-load="load" :data-theme="theme" class="app">
     <Loading />
     <Sidebar />
     <RouterView />
