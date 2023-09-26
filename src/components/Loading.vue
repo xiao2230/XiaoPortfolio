@@ -1,21 +1,48 @@
 <script setup>
+import { gsap } from "gsap";
+import { ref, watch, onMounted } from "vue";
 import { storeToRefs } from "pinia";
-import { useLoadedStore } from "@/stores/loaded.js";
+import { useLoadStore } from "@/stores/load.js";
 
-const store = useLoadedStore();
-const { loaded } = storeToRefs(store);
+const loadstore = useLoadStore();
+const { load } = storeToRefs(loadstore);
+
+const curtains = ref(null);
+const svg = ref(null);
+const loading = ref(null);
+
+onMounted(() => {
+    watch(load, () => {
+        const tl = gsap.timeline();
+        tl
+            .to(svg.value, {
+                scale: 0,
+                duration: .8,
+                ease: "circ.inOut"
+            })
+            .to(curtains.value.children, {
+                scaleY: 0,
+                stagger: .1,
+                ease: "circ.inOut"
+            })
+            .to(loading.value, {
+                zIndex: -1,
+                duration: .1
+            });
+    })
+});
 </script>
 
 <template>
-    <div class="loading" :data-loaded="loaded">
-        <div class="curtains">
+    <div ref="loading" class="loading">
+        <div ref="curtains" class="curtains">
             <div class="curtain"></div>
             <div class="curtain"></div>
             <div class="curtain"></div>
             <div class="curtain"></div>
             <div class="curtain"></div>
         </div>
-        <svg viewBox="-10 -10 532.00 532.00" xmlns="http://www.w3.org/2000/svg">
+        <svg ref="svg" viewBox="-10 -10 532.00 532.00" xmlns="http://www.w3.org/2000/svg">
             <filter id="filterBlur">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
             </filter>
@@ -37,7 +64,7 @@ const { loaded } = storeToRefs(store);
 .loading {
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     z-index: 9999;
 
     .curtains {
@@ -51,6 +78,7 @@ const { loaded } = storeToRefs(store);
         .curtain {
             flex-grow: 1;
             background-color: $primaryColor;
+            transform-origin: top;
         }
     }
 

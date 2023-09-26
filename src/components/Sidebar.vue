@@ -6,9 +6,9 @@ import { useThemeStore } from "@/stores/theme.js";
 import { getStored, setStored } from "@/lib/localStorage.js";
 
 // 判斷 & 控制深色模式：取得　pinia 變數與方法
-const store = useThemeStore();
-const { theme } = storeToRefs(store);
-const { changeTheme } = store;
+const themeStore = useThemeStore();
+const { theme } = storeToRefs(themeStore);
+const { changeTheme } = themeStore;
 
 // 判斷 & 控制選單開合：設定變數與方法
 const menu = ref();
