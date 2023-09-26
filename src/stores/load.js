@@ -1,6 +1,6 @@
 import { ref, onMounted } from "vue";
 import { defineStore } from "pinia";
-import imggg from "@/assets/img/land_1.png";
+import imggg from "@/assets/img";
 
 export const useLoadStore = defineStore("load", () => {
     const load = ref("loading");
