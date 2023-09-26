@@ -46,6 +46,7 @@
 header {
     height: 100vh;
     width: 100%;
+    position: relative;
 
     &::after {
         content: "";

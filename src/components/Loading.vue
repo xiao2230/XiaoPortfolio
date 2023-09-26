@@ -77,6 +77,7 @@ onMounted(() => {
 
         .curtain {
             flex-grow: 1;
+            box-shadow: 0 0 0 1vw $primaryColor;
             background-color: $primaryColor;
             transform-origin: top;
         }

@@ -39,7 +39,6 @@ onMounted(() => {
 .app {
   color: $secondaryColor;
   background-color: $primaryColor;
-  display: flex;
   height: 100vh;
   overflow-y: hidden;
 }
