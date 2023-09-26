@@ -7,17 +7,21 @@ export const useLoadStore = defineStore("load", () => {
     const chkLoad = imgsUrl => {
         let i = 0;
         imgsUrl.forEach(imgUrl => {
+            console.log(imgUrl);
             const img = new Image();
             img.src = imgUrl;
             img.addEventListener("load", () => {
+                console.log("load：",imgUrl);
                 i += 1;
                 if (i === imgsUrl.length) {
                     load.value = "loaded";
+                    console.log("loaded");
                 }
             });
         })
     };
     onMounted(() => {
+        console.log("onMounted");
         chkLoad(imgsUrl);
     });
 

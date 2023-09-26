@@ -12,7 +12,6 @@ const svg = ref(null);
 const loading = ref(null);
 
 onMounted(() => {
-    console.log("loading");
     watch(load, () => {
         const tl = gsap.timeline();
         tl
@@ -30,8 +29,6 @@ onMounted(() => {
                 zIndex: -1,
                 duration: .1
             });
-        console.log("tl");
-        console.log("loaded");
     })
 });
 </script>
