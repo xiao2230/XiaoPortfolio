@@ -10,14 +10,14 @@ export const useLoadStore = defineStore("load", () => {
             console.log(imgUrl);
             const img = new Image();
             img.src = imgUrl;
-            img.addEventListener("load", () => {
-                console.log("load：",imgUrl);
+            img.onload = () => {
+                console.log("load：", imgUrl);
                 i += 1;
                 if (i === imgsUrl.length) {
                     load.value = "loaded";
                     console.log("loaded");
                 }
-            });
+            };
         })
     };
     onMounted(() => {
