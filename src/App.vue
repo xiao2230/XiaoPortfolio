@@ -1,5 +1,4 @@
 <script setup>
-import { ref, onMounted } from "vue";
 import { RouterView } from "vue-router";
 import { storeToRefs } from "pinia";
 import { useThemeStore } from "@/stores/theme.js";
@@ -8,14 +7,6 @@ import Loading from "@/components/Loading.vue";
 
 const store = useThemeStore();
 const { theme } = storeToRefs(store);
-
-onMounted(() => {
-  let image = new Image();
-  image.src = "src/assets/img/bg.png";
-  image.onload = () => {
-    console.log("OKOKOK");
-  }
-});
 </script>
 
 <template>
