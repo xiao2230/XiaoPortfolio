@@ -1,10 +1,15 @@
 import { ref, onMounted } from "vue";
 import { defineStore } from "pinia";
-import imggg from "@/assets/img";
+import bg from "@/assets/img/bg.png";
+import planet_1 from "@/assets/img/planet_1.png";
+import planet_2 from "@/assets/img/planet_2.png";
+import planet_3 from "@/assets/img/planet_3.png";
+import land_1 from "@/assets/img/land_1.png";
+import land_2 from "@/assets/img/land_2.png";
 
 export const useLoadStore = defineStore("load", () => {
     const load = ref("loading");
-    const imgsUrl = ["/src/assets/img/bg.png", "/src/assets/img/land_1.png", "/src/assets/img/land_2.png", "/src/assets/img/planet_1.png", "/src/assets/img/planet_2.png", "/src/assets/img/planet_3.png"];
+    const imgsUrl = [bg, planet_1, planet_2, planet_3, land_1, land_2];
     const chkLoad = imgsUrl => {
         let i = 0;
         imgsUrl.forEach(imgUrl => {
@@ -19,7 +24,6 @@ export const useLoadStore = defineStore("load", () => {
         })
     };
     onMounted(() => {
-        console.log(imggg);
         chkLoad(imgsUrl);
     });
 
