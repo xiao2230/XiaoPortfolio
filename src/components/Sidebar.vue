@@ -120,14 +120,14 @@ a:not(.router-link-exact-active):hover,
     filter: drop-shadow(0 0 2px $secondaryColor) drop-shadow(0 0 8px $secondaryColor);
 }
 
-[data-load="loading"] aside{
+[data-load="loading"] aside {
     opacity: 0;
     transform: translateX(-100%);
 }
 
 aside {
     width: $menuOpenW;
-    min-height: 100vh;
+    height: 100vh;
     box-shadow: 0 0 2px $secondaryColor;
     display: flex;
     flex-direction: column;
@@ -135,12 +135,13 @@ aside {
     backdrop-filter: blur(5px);
     position: fixed;
     white-space: nowrap;
-    transition: width 0.3s ease-in-out,transform 2s ease-in-out,opacity 2s ease-in-out;
+    transition: width 0.3s ease-in-out, transform 2s ease-in-out, opacity 2s ease-in-out;
     z-index: 999;
 
     header {
         position: relative;
-        padding-block: 1rem;
+        padding-block: 0.5rem;
+        background-color: $primaryColor-7;
 
         .logo {
             display: flex;
@@ -240,6 +241,7 @@ aside {
         }
 
         .bottomNav button {
+            width: 100%;
             height: 3rem;
             line-height: 3rem;
             display: flex;
@@ -282,6 +284,55 @@ aside {
             transform: translateX(-0.5rem);
             pointer-events: none;
             transition-delay: 0s;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    aside {
+        width: 100%;
+        transition: height 0.3s ease-in-out, transform 2s ease-in-out, opacity 2s ease-in-out;
+
+        header {
+            background-color: $primaryColor-7;
+
+            .menuBtn {
+                right: 0.8rem;
+                left: auto;
+            }
+        }
+
+        nav {
+            justify-content: flex-start;
+            transition: opacity 0.2s ease-in-out 0.1s, transform 0.2s ease-in-out 0.1s;
+
+            .topNav::after {
+                content: "";
+                display: flex;
+                width: 90%;
+                height: 1px;
+                box-shadow: 0 0 15px 1px $secondaryColor;
+                margin: 0.5rem auto;
+                background-color: $secondaryColor;
+            }
+        }
+
+        &[data-menu="close"] {
+            height: 4.25rem;
+            width: 100%;
+
+            header .text,
+            nav .text {
+                opacity: 1;
+                transform: translateX(0);
+                pointer-events: none;
+                transition-delay: 0s;
+            }
+
+            nav {
+                opacity: 0;
+                transform: translateY(-0.5rem);
+            }
         }
     }
 }

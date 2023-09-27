@@ -42,7 +42,6 @@
             h3 {
                 font-weight: 700;
                 font-size: calc($rule / 50);
-                letter-spacing: calc($rule / 360);
             }
         }
 
