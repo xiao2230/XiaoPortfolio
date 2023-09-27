@@ -105,12 +105,6 @@ onMounted(() => {
             }
         }
 
-        @keyframes dash {
-            to {
-                stroke-dashoffset: 2000;
-            }
-        }
-
         .meteor {
             fill: #d2ad73;
         }
@@ -119,6 +113,12 @@ onMounted(() => {
         .hole_2 {
             fill: #9a754e;
         }
+    }
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 2000;
     }
 }
 </style>

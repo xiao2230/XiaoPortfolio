@@ -1,7 +1,7 @@
 .app,
 [data-theme="auto"],
 [data-theme="light"] {
-    --primaryColor: #ededed;
+    --primaryColor: #cdcdcd;
     --primaryColor-7: rgba(237, 237, 237, 0.7);
     --secondaryColor: #1a1a30;
     --thirdColor: #999999;
@@ -11,7 +11,7 @@
 [data-theme="dark"] {
     --primaryColor: #1a1a30;
     --primaryColor-7: rgba(26, 26, 48, 0.7);
-    --secondaryColor: #d3d3d3;
+    --secondaryColor: #cdcdcd;
     --thirdColor: #2c2f54;
     --thirdColor-7: rgba(44, 47, 84, 0.7);
 }
@@ -20,7 +20,7 @@
     [data-theme="auto"] {
         --primaryColor: #1a1a30;
         --primaryColor-7: rgba(26, 26, 48, 0.7);
-        --secondaryColor: #d3d3d3;
+        --secondaryColor: #cdcdcd;
         --thirdColor: #2c2f54;
         --thirdColor-7: rgba(44, 47, 84, 0.7);
     }

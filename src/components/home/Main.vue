@@ -38,10 +38,43 @@
             flex-direction: column;
             justify-content: center;
 
-            h1,
-            h3 {
+            h1 {
                 font-weight: 700;
-                font-size: calc($rule / 50);
+                font-size: 2rem;
+            }
+
+            .aniText {
+                width: 15rem;
+
+                h3 {
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    white-space: nowrap;
+                    color: transparent;
+                    text-shadow: 0 0 5px $secondaryColor;
+                    -webkit-text-stroke: 1px $secondaryColor;
+                    background: linear-gradient($secondaryColor, $secondaryColor) no-repeat;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    background-position: 0 0;
+                    position: relative;
+                    animation: aniBg 3s linear infinite;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0;
+                        height: 100%;
+                        border-right: 2px solid $secondaryColor;
+                        animation: aniCursor 3s linear infinite;
+                    }
+                }
+            }
+
+            p {
+                margin-top: 0.5rem;
             }
         }
 
@@ -50,15 +83,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 3rem;
 
             img {
-                width: clamp(300px,75%,650px);
+                width: clamp(300px, 75%, 650px);
                 border-radius: 50%;
                 box-shadow: 0 0 30px 30px var(--primaryColor) inset;
 
                 &.intro {
-                    width: clamp(310px,76%,660px);
+                    width: clamp(310px, 76%, 660px);
                     position: absolute;
                 }
             }
@@ -66,15 +98,54 @@
     }
 }
 
+@keyframes aniBg {
+
+    0%,
+    10%,
+    100% {
+        background-position: -15rem 0;
+    }
+
+    75%,
+    90% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes aniCursor {
+
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+
+    75%,
+    85%,
+    90% {
+        width: 100%;
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+}
+
 @media (max-width: 767.98px) {
     .introduction .container {
         flex-direction: column-reverse;
 
-        .img img {
-            width: max(60%,158px);
+        .img {
+            margin-bottom: 3rem;
 
-            &.intro {
-                width: max(61%,168px);;
+            img {
+                width: max(60%, 158px);
+
+                &.intro {
+                    width: max(61%, 168px);
+                    ;
+                }
             }
         }
     }
