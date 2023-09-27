@@ -8,7 +8,6 @@
             <div class="text">
                 <h1>Hi！I'm Xiao</h1>
                 <div class="aniText">
-                    <h3>And I'm</h3>
                     <h3>Frontend Developer</h3>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestias quae similique necessitatibus
@@ -26,7 +25,7 @@
 <style lang="scss" scoped>
 .introduction {
     display: flex;
-    min-height: 100vh;
+    // min-height: 100vh;
 
     >* {
         flex: 0 0 50%;
@@ -35,10 +34,11 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 20vh 0 20vh 20vh;
+            padding-left: 20vh;
 
             h1,
             h3 {
+                letter-spacing: 2px;
                 font-weight: 700;
             }
         }
@@ -48,15 +48,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-block: 20vh;
 
             img {
-                width: 80%;
+                width: 70%;
                 border-radius: 50%;
                 box-shadow: 0 0 30px 30px var(--primaryColor) inset;
 
                 &.intro {
-                    width: 81%;
+                    width: 71%;
                     position: absolute;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .introduction {
+        flex-direction: column-reverse;
+
+        .text {
+            padding-inline: 12vh;
+        }
+        .img {
+            padding-block: 5vh;
+
+            img {
+                width: 60%;
+
+                &.intro {
+                    width: 61%;
                 }
             }
         }
