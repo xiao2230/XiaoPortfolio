@@ -81,6 +81,7 @@ header {
         text-align: center;
         letter-spacing: calc($rule / 120);
         text-shadow: 0 0 20px $primaryColor;
+        mix-blend-mode: overlay;
 
         &.text-2 {
             top: calc(25vh + $rule / 20);

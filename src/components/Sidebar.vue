@@ -35,7 +35,7 @@ onBeforeMount(() => initMenu());
                 </div>
                 <div class="text">
                     <span class="name">XiaoPortfolio</span>
-                    <span class="job">Front-End Engineer</span>
+                    <span class="job">Frontend Developer</span>
                 </div>
             </div>
             <button type="button" class="menuBtn" @click="changeMenu">
