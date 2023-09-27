@@ -5,41 +5,44 @@
 <template>
     <main>
         <section class="introduction">
-            <div class="text">
-                <h1>Hi！I'm Xiao</h1>
-                <div class="aniText">
-                    <h3>Frontend Developer</h3>
+            <div class="container">
+                <div class="text">
+                    <h1>Hi！I'm Xiao</h1>
+                    <div class="aniText">
+                        <h3>Frontend Developer</h3>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestias quae similique
+                        necessitatibus
+                        nemo. Tenetur modi quibusdam voluptatibus unde aliquid, facilis officiis sunt consequatur ab,
+                        tempora
+                        facere possimus alias assumenda.</p>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestias quae similique necessitatibus
-                    nemo. Tenetur modi quibusdam voluptatibus unde aliquid, facilis officiis sunt consequatur ab, tempora
-                    facere possimus alias assumenda.</p>
-            </div>
-            <div class="img">
-                <img class="introBg" src="@/assets/img/introBg.png" alt="introBg" title="introBg">
-                <img class="intro" src="@/assets/img/intro.png" alt="intro" title="intro">
+                <div class="img">
+                    <img class="introBg" src="@/assets/img/introBg.png" alt="introBg" title="introBg">
+                    <img class="intro" src="@/assets/img/intro.png" alt="intro" title="intro">
+                </div>
             </div>
         </section>
     </main>
 </template>
 
 <style lang="scss" scoped>
-.introduction {
+.introduction .container {
     display: flex;
-    // min-height: 100vh;
 
     >* {
-        flex: 0 0 50%;
+        flex: 1 0 50%;
 
         &.text {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-left: 20vh;
 
             h1,
             h3 {
-                letter-spacing: 2px;
                 font-weight: 700;
+                font-size: calc($rule / 50);
+                letter-spacing: calc($rule / 360);
             }
         }
 
@@ -48,15 +51,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-block: 20vh;
+            margin-bottom: 3rem;
 
             img {
-                width: 70%;
+                width: 75%;
                 border-radius: 50%;
                 box-shadow: 0 0 30px 30px var(--primaryColor) inset;
 
                 &.intro {
-                    width: 71%;
+                    width: 76%;
                     position: absolute;
                 }
             }
@@ -65,21 +68,14 @@
 }
 
 @media (max-width: 767.98px) {
-    .introduction {
+    .introduction .container {
         flex-direction: column-reverse;
 
-        .text {
-            padding-inline: 12vh;
-        }
-        .img {
-            padding-block: 5vh;
+        .img img {
+            width: 60%;
 
-            img {
-                width: 60%;
-
-                &.intro {
-                    width: 61%;
-                }
+            &.intro {
+                width: 61%;
             }
         }
     }
