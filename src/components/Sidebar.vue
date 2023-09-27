@@ -289,6 +289,11 @@ aside {
 }
 
 @media (max-width: 767.98px) {
+    [data-load="loading"] aside {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
     aside {
         width: 100%;
         transition: height 0.3s ease-in-out, transform 2s ease-in-out, opacity 2s ease-in-out;
