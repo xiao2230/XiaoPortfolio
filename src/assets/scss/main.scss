@@ -55,14 +55,18 @@ a {
     }
 }
 
-.container{
-    min-height: 100vh;
+.container {
     padding: 5rem;
 }
 
 @media (max-width: 767.98px) {
-    .container{
-        min-height: auto;
+    .container {
         padding: 3.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container {
+        padding: 2rem;
     }
 }

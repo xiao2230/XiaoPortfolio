@@ -53,12 +53,12 @@
             margin-bottom: 3rem;
 
             img {
-                width: 75%;
+                width: clamp(300px,75%,650px);
                 border-radius: 50%;
                 box-shadow: 0 0 30px 30px var(--primaryColor) inset;
 
                 &.intro {
-                    width: 76%;
+                    width: clamp(310px,76%,660px);
                     position: absolute;
                 }
             }
@@ -71,10 +71,10 @@
         flex-direction: column-reverse;
 
         .img img {
-            width: 60%;
+            width: max(60%,158px);
 
             &.intro {
-                width: 61%;
+                width: max(61%,168px);;
             }
         }
     }
