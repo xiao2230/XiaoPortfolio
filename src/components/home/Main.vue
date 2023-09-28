@@ -145,12 +145,12 @@
             align-items: center;
 
             img {
-                width: clamp(300px, 75%, 650px);
+                width: clamp(300px, 75%, 450px);
                 border-radius: 50%;
                 box-shadow: 0 0 30px 30px var(--primaryColor) inset;
 
                 &.intro {
-                    width: clamp(310px, 76%, 660px);
+                    width: clamp(310px, 76%, 460px);
                     position: absolute;
                 }
             }
@@ -200,10 +200,10 @@
             margin-bottom: 3rem;
 
             img {
-                width: max(60%, 158px);
+                width: clamp(158px, 60%, 350px);
 
                 &.intro {
-                    width: max(61%, 168px);
+                    width: clamp(168px, 61%, 360px);
                     ;
                 }
             }
