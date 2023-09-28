@@ -58,7 +58,7 @@
 
                 h3 {
                     font-size: 1.5rem;
-                    font-weight: 700;
+                    font-weight: 500;
                     white-space: nowrap;
                     color: transparent;
                     -webkit-text-stroke: 1px $secondaryColor;
