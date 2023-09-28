@@ -298,8 +298,6 @@ aside {
         transition: height 0.3s ease-in-out, transform 2s ease-in-out, opacity 2s ease-in-out;
 
         header {
-            background-color: $primaryColor-7;
-
             .menuBtn {
                 right: 0.8rem;
                 left: auto;

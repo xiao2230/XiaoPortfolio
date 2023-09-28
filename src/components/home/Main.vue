@@ -54,11 +54,11 @@
             }
 
             .aniText {
-                width: 15rem;
+                width: 15.3rem;
 
                 h3 {
                     font-size: 1.5rem;
-                    font-weight: 500;
+                    font-weight: 700;
                     white-space: nowrap;
                     color: transparent;
                     -webkit-text-stroke: 1px $secondaryColor;
@@ -164,7 +164,7 @@
     0%,
     10%,
     100% {
-        background-position: -15rem 0;
+        background-position: -15.3rem 0;
     }
 
     75%,
