@@ -16,6 +16,14 @@
                         nemo. Tenetur modi quibusdam voluptatibus unde aliquid, facilis officiis sunt consequatur ab,
                         tempora
                         facere possimus alias assumenda.</p>
+                    <div class="email">
+                        <h4>Email</h4>
+                        <span>xiaobow2230@gmail.com</span>
+                    </div>
+                    <div class="socialBtn">
+                        <a href="#" target="_blank"><button type="button" class="primary"><font-awesome-icon :icon="['fab', 'linkedin-in']" /></button></a>
+                        <a href="#" target="_blank"><button type="button" class="primary"><font-awesome-icon :icon="['fab', 'facebook-f']" /></button></a>
+                    </div>
                 </div>
                 <div class="img">
                     <img class="introBg" src="@/assets/img/introBg.png" alt="introBg" title="introBg">
@@ -51,7 +59,6 @@
                     font-weight: 500;
                     white-space: nowrap;
                     color: transparent;
-                    text-shadow: 0 0 5px $secondaryColor;
                     -webkit-text-stroke: 1px $secondaryColor;
                     background: linear-gradient($secondaryColor, $secondaryColor) no-repeat;
                     background-clip: text;
@@ -74,8 +81,25 @@
             }
 
             p {
-                margin-top: 0.5rem;
+                margin-block: 0.5rem;
+                color: $fourthColor;
             }
+
+            .email {
+                h4 {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                }
+
+                span {
+                    color: $fourthColor;
+                }
+            }
+
+            // .socialBtn{
+            //     button{
+            //     }
+            // }
         }
 
         &.img {

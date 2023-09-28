@@ -6,6 +6,7 @@
     --secondaryColor: #1a1a30;
     --thirdColor: #999999;
     --thirdColor-7: rgba(153, 153, 153, 0.7);
+    --fourthColor: #46467c;
 }
 
 [data-theme="dark"] {
@@ -14,6 +15,7 @@
     --secondaryColor: #cdcdcd;
     --thirdColor: #2c2f54;
     --thirdColor-7: rgba(44, 47, 84, 0.7);
+    --fourthColor: #848484;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +25,7 @@
         --secondaryColor: #cdcdcd;
         --thirdColor: #2c2f54;
         --thirdColor-7: rgba(44, 47, 84, 0.7);
+        --fourthColor: #848484;
     }
 }
 
@@ -31,4 +34,5 @@ $primaryColor-7: var(--primaryColor-7);
 $secondaryColor: var(--secondaryColor);
 $thirdColor: var(--thirdColor);
 $thirdColor-7: var(--thirdColor-7);
+$fourthColor: var(--fourthColor);
 $rule: calc(100vh + 100vw);

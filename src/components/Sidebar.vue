@@ -95,14 +95,6 @@ onBeforeMount(() => initMenu());
 $menuOpenW: 15rem;
 $menuCloseW: 3.5rem;
 
-button {
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    background-color: transparent;
-}
-
 .pattern,
 .icon,
 .iconGroup {
