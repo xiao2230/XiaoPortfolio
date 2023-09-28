@@ -22,6 +22,10 @@ const changeMenu = () => {
     menu.value = menu.value === "open" ? "close" : "open";
     setStored(storedKey, menu.value);
 }
+const closeMenu = () => {
+    if (menu.value === "close") return;
+    changeMenu();
+}
 
 onBeforeMount(() => initMenu());
 </script>
@@ -51,13 +55,13 @@ onBeforeMount(() => initMenu());
             <div class="topNav">
                 <ul>
                     <li>
-                        <RouterLink to="/">
+                        <RouterLink to="/" @click.prevent="closeMenu">
                             <font-awesome-icon :icon="['fas', 'house']" class="icon" />
                             <span class="text">Home</span>
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/github">
+                        <RouterLink to="/github" @click.prevent="closeMenu">
                             <font-awesome-icon :icon="['fab', 'github']" class="icon" />
                             <span class="text">GitHub</span>
                         </RouterLink>
@@ -224,7 +228,7 @@ aside {
         .topNav ul {
             list-style: none;
 
-            a {
+            button,a {
                 display: flex;
                 align-items: center;
                 height: 3rem;
