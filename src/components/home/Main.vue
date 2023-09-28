@@ -58,11 +58,11 @@
 
                 h3 {
                     font-size: 1.5rem;
-                    font-weight: 500;
+                    font-weight: 700;
                     white-space: nowrap;
                     color: transparent;
                     -webkit-text-stroke: 1px $secondaryColor;
-                    background: linear-gradient($secondaryColor, $secondaryColor) no-repeat;
+                    background: linear-gradient($fourthColor, $fourthColor) no-repeat;
                     background-clip: text;
                     -webkit-background-clip: text;
                     background-position: 0 0;
@@ -99,15 +99,42 @@
             }
 
             .socialBtn {
-                margin-block: 0.5rem;
+                margin-top: 2rem;
 
                 button {
                     font-size: 1.1rem;
-                    color: $primaryColor;
-                    background-color: $secondaryColor;
+                    color: $secondaryColor;
+                    background-color: transparent;
+                    width: 2.5rem;
                     aspect-ratio: 1;
-                    padding: 0.3rem;
-                    margin: 0.2rem;
+                    margin-right: 0.5rem;
+                    border: 1px solid $secondaryColor;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    position: relative;
+                    overflow: hidden;
+                    z-index: 1;
+                    transition: color 0.2s ease-in-out;
+
+                    &:hover {
+                        color: $primaryColor;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0;
+                        height: 100%;
+                        background-color: $fourthColor;
+                        z-index: -1;
+                        transition: width 0.2s ease-in-out;
+                    }
+
+                    &:hover::after {
+                        width: 100%;
+                    }
                 }
             }
         }

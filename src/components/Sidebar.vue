@@ -154,9 +154,8 @@ aside {
                     background-color: $secondaryColor;
                     width: 2.5rem;
                     aspect-ratio: 1;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    display: grid;
+                    place-content: center;
                     border-radius: 50%;
                 }
             }
