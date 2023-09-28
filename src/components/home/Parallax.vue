@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <header>
+    <section class="parallax">
         <img class="bg" src="@/assets/img/bg.png" alt="bg" title="bg">
         <img class="planet-1" src="@/assets/img/planet_1.png" alt="planet_1" title="planet_1">
         <img class="planet-2" src="@/assets/img/planet_2.png" alt="planet_2" title="planet_2">
@@ -11,11 +11,11 @@
         <img class="planet-3" src="@/assets/img/planet_3.png" alt="planet_3" title="planet_3">
         <img class="land-1" src="@/assets/img/land_1.png" alt="land_1" title="land_1">
         <img class="land-2" src="@/assets/img/land_2.png" alt="land_2" title="land_2">
-    </header>
+    </section>
 </template>
 
 <style lang="scss" scoped>
-[data-load="loading"] header {
+[data-load="loading"] .parallax {
     .text-1 {
         opacity: 0;
         transform: translateY(-50vh);
@@ -43,7 +43,7 @@
     }
 }
 
-header {
+.parallax {
     height: 100vh;
     width: 100%;
     position: relative;
@@ -87,4 +87,5 @@ header {
             top: calc(25vh + $rule / 20);
         }
     }
-}</style>
+}
+</style>

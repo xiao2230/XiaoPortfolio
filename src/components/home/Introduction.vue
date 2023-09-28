@@ -2,7 +2,6 @@
 </script>
 
 <template>
-    <main>
         <section class="introduction">
             <div class="container">
                 <div class="text">
@@ -32,7 +31,6 @@
                 </div>
             </div>
         </section>
-    </main>
 </template>
 
 <style lang="scss" scoped>

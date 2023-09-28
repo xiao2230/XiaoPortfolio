@@ -1,12 +1,14 @@
 <script setup>
-import Header from "@/components/home/Header.vue";
-import Main from "@/components/home/Main.vue";
+import Parallax from "@/components/home/Parallax.vue";
+import Introduction from "@/components/home/Introduction.vue";
+import Skill from "@/components/home/Skill.vue";
 </script>
 
 <template>
   <div class="home">
-    <Header />
-    <Main />
+    <Parallax />
+    <Introduction />
+    <Skill />
   </div>
 </template>
 

@@ -7,6 +7,7 @@
     --thirdColor: #999999;
     --thirdColor-7: rgba(153, 153, 153, 0.7);
     --fourthColor: #46467c;
+    --fifthColor:#c4c4c4;
 }
 
 [data-theme="dark"] {
@@ -16,6 +17,7 @@
     --thirdColor: #2c2f54;
     --thirdColor-7: rgba(44, 47, 84, 0.7);
     --fourthColor: #848484;
+    --fifthColor:#17172a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +28,7 @@
         --thirdColor: #2c2f54;
         --thirdColor-7: rgba(44, 47, 84, 0.7);
         --fourthColor: #848484;
+        --fifthColor:#17172a;
     }
 }
 
@@ -35,4 +38,5 @@ $secondaryColor: var(--secondaryColor);
 $thirdColor: var(--thirdColor);
 $thirdColor-7: var(--thirdColor-7);
 $fourthColor: var(--fourthColor);
+$fifthColor: var(--fifthColor);
 $rule: calc(100vh + 100vw);
