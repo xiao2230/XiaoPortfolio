@@ -21,8 +21,10 @@
                         <span>xiaobow2230@gmail.com</span>
                     </div>
                     <div class="socialBtn">
-                        <a href="#" target="_blank"><button type="button" class="primary"><font-awesome-icon :icon="['fab', 'linkedin-in']" /></button></a>
-                        <a href="#" target="_blank"><button type="button" class="primary"><font-awesome-icon :icon="['fab', 'facebook-f']" /></button></a>
+                        <a href="#" target="_blank"><button type="button" class="primary"><font-awesome-icon
+                                    :icon="['fab', 'linkedin-in']" /></button></a>
+                        <a href="#" target="_blank"><button type="button" class="primary"><font-awesome-icon
+                                    :icon="['fab', 'facebook-f']" /></button></a>
                     </div>
                 </div>
                 <div class="img">
@@ -96,10 +98,18 @@
                 }
             }
 
-            // .socialBtn{
-            //     button{
-            //     }
-            // }
+            .socialBtn {
+                margin-block: 0.5rem;
+
+                button {
+                    font-size: 1.1rem;
+                    color: $primaryColor;
+                    background-color: $secondaryColor;
+                    aspect-ratio: 1;
+                    padding: 0.3rem;
+                    margin: 0.2rem;
+                }
+            }
         }
 
         &.img {

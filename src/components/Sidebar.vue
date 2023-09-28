@@ -150,10 +150,13 @@ aside {
 
                 span {
                     font-weight: 700;
-                    display: inline-block;
-                    padding: 0.4rem;
                     color: $primaryColor;
                     background-color: $secondaryColor;
+                    width: 2.5rem;
+                    aspect-ratio: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     border-radius: 50%;
                 }
             }
@@ -220,7 +223,8 @@ aside {
         .topNav ul {
             list-style: none;
 
-            button,a {
+            button,
+            a {
                 display: flex;
                 align-items: center;
                 height: 3rem;
