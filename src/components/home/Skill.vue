@@ -85,7 +85,7 @@
             h4 {
                 display: inline-block;
                 font-size: 1.5rem;
-                font-weight: 700;
+                font-weight: 500;
                 line-height: 2rem;
                 position: absolute;
                 top: -1.5rem;
