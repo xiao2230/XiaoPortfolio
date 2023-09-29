@@ -6,24 +6,54 @@
         <div class="container">
             <h3>SKILL</h3>
             <div class="allSkill">
-                <div class="skillList">
+                <div class="frondendSkill">
                     <h4>Frondend</h4>
-                    <div class="skillItem">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                        <span>JQuery</span>
-                        <span>Bootstrap</span>
-                        <span>Vue</span>
-                        <span>D3</span>
-                        <span>GSAP</span>
+                    <div class="skillList">
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="HTML5" title="HTML5">
+                            <span>HTML5</span>
+                        </span>
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="CSS3" title="CSS3">
+                            <span>CSS3</span>
+                        </span>
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="JavaScript" title="JavaScript">
+                            <span>JavaScript</span>
+                        </span>
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="JQuery" title="JQuery">
+                            <span>JQuery</span>
+                        </span>
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="Bootstrap" title="Bootstrap">
+                            <span>Bootstrap</span>
+                        </span>
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="Vue" title="Vue">
+                            <span>Vue</span>
+                        </span>
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="D3" title="D3">
+                            <span>D3</span>
+                        </span>
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="GSAP" title="GSAP">
+                            <span>GSAP</span>
+                        </span>
                     </div>
                 </div>
-                <div class="skillList">
+                <div class="otherSkill">
                     <h4>Other</h4>
-                    <div class="skillItem">
-                        <span>GitHub</span>
-                        <span>Netlify</span>
+                    <div class="skillList">
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="GitHub" title="GitHub">
+                            <span>GitHub</span>
+                        </span>
+                        <span class="skillItem">
+                            <img src="@/assets/img/skill/HTML5.png" alt="Netlify" title="Netlify">
+                            <span>Netlify</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -39,18 +69,46 @@
         font-size: 2rem;
         font-weight: 700;
         text-align: center;
+        margin-bottom: 2rem;
     }
 
     .allSkill {
         display: flex;
         justify-content: space-between;
-        padding-inline: 1rem;
 
-        .skillList {
+        >div {
             flex-basis: calc(50% - 2rem);
+            border: 2px solid $secondaryColor;
+            padding-block: 2rem;
+            position: relative;
 
-            .skillItem {
-                border: 2px solid $secondaryColor;
+            h4 {
+                display: inline-block;
+                font-size: 1.5rem;
+                font-weight: 700;
+                line-height: 2rem;
+                position: absolute;
+                top: -1.5rem;
+                left: -2rem;
+                background-color: $fifthColor;
+                padding: 0.5rem 1rem;
+            }
+
+            .skillList {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+
+                .skillItem {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding-block: 0.5rem;
+
+                    img {
+                        width: 50%;
+                        margin-bottom: 0.5rem;
+                    }
+                }
             }
         }
     }
