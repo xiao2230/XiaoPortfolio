@@ -64,12 +64,20 @@ button {
 }
 
 .container {
-    padding: 5rem;
+    padding-inline: 20vw;
+    min-height: 100vh;
+}
+
+@media (max-width: 1399.98px) {
+    .container {
+        padding-inline: 10vw;
+    }
 }
 
 @media (max-width: 767.98px) {
     .container {
         padding: 3.5rem;
+        min-height: auto;
     }
 }
 

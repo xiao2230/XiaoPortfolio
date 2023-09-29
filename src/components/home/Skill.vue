@@ -8,11 +8,23 @@
             <div class="allSkill">
                 <div class="skillList">
                     <h4>Frondend</h4>
-                    <div class="skillItem">skillItem</div>
+                    <div class="skillItem">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>JQuery</span>
+                        <span>Bootstrap</span>
+                        <span>Vue</span>
+                        <span>D3</span>
+                        <span>GSAP</span>
+                    </div>
                 </div>
                 <div class="skillList">
                     <h4>Other</h4>
-                    <div class="skillItem">skillItem</div>
+                    <div class="skillItem">
+                        <span>GitHub</span>
+                        <span>Netlify</span>
+                    </div>
                 </div>
             </div>
         </div>
