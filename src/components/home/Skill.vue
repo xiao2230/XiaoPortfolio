@@ -65,48 +65,55 @@
 .skill {
     background-color: $fifthColor;
 
-    h3 {
-        font-size: 2rem;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .allSkill {
+    .container {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
 
-        >div {
-            flex-basis: calc(50% - 2rem);
-            border: 2px solid $secondaryColor;
-            padding-block: 2rem;
-            position: relative;
+        h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
 
-            h4 {
-                display: inline-block;
-                font-size: 1.5rem;
-                font-weight: 500;
-                line-height: 2rem;
-                position: absolute;
-                top: -1.5rem;
-                left: -2rem;
-                background-color: $fifthColor;
-                padding: 0.5rem 1rem;
-            }
+        .allSkill {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
 
-            .skillList {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
+            >div {
+                flex-basis: calc(50% - 2rem);
+                border: 2px solid $secondaryColor;
+                padding-block: 2rem;
+                margin-bottom: 2rem;
+                position: relative;
 
-                .skillItem {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding-block: 0.5rem;
+                h4 {
+                    display: inline-block;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    line-height: 2rem;
+                    position: absolute;
+                    top: -1.5rem;
+                    left: -2rem;
+                    background-color: $fifthColor;
+                    padding: 0.5rem 1rem;
+                }
 
-                    img {
-                        width: 50%;
-                        margin-bottom: 0.5rem;
+                .skillList {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+
+                    .skillItem {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        padding-block: 0.5rem;
+
+                        img {
+                            width: 50%;
+                            margin-bottom: 0.5rem;
+                        }
                     }
                 }
             }
@@ -115,8 +122,25 @@
 }
 
 @media (max-width: 767.98px) {
-    .allSkill {
+    .skill .container .allSkill {
+
         flex-direction: column;
+
+        &>div .skillList {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .skill .container .allSkill>div .skillList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 319.98px) {
+    .skill .container .allSkill>div .skillList {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 </style>
