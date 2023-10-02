@@ -34,15 +34,15 @@
                             <span>JavaScript</span>
                         </span>
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="JQuery" title="JQuery">
+                            <img src="@/assets/img/skill/JQuery.png" alt="JQuery" title="JQuery">
                             <span>JQuery</span>
                         </span>
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="Bootstrap" title="Bootstrap">
+                            <img src="@/assets/img/skill/Bootstrap.png" alt="Bootstrap" title="Bootstrap">
                             <span>Bootstrap</span>
                         </span>
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="Vue" title="Vue">
+                            <img src="@/assets/img/skill/Vue.png" alt="Vue" title="Vue">
                             <span>Vue</span>
                         </span>
                         <span class="skillItem">
