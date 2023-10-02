@@ -54,6 +54,14 @@
                             <span>GSAP</span>
                         </span>
                     </div>
+                    <div class="cube">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
                 </div>
                 <div class="otherSkill">
                     <h4>
@@ -75,6 +83,14 @@
                             <img src="@/assets/img/skill/HTML5.png" alt="Netlify" title="Netlify">
                             <span>Netlify</span>
                         </span>
+                    </div>
+                    <div class="cube">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
                     </div>
                 </div>
             </div>
@@ -108,6 +124,7 @@
                 padding-block: 2rem;
                 margin-bottom: 2rem;
                 position: relative;
+                perspective: 1000px;
 
                 h4 {
                     font-size: 1.5rem;
@@ -134,7 +151,7 @@
 
                         @for $item from 1 through 8 {
                             span:nth-of-type(#{$item}) {
-                                animation-delay: #{(1 + ($item/8))}s;
+                                animation-delay: #{(1 + calc($item / 8))}s;
                             }
                         }
                     }
@@ -143,6 +160,7 @@
                 .skillList {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
+                    height: 100%;
 
                     .skillItem {
                         display: flex;
@@ -153,11 +171,100 @@
                         img {
                             width: 50%;
                             margin-bottom: 0.5rem;
+                            transform: translateY(1rem);
+                            transition: transform 0.5s ease-in-out;
                         }
+
+                        span {
+                            color: transparent;
+                            opacity: 0;
+                            transform: translate(0.5rem, -1rem);
+                            text-shadow: 0 0 20px $secondaryColor;
+                            transition: color 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+                        }
+                    }
+                }
+
+                .cube {
+                    height: 100%;
+                    position: absolute;
+                    right: 0.5rem;
+                    top: 0;
+                    transform-style: preserve-3d;
+                    animation: rotate-1 5s alternate infinite ease-in-out;
+
+                    div {
+                        position: absolute;
+                        width: 1rem;
+                        height: 1rem;
+                        background: $secondaryColor;
+                        border: 1px solid $fourthColor;
+
+                        &.front {
+                            transform: translateZ(0.5rem);
+                        }
+
+                        &.back {
+                            transform: rotateY(180deg) translateZ(0.5rem);
+                        }
+
+                        &.top {
+                            transform: rotateX(90deg) translateZ(0.5rem);
+                        }
+
+                        &.bottom {
+                            transform: rotateX(-90deg) translateZ(0.5rem);
+                        }
+
+                        &.left {
+                            transform: rotateY(-90deg) translateZ(0.5rem);
+                        }
+
+                        &.right {
+                            transform: rotateY(90deg) translateZ(0.5rem);
+                        }
+                    }
+                }
+
+                &.otherSkill .cube {
+                    animation: rotate-2 5s alternate infinite ease;
+                }
+
+                &:hover .skillItem,
+                &:active .skillItem {
+                    img {
+                        transform: translateY(0);
+                    }
+
+                    span {
+                        color: $secondaryColor;
+                        opacity: 1;
+                        text-shadow: 0 0 1px $secondaryColor;
+                        transform: translate(0, 0);
                     }
                 }
             }
         }
+    }
+}
+
+@keyframes rotate-1 {
+    0% {
+        transform: translateY(0) rotate3d(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: translateY(calc(100% - 1rem)) rotate3d(0.01, 0.1, 0.01, 720deg);
+    }
+}
+
+@keyframes rotate-2 {
+    0% {
+        transform: translateY(0) rotate3d(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: translateY(calc(100% - 1rem)) rotate3d(0.01, 0.1, -0.01, 720deg);
     }
 }
 
