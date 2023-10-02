@@ -7,7 +7,19 @@
             <h3>SKILL</h3>
             <div class="allSkill">
                 <div class="frondendSkill">
-                    <h4>Frondend</h4>
+                    <h4>
+                        <div>Frontend</div>
+                        <div class="smoky">
+                            <span>F</span>
+                            <span>r</span>
+                            <span>o</span>
+                            <span>n</span>
+                            <span>t</span>
+                            <span>e</span>
+                            <span>n</span>
+                            <span>d</span>
+                        </div>
+                    </h4>
                     <div class="skillList">
                         <span class="skillItem">
                             <img src="@/assets/img/skill/HTML5.png" alt="HTML5" title="HTML5">
@@ -44,7 +56,16 @@
                     </div>
                 </div>
                 <div class="otherSkill">
-                    <h4>Other</h4>
+                    <h4>
+                        <div>Other</div>
+                        <div class="smoky">
+                            <span>O</span>
+                            <span>t</span>
+                            <span>h</span>
+                            <span>e</span>
+                            <span>r</span>
+                        </div>
+                    </h4>
                     <div class="skillList">
                         <span class="skillItem">
                             <img src="@/assets/img/skill/HTML5.png" alt="GitHub" title="GitHub">
@@ -89,7 +110,6 @@
                 position: relative;
 
                 h4 {
-                    display: inline-block;
                     font-size: 1.5rem;
                     font-weight: 500;
                     line-height: 2rem;
@@ -98,6 +118,26 @@
                     left: -2rem;
                     background-color: $fifthColor;
                     padding: 0.5rem 1rem;
+
+
+                    .smoky {
+                        position: absolute;
+                        top: 0.5rem;
+                        left: 1rem;
+
+                        span {
+                            display: inline-block;
+                            color: transparent;
+                            text-shadow: 0 0 1px $fourthColor;
+                            animation: smoky 1.5s alternate infinite;
+                        }
+
+                        @for $item from 1 through 8 {
+                            span:nth-of-type(#{$item}) {
+                                animation-delay: #{(1 + ($item/8))}s;
+                            }
+                        }
+                    }
                 }
 
                 .skillList {
@@ -118,6 +158,22 @@
                 }
             }
         }
+    }
+}
+
+@keyframes smoky {
+    30% {
+        transform: translateY(-5px);
+        text-shadow: 0 0 5px $fourthColor;
+    }
+
+    70% {
+        transform: translateY(5px);
+        text-shadow: 0 0 5px $fourthColor;
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
 

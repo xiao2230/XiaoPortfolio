@@ -125,6 +125,7 @@
                         width: 0;
                         height: 100%;
                         background-color: $fourthColor;
+                        border-radius: 50%;
                         z-index: -1;
                         transition: width 0.2s ease-in-out;
                     }
