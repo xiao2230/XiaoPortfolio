@@ -33,7 +33,7 @@ onBeforeMount(() => initMenu());
 <template>
     <aside :data-menu="menu">
         <header>
-            <div class="logo">
+            <a href="/" class="logo">
                 <div class="pattern">
                     <span>XP</span>
                 </div>
@@ -41,7 +41,7 @@ onBeforeMount(() => initMenu());
                     <span class="name">XiaoPortfolio</span>
                     <span class="job">Frontend Developer</span>
                 </div>
-            </div>
+            </a>
             <button type="button" class="menuBtn" @click="changeMenu">
                 <Transition name="menuBtn">
                     <font-awesome-icon v-show="menu === 'open'" :icon="['fas', 'down-left-and-up-right-to-center']" />
@@ -141,7 +141,7 @@ aside {
 
         .logo {
             display: flex;
-            pointer-events: none;
+            cursor: pointer;
 
             .pattern {
                 display: flex;
