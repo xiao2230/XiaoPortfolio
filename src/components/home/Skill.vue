@@ -127,7 +127,7 @@
                 perspective: 1000px;
 
                 h4 {
-                    font-size: 1.5rem;
+                    font-size: 1.4rem;
                     line-height: 2rem;
                     position: absolute;
                     top: -1.5rem;
@@ -184,7 +184,7 @@
                             display: inline-block;
                             width: 65%;
                             aspect-ratio: 1;
-                            background-image: linear-gradient(to bottom, $fourthColor, transparent);
+                            background-image: linear-gradient(to bottom, $secondaryColor, transparent);
                             border-radius: 50%;
                             position: absolute;
                             z-index: -1;
