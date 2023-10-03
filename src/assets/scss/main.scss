@@ -22,6 +22,30 @@
     src: url("@/font/Poppins-Bold.ttf");
 }
 
+@font-face {
+    font-family: "NotoSansTC";
+    font-weight: 300;
+    src: url("@/font/NotoSansTC-Light.ttf");
+}
+
+@font-face {
+    font-family: "NotoSansTC";
+    font-weight: 400;
+    src: url("@/font/NotoSansTC-Regular.ttf");
+}
+
+@font-face {
+    font-family: "NotoSansTC";
+    font-weight: 500;
+    src: url("@/font/NotoSansTC-Medium.ttf");
+}
+
+@font-face {
+    font-family: "NotoSansTC";
+    font-weight: 700;
+    src: url("@/font/NotoSansTC-Bold.ttf");
+}
+
 ::-webkit-scrollbar {
     width: 2px;
 }
@@ -43,7 +67,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", "NotoSansTC", sans-serif;
     font-weight: 400;
 }
 

@@ -41,8 +41,34 @@
         flex-direction: column;
         justify-content: center;
 
-        .group{
-            margin-bottom: 1.5rem;
+        .group {
+            margin-bottom: 1rem;
+            position: relative;
+            color: $primaryColor;
+
+            input,
+            textarea {
+                width: 100%;
+                line-height: 2rem;
+                font-size: 1rem;
+            }
+
+            label {
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+
+            textarea {
+                resize: none;
+
+                &+label {
+                    top: 0.4rem;
+                    transform: translateY(0);
+                }
+            }
         }
     }
 }
