@@ -156,7 +156,7 @@
                         span {
                             display: inline-block;
                             color: transparent;
-                            text-shadow: 0 0 1px $fourthColor;
+                            text-shadow: 0 0 1px $secondaryColor;
                             animation: smoky 1.5s alternate infinite;
                         }
 
