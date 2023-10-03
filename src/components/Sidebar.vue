@@ -3,7 +3,6 @@ import { ref, onBeforeMount } from "vue";
 import { RouterLink } from 'vue-router';
 import { storeToRefs } from "pinia";
 import { useThemeStore } from "@/stores/theme.js";
-import { getStored, setStored } from "@/lib/localStorage.js";
 
 // 判斷 & 控制深色模式：取得　pinia 變數與方法
 const themeStore = useThemeStore();
@@ -14,13 +13,13 @@ const { changeTheme } = themeStore;
 const menu = ref();
 const storedKey = "menu";
 const initMenu = () => {
-    const getStoredVal = getStored(storedKey);
+    const getStoredVal = localStorage.getItem(storedKey);
     menu.value = getStoredVal ? getStoredVal : "open";
-    if (!getStoredVal) setStored(storedKey, menu.value);
+    if (!getStoredVal) localStorage.setItem(storedKey, menu.value);
 };
 const changeMenu = () => {
     menu.value = menu.value === "open" ? "close" : "open";
-    setStored(storedKey, menu.value);
+    localStorage.setItem(storedKey, menu.value);
 }
 const closeMenu = () => {
     if (menu.value === "close") return;
