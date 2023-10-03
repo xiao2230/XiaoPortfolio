@@ -35,8 +35,15 @@
         margin-bottom: 2rem;
     }
 
-    form{
+    form {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .group{
+            margin-bottom: 1.5rem;
+        }
     }
 }
 </style>
