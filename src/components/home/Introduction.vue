@@ -55,11 +55,11 @@
 
                 h3 {
                     font-size: 1.5rem;
-                    font-weight: 700;
+                    font-weight: 500;
                     white-space: nowrap;
                     color: transparent;
                     -webkit-text-stroke: 1px $secondaryColor;
-                    background: linear-gradient($fourthColor, $fourthColor) no-repeat;
+                    background: linear-gradient($secondaryColor, $secondaryColor) no-repeat;
                     background-clip: text;
                     -webkit-background-clip: text;
                     background-position: 0 0;

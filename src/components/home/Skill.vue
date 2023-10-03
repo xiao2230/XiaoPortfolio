@@ -121,6 +121,7 @@
             >div {
                 flex-basis: calc(50% - 2rem);
                 border: 1px solid $secondaryColor;
+                border-radius: 5px;
                 padding-block: 2rem;
                 margin-bottom: 2rem;
                 position: relative;
@@ -195,7 +196,7 @@
                             margin-bottom: 0.5rem;
                             filter: drop-shadow(0 0 10px $fourthColor );
                             transform: translateY(1rem);
-                            transition: transform 0.5s ease-in-out;
+                            transition: transform 0.3s ease-in-out;
                         }
 
                         span {
@@ -203,7 +204,7 @@
                             opacity: 0;
                             transform: translate(0.5rem, -1rem);
                             text-shadow: 0 0 20px $secondaryColor;
-                            transition: color 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+                            transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
                         }
                     }
                 }

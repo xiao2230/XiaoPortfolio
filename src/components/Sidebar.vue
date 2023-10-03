@@ -186,13 +186,13 @@ aside {
             color: $primaryColor;
             background-color: $secondaryColor;
             cursor: pointer;
-            transition: box-shadow 0.3s ease-in-out;
 
             svg {
                 font-size: 1rem;
                 position: absolute;
                 top: 0.4rem;
                 left: 0.4rem;
+                transition: filter 0.2s ease-in-out;
 
                 &.menuBtn-enter-active {
                     transition: transform 0.3s ease-in-out 0.1s, opacity 0.3s ease-in-out 0.1s;
@@ -229,7 +229,7 @@ aside {
                 height: 3rem;
                 line-height: 3rem;
                 border-right: 0rem solid $secondaryColor;
-                transition: border-right 0.2s ease-in-out;
+                transition: border-right 0.2s ease-in-out,filter 0.2s ease-in-out;
 
                 &.router-link-exact-active {
                     border-right: 0.3rem solid $secondaryColor;
@@ -247,6 +247,7 @@ aside {
             align-items: center;
             color: $secondaryColor;
             cursor: pointer;
+            transition: filter 0.2s ease-in-out;
 
             .iconGroup {
                 display: flex;
