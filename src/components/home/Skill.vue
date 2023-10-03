@@ -184,7 +184,7 @@
                             display: inline-block;
                             width: 65%;
                             aspect-ratio: 1;
-                            background-image: linear-gradient(to bottom, $secondaryColor, transparent);
+                            background-image: linear-gradient(to bottom, $secondaryColor, transparent 45%);
                             border-radius: 50%;
                             position: absolute;
                             z-index: -1;
@@ -193,6 +193,7 @@
                         img {
                             width: 50%;
                             margin-bottom: 0.5rem;
+                            filter: drop-shadow(0 0 3px $fourthColor );
                             transform: translateY(1rem);
                             transition: transform 0.5s ease-in-out;
                         }
