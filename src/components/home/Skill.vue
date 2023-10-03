@@ -193,7 +193,7 @@
                         img {
                             width: 50%;
                             margin-bottom: 0.5rem;
-                            filter: drop-shadow(0 0 5px $fourthColor );
+                            filter: drop-shadow(0 0 10px $fourthColor );
                             transform: translateY(1rem);
                             transition: transform 0.5s ease-in-out;
                         }
