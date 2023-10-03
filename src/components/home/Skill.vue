@@ -50,7 +50,7 @@
                             <span>D3</span>
                         </span>
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="GSAP" title="GSAP">
+                            <img src="@/assets/img/skill/GSAP.png" alt="GSAP" title="GSAP">
                             <span>GSAP</span>
                         </span>
                     </div>
