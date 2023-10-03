@@ -51,7 +51,7 @@
             }
 
             .aniText {
-                width: 15.3rem;
+                width: 15rem;
 
                 h3 {
                     font-size: 1.5rem;
@@ -162,7 +162,7 @@
     0%,
     10%,
     100% {
-        background-position: -15.3rem 0;
+        background-position: -15rem 0;
     }
 
     75%,
