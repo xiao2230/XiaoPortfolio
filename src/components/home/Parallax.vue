@@ -3,14 +3,22 @@
 
 <template>
     <section class="parallax">
-        <img class="bg" src="@/assets/img/bg.png" alt="bg" title="bg">
+        <!-- <img class="bg" src="@/assets/img/bg.png" alt="bg" title="bg">
         <img class="planet-1" src="@/assets/img/planet_1.png" alt="planet_1" title="planet_1">
         <img class="planet-2" src="@/assets/img/planet_2.png" alt="planet_2" title="planet_2">
         <div class="text text-1">HELLO</div>
         <div class="text text-2">SPACE</div>
         <img class="planet-3" src="@/assets/img/planet_3.png" alt="planet_3" title="planet_3">
         <img class="land-1" src="@/assets/img/land_1.png" alt="land_1" title="land_1">
-        <img class="land-2" src="@/assets/img/land_2.png" alt="land_2" title="land_2">
+        <img class="land-2" src="@/assets/img/land_2.png" alt="land_2" title="land_2"> -->
+        <div class="bg"></div>
+        <div class="planet-1"></div>
+        <div class="planet-2"></div>
+        <div class="text text-1">HELLO</div>
+        <div class="text text-2">SPACE</div>
+        <div class="planet-3"></div>
+        <div class="land-1"></div>
+        <div class="land-2"></div>
     </section>
 </template>
 
@@ -63,13 +71,45 @@
         transition: transform 2s ease-in-out, opacity 3s ease-in-out;
     }
 
-    img {
+    // img {
+    //     height: 100%;
+    //     width: 100%;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     object-fit: cover;
+    // }
+
+    >div {
         height: 100%;
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        object-fit: cover;
+
+        &.bg {
+            background: url(@/assets/img/bg.png) no-repeat center / cover;
+        }
+
+        &.planet-1 {
+            background: url(@/assets/img/planet_1.png) no-repeat center / cover;
+        }
+
+        &.planet-2 {
+            background: url(@/assets/img/planet_2.png) no-repeat center / cover;
+        }
+
+        &.planet-3 {
+            background: url(@/assets/img/planet_3.png) no-repeat center / cover;
+        }
+
+        &.land-1 {
+            background: url(@/assets/img/land_1.png) no-repeat center / cover;
+        }
+
+        &.land-2 {
+            background: url(@/assets/img/land_2.png) no-repeat center / cover;
+        }
     }
 
     .text {
