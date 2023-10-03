@@ -76,11 +76,11 @@
                     </h4>
                     <div class="skillList">
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="GitHub" title="GitHub">
+                            <img src="@/assets/img/skill/GitHub.png" alt="GitHub" title="GitHub">
                             <span>GitHub</span>
                         </span>
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="Netlify" title="Netlify">
+                            <img src="@/assets/img/skill/Netlify.png" alt="Netlify" title="Netlify">
                             <span>Netlify</span>
                         </span>
                     </div>
