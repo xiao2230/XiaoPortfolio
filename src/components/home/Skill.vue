@@ -120,7 +120,7 @@
 
             >div {
                 flex-basis: calc(50% - 2rem);
-                border: 2px solid $secondaryColor;
+                border: 1px solid $secondaryColor;
                 padding-block: 2rem;
                 margin-bottom: 2rem;
                 position: relative;
@@ -128,13 +128,23 @@
 
                 h4 {
                     font-size: 1.5rem;
-                    font-weight: 500;
                     line-height: 2rem;
                     position: absolute;
                     top: -1.5rem;
                     left: -2rem;
                     background-color: $fifthColor;
                     padding: 0.5rem 1rem;
+
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        left: 100%;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        height: 70%;
+                        width: 1px;
+                        background-color: $secondaryColor;
+                    }
 
 
                     .smoky {
@@ -167,6 +177,18 @@
                         flex-direction: column;
                         align-items: center;
                         padding-block: 0.5rem;
+                        position: relative;
+
+                        &::after {
+                            content: "";
+                            display: inline-block;
+                            width: 65%;
+                            aspect-ratio: 1;
+                            background-image: linear-gradient(to bottom, $fourthColor, transparent);
+                            border-radius: 50%;
+                            position: absolute;
+                            z-index: -1;
+                        }
 
                         img {
                             width: 50%;
