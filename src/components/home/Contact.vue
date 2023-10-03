@@ -4,19 +4,23 @@
 <template>
     <section class="contact">
         <div class="container">
-            <h3>CONTACT</h3>
+            <h3 class="text-center">CONTACT</h3>
             <form>
                 <div class="group">
-                    <input type="text" name="guestName" id="guestName">
-                    <label for="guestName">請輸入大名</label>
+                    <input type="text" name="guestName" id="guestName" maxlength="10" placeholder="">
+                    <label for="guestName">Name</label>
                 </div>
                 <div class="group">
-                    <input type="email" name="guestEmail" id="guestEmail">
-                    <label for="guestEmail">請輸入Email</label>
+                    <input type="email" name="guestEmail" id="guestEmail" maxlength="20" placeholder="">
+                    <label for="guestEmail">Email</label>
                 </div>
                 <div class="group">
-                    <textarea name="guestMessage" id="guestMessage" cols="30" rows="10"></textarea>
-                    <label for="guestMessage">請輸入你想傳達的訊息</label>
+                    <textarea name="guestMessage" id="guestMessage" cols="30" rows="10" maxlength="500"
+                        placeholder=""></textarea>
+                    <label for="guestMessage">Message</label>
+                </div>
+                <div class="group text-center">
+                    <button type="button" class="btn rect">Send Letter</button>
                 </div>
             </form>
         </div>
@@ -31,7 +35,6 @@
     h3 {
         font-size: 2rem;
         font-weight: 700;
-        text-align: center;
         margin-bottom: 2rem;
     }
 
@@ -48,26 +51,36 @@
 
             input,
             textarea {
+                font-size: 1rem;
                 width: 100%;
                 line-height: 2rem;
-                font-size: 1rem;
-            }
+                padding: 1.5rem 1rem 0.5rem;
+                background-color: $secondaryColor;
+                border: none;
 
-            label {
-                position: absolute;
-                left: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-                pointer-events: none;
+                &:focus {
+                    background-color: $fourthColor;
+                    outline-color: $secondaryColor;
+                }
             }
 
             textarea {
                 resize: none;
+            }
 
-                &+label {
-                    top: 0.4rem;
-                    transform: translateY(0);
-                }
+            label {
+                line-height: 2rem;
+                position: absolute;
+                left: 1rem;
+                top: 1rem;
+                pointer-events: none;
+                transition: font-size 0.2s ease-in-out,transform 0.2s ease-in-out;
+            }
+
+            :is(input, textarea):is(:focus, :not(:placeholder-shown))+label {
+                font-size: 0.9rem;
+                font-weight: 700;
+                transform: translateY(-1rem);
             }
         }
     }

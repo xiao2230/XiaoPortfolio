@@ -19,9 +19,9 @@
                         <span>xiaobow2230@gmail.com</span>
                     </div>
                     <div class="socialBtn">
-                        <a href="#" target="_blank"><button type="button" class="primary"><font-awesome-icon
+                        <a href="#" target="_blank"><button type="button" class="btn circle"><font-awesome-icon
                                     :icon="['fab', 'linkedin-in']" /></button></a>
-                        <a href="#" target="_blank"><button type="button" class="primary"><font-awesome-icon
+                        <a href="#" target="_blank"><button type="button" class="btn circle"><font-awesome-icon
                                     :icon="['fab', 'facebook-f']" /></button></a>
                     </div>
                 </div>
@@ -98,41 +98,8 @@
             .socialBtn {
                 margin-top: 2rem;
 
-                button {
-                    font-size: 1.1rem;
-                    color: $secondaryColor;
-                    background-color: transparent;
-                    width: 2.5rem;
-                    aspect-ratio: 1;
+                .circle {
                     margin-right: 0.5rem;
-                    border: 1px solid $secondaryColor;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    position: relative;
-                    overflow: hidden;
-                    z-index: 1;
-                    transition: color 0.2s ease-in-out;
-
-                    &:hover {
-                        color: $primaryColor;
-                    }
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 0;
-                        height: 100%;
-                        background-color: $fourthColor;
-                        border-radius: 50%;
-                        z-index: -1;
-                        transition: width 0.2s ease-in-out;
-                    }
-
-                    &:hover::after {
-                        width: 100%;
-                    }
                 }
             }
         }

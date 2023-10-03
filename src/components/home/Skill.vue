@@ -4,7 +4,7 @@
 <template>
     <section class="skill">
         <div class="container">
-            <h3>SKILL</h3>
+            <h3 class="text-center">SKILL</h3>
             <div class="allSkill">
                 <div class="frondendSkill">
                     <h4>
@@ -109,7 +109,6 @@
         h3 {
             font-size: 2rem;
             font-weight: 700;
-            text-align: center;
             margin-bottom: 2rem;
         }
 

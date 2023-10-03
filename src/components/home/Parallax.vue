@@ -6,8 +6,8 @@
         <div class="bg" role="img" aria-label="bg"></div>
         <div class="planet-1" role="img" aria-label="planet-1"></div>
         <div class="planet-2" role="img" aria-label="planet-2"></div>
-        <div class="text text-1">HELLO</div>
-        <div class="text text-2">SPACE</div>
+        <div class="text text-1 text-center">HELLO</div>
+        <div class="text text-2 text-center">SPACE</div>
         <div class="planet-3" role="img" aria-label="planet-3"></div>
         <div class="land-1" role="img" aria-label="land-1"></div>
         <div class="land-2" role="img" aria-label="land-2"></div>
@@ -101,7 +101,6 @@
         font-weight: 700;
         position: absolute;
         top: 25vh;
-        text-align: center;
         letter-spacing: calc($rule / 120);
         text-shadow: 0 0 20px $primaryColor;
         mix-blend-mode: overlay;
