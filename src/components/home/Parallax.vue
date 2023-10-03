@@ -3,22 +3,14 @@
 
 <template>
     <section class="parallax">
-        <!-- <img class="bg" src="@/assets/img/bg.png" alt="bg" title="bg">
-        <img class="planet-1" src="@/assets/img/planet_1.png" alt="planet_1" title="planet_1">
-        <img class="planet-2" src="@/assets/img/planet_2.png" alt="planet_2" title="planet_2">
+        <div class="bg" role="img" aria-label="bg"></div>
+        <div class="planet-1" role="img" aria-label="planet-1"></div>
+        <div class="planet-2" role="img" aria-label="planet-2"></div>
         <div class="text text-1">HELLO</div>
         <div class="text text-2">SPACE</div>
-        <img class="planet-3" src="@/assets/img/planet_3.png" alt="planet_3" title="planet_3">
-        <img class="land-1" src="@/assets/img/land_1.png" alt="land_1" title="land_1">
-        <img class="land-2" src="@/assets/img/land_2.png" alt="land_2" title="land_2"> -->
-        <div class="bg"></div>
-        <div class="planet-1"></div>
-        <div class="planet-2"></div>
-        <div class="text text-1">HELLO</div>
-        <div class="text text-2">SPACE</div>
-        <div class="planet-3"></div>
-        <div class="land-1"></div>
-        <div class="land-2"></div>
+        <div class="planet-3" role="img" aria-label="planet-3"></div>
+        <div class="land-1" role="img" aria-label="land-1"></div>
+        <div class="land-2" role="img" aria-label="land-2"></div>
     </section>
 </template>
 
@@ -70,15 +62,6 @@
     >* {
         transition: transform 2s ease-in-out, opacity 3s ease-in-out;
     }
-
-    // img {
-    //     height: 100%;
-    //     width: 100%;
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     object-fit: cover;
-    // }
 
     >div {
         height: 100%;
