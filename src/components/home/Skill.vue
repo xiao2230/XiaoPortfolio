@@ -136,7 +136,7 @@
                     background-color: $fifthColor;
                     padding: 0.5rem 1rem;
 
-                    &::after{
+                    &::after {
                         content: "";
                         position: absolute;
                         left: 100%;
@@ -212,8 +212,8 @@
                 .cube {
                     height: 100%;
                     position: absolute;
-                    right: 0.5rem;
-                    top: 0;
+                    top: -2rem;
+                    left: 5rem;
                     transform-style: preserve-3d;
                     animation: rotate-1 5s alternate infinite ease-in-out;
 
@@ -251,7 +251,7 @@
                 }
 
                 &.otherSkill .cube {
-                    animation: rotate-2 5s alternate infinite ease;
+                    animation: rotate-2 5s infinite linear;
                 }
 
                 &:hover .skillItem,
@@ -274,21 +274,21 @@
 
 @keyframes rotate-1 {
     0% {
-        transform: translateY(0) rotate3d(0, 0, 0, 0);
+        transform: rotate3d(0, 0, 0, 0);
     }
 
     100% {
-        transform: translateY(calc(100% - 1rem)) rotate3d(0.01, 0.1, 0.01, 720deg);
+        transform: rotate3d(0.01, 0.05, -0.01, -540deg);
     }
 }
 
 @keyframes rotate-2 {
     0% {
-        transform: translateY(0) rotate3d(0, 0, 0, 0);
+        transform: rotate3d(0, 0, 0, 0);
     }
 
     100% {
-        transform: translateY(calc(100% - 1rem)) rotate3d(0.01, 0.1, -0.01, 720deg);
+        transform: rotate3d(0.01, 0.05, -0.01, 720deg);
     }
 }
 

@@ -2,6 +2,7 @@
 import Parallax from "@/components/home/Parallax.vue";
 import Introduction from "@/components/home/Introduction.vue";
 import Skill from "@/components/home/Skill.vue";
+import Contact from "@/components/home/Contact.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Skill from "@/components/home/Skill.vue";
     <Parallax />
     <Introduction />
     <Skill />
+    <Contact />
   </div>
 </template>
 
