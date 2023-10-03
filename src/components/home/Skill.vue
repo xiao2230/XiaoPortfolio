@@ -26,11 +26,11 @@
                             <span>HTML5</span>
                         </span>
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="CSS3" title="CSS3">
+                            <img src="@/assets/img/skill/CSS3.png" alt="CSS3" title="CSS3">
                             <span>CSS3</span>
                         </span>
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="JavaScript" title="JavaScript">
+                            <img src="@/assets/img/skill/JavaScript.png" alt="JavaScript" title="JavaScript">
                             <span>JavaScript</span>
                         </span>
                         <span class="skillItem">
@@ -46,7 +46,7 @@
                             <span>Vue</span>
                         </span>
                         <span class="skillItem">
-                            <img src="@/assets/img/skill/HTML5.png" alt="D3" title="D3">
+                            <img src="@/assets/img/skill/D3.png" alt="D3" title="D3">
                             <span>D3</span>
                         </span>
                         <span class="skillItem">
