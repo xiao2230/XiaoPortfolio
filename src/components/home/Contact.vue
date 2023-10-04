@@ -84,10 +84,10 @@
             //     transform: translateY(-1rem);
             // }
 
-            input:focus+label,
-            input:not(:placeholder-shown)+label,
-            textarea:focus+label,
-            textarea:not(:placeholder-shown)+label{
+            input:focus~label,
+            input:not(:placeholder-shown)~label,
+            textarea:focus~label,
+            textarea:not(:placeholder-shown)~label{
                 font-size: 0.9rem;
                 font-weight: 700;
                 transform: translateY(-1rem);
