@@ -141,6 +141,15 @@ button {
     &.rect {
         padding: 1rem;
     }
+
+    &:disabled {
+        color: $primaryColor;
+        cursor: not-allowed;
+
+        &::after {
+            width: 100%;
+        }
+    }
 }
 
 .text-center {

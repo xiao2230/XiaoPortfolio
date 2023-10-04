@@ -4,10 +4,12 @@ const isDisabled = ref(false);
 const sendBtnText = ref("SEND");
 const send = () => {
     isDisabled.value = true;
-    setTimeout(() => isDisabled.value = false, 3000);
+    sendBtnText.value = "WAIT";
+    setTimeout(() => {
+        isDisabled.value = false;
+        sendBtnText.value = "SEND";
+    }, 3000);
 }
-
-
 </script>
 
 <template>
@@ -31,7 +33,7 @@ const send = () => {
                     <label for="guestMessage">GUEST MESSAGE</label>
                 </div>
                 <div class="group text-center">
-                    <button type="submit" class="btn rect">SEND</button>
+                    <button type="submit" class="btn rect" :disabled="isDisabled">{{ sendBtnText }}</button>
                 </div>
             </form>
         </div>
