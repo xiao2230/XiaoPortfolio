@@ -20,11 +20,11 @@ const initMenu = () => {
 const changeMenu = () => {
     menu.value = menu.value === "open" ? "close" : "open";
     localStorage.setItem(storedKey, menu.value);
-}
+};
 const closeMenu = () => {
     if (menu.value === "close") return;
     changeMenu();
-}
+};
 
 onBeforeMount(() => initMenu());
 </script>

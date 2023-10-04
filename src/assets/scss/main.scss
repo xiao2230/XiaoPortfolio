@@ -67,6 +67,11 @@
     color: transparent;
 }
 
+:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 * {
     margin: 0;
     padding: 0;

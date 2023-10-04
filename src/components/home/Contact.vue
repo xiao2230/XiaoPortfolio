@@ -1,26 +1,37 @@
 <script setup>
+import { ref } from "vue";
+const isDisabled = ref(false);
+const sendBtnText = ref("SEND");
+const send = () => {
+    isDisabled.value = true;
+    setTimeout(() => isDisabled.value = false, 3000);
+}
+
+
 </script>
 
 <template>
     <section class="contact">
         <div class="container">
             <h3 class="text-center">CONTACT</h3>
-            <form>
+            <form @submit.prevent="send">
                 <div class="group">
-                    <input type="text" name="guestName" id="guestName" maxlength="30" placeholder="Name">
+                    <input type="text" name="guestName" id="guestName" maxlength="30" placeholder="Name" required
+                        :disabled="isDisabled">
                     <label for="guestName">GUEST NAME</label>
                 </div>
                 <div class="group">
-                    <input type="email" name="guestEmail" id="guestEmail" maxlength="30" placeholder="Email">
+                    <input type="email" name="guestEmail" id="guestEmail" maxlength="30" placeholder="Email" required
+                        :disabled="isDisabled">
                     <label for="guestEmail">GUEST EMAIL</label>
                 </div>
                 <div class="group">
                     <textarea name="guestMessage" id="guestMessage" cols="30" rows="10" maxlength="500"
-                        placeholder="Message" v-save></textarea>
+                        placeholder="Message" required v-save :disabled="isDisabled"></textarea>
                     <label for="guestMessage">GUEST MESSAGE</label>
                 </div>
                 <div class="group text-center">
-                    <button type="button" class="btn rect">SEND</button>
+                    <button type="submit" class="btn rect">SEND</button>
                 </div>
             </form>
         </div>
