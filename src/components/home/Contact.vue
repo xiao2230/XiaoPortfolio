@@ -7,11 +7,11 @@
             <h3 class="text-center">CONTACT</h3>
             <form>
                 <div class="group">
-                    <input type="text" name="guestName" id="guestName" maxlength="10" placeholder="">
+                    <input type="text" name="guestName" id="guestName" maxlength="30" placeholder="">
                     <label for="guestName">Name</label>
                 </div>
                 <div class="group">
-                    <input type="email" name="guestEmail" id="guestEmail" maxlength="20" placeholder="">
+                    <input type="email" name="guestEmail" id="guestEmail" maxlength="30" placeholder="">
                     <label for="guestEmail">Email</label>
                 </div>
                 <div class="group">
@@ -47,11 +47,11 @@
         .group {
             margin-bottom: 1rem;
             position: relative;
-            color: $primaryColor;
 
             input,
             textarea {
                 font-size: 1rem;
+                color: $primaryColor;
                 width: 100%;
                 line-height: 2rem;
                 padding: 1.5rem 1rem 0.5rem;
@@ -69,12 +69,13 @@
             }
 
             label {
+                color: $primaryColor;
                 line-height: 2rem;
                 position: absolute;
                 left: 1rem;
                 top: 1rem;
                 pointer-events: none;
-                transition: font-size 0.2s ease-in-out,transform 0.2s ease-in-out;
+                transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
             }
 
             :is(input, textarea):is(:not(:placeholder-shown))+label {
