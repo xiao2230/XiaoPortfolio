@@ -7,16 +7,16 @@
             <h3 class="text-center">CONTACT</h3>
             <form>
                 <div class="group">
-                    <input type="text" name="guestName" id="guestName" maxlength="30" placeholder="">
+                    <input type="text" name="guestName" id="guestName" maxlength="30" placeholder="Name">
                     <label for="guestName">Name</label>
                 </div>
                 <div class="group">
-                    <input type="email" name="guestEmail" id="guestEmail" maxlength="30" placeholder="">
+                    <input type="email" name="guestEmail" id="guestEmail" maxlength="30" placeholder="Email">
                     <label for="guestEmail">Email</label>
                 </div>
                 <div class="group">
                     <textarea name="guestMessage" id="guestMessage" cols="30" rows="10" maxlength="500"
-                        placeholder=""></textarea>
+                        placeholder="Message"></textarea>
                     <label for="guestMessage">Message</label>
                 </div>
                 <div class="group text-center">
@@ -84,10 +84,10 @@
             //     transform: translateY(-1rem);
             // }
 
-            input:focus~label,
-            input:not(:placeholder-shown)~label,
-            textarea:focus~label,
-            textarea:not(:placeholder-shown)~label{
+            input:focus+label,
+            input:not(:placeholder-shown)+label,
+            textarea:focus+label,
+            textarea:not(:placeholder-shown)+label {
                 font-size: 0.9rem;
                 font-weight: 700;
                 transform: translateY(-1rem);
