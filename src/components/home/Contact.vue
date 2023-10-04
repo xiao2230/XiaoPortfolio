@@ -78,7 +78,7 @@
                 transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
             }
 
-            :is(input, textarea):is(:not(:placeholder-shown))+label {
+            :is(input, textarea):not(:placeholder-shown)+label {
                 font-size: 0.9rem;
                 font-weight: 700;
                 transform: translateY(-1rem);
