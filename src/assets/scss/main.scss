@@ -63,6 +63,10 @@
     border-radius: 100px;
 }
 
+::placeholder {
+    color: transparent;
+}
+
 * {
     margin: 0;
     padding: 0;
