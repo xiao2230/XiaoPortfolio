@@ -8,19 +8,19 @@
             <form>
                 <div class="group">
                     <input type="text" name="guestName" id="guestName" maxlength="30" placeholder="Name">
-                    <label for="guestName">Name</label>
+                    <label for="guestName">GUEST NAME</label>
                 </div>
                 <div class="group">
                     <input type="email" name="guestEmail" id="guestEmail" maxlength="30" placeholder="Email">
-                    <label for="guestEmail">Email</label>
+                    <label for="guestEmail">GUEST EMAIL</label>
                 </div>
                 <div class="group">
                     <textarea name="guestMessage" id="guestMessage" cols="30" rows="10" maxlength="500"
-                        placeholder="Message"></textarea>
-                    <label for="guestMessage">Message</label>
+                        placeholder="Message" v-save></textarea>
+                    <label for="guestMessage">GUEST MESSAGE</label>
                 </div>
                 <div class="group text-center">
-                    <button type="button" class="btn rect">Send Letter</button>
+                    <button type="button" class="btn rect">SEND</button>
                 </div>
             </form>
         </div>
@@ -78,7 +78,7 @@
                 transition: font-size 0.2s ease-in-out, transform 0.2s ease-in-out;
             }
 
-            :is(input, textarea):is(:focus,:not(:placeholder-shown))+label {
+            :is(input, textarea):is(:focus, :not(:placeholder-shown))+label {
                 font-size: 0.9rem;
                 font-weight: 700;
                 transform: translateY(-1rem);
