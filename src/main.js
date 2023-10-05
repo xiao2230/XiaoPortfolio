@@ -31,22 +31,18 @@ app.use(createPinia());
 app.use(router);
 
 app.directive("save", {
-    mounted(el, binding) {
-        const setValue = (val) => el.value = val;
-        const setSessionStorage = (val) => sessionStorage.setItem(el.name, val);
+    mounted(el) {
+        el.setSessionStorage = (e) => sessionStorage.setItem(el.name, e.target.value);
 
-        if (sessionStorage[el.name]) setValue(sessionStorage[el.name]);
-
-        el.saveData = (e) => {
-            setSessionStorage(e.target.value);
-        }
-
-        el.addEventListener("input", el.saveData);
-        el.addEventListener("change", el.saveData);
+        el.addEventListener("input", el.setSessionStorage);
+        el.addEventListener("change", el.setSessionStorage);
+    },
+    updated(el, binding) {
+        if (binding.value === "") sessionStorage.removeItem(el.name);
     },
     unmounted(el) {
-        el.removeEventListener("input", el.saveData);
-        el.removeEventListener("change", el.saveData);
+        el.removeEventListener("input", el.setSessionStorage);
+        el.removeEventListener("change", el.setSessionStorage);
     },
 });
 
