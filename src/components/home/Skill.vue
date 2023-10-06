@@ -4,7 +4,25 @@
 <template>
     <section class="skill">
         <div class="container">
-            <h3 class="text-center">SKILL</h3>
+            <h3 class="text-center">
+                SKILL
+                <div class="cube cube-1">
+                    <div class="front"></div>
+                    <div class="back"></div>
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="cube cube-2">
+                    <div class="front"></div>
+                    <div class="back"></div>
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+            </h3>
             <div class="allSkill">
                 <div class="frondendSkill">
                     <h4>
@@ -54,14 +72,6 @@
                             <span>GSAP</span>
                         </span>
                     </div>
-                    <div class="cube">
-                        <div class="front"></div>
-                        <div class="back"></div>
-                        <div class="top"></div>
-                        <div class="bottom"></div>
-                        <div class="left"></div>
-                        <div class="right"></div>
-                    </div>
                 </div>
                 <div class="otherSkill">
                     <h4>
@@ -84,14 +94,6 @@
                             <span>Netlify</span>
                         </span>
                     </div>
-                    <div class="cube">
-                        <div class="front"></div>
-                        <div class="back"></div>
-                        <div class="top"></div>
-                        <div class="bottom"></div>
-                        <div class="left"></div>
-                        <div class="right"></div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -110,6 +112,55 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 2rem;
+            position: relative;
+            perspective: 1000px;
+            z-index: 1;
+
+            .cube {
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 60%;
+                transform-style: preserve-3d;
+                animation: rotate-1 5s infinite linear;
+
+                &.cube-2 {
+                    left: 40%;
+                    animation: rotate-2 5s alternate infinite ease-in-out;
+                }
+
+                div {
+                    position: absolute;
+                    width: 1rem;
+                    height: 1rem;
+                    background: $secondaryColor;
+                    border: 1px solid $fourthColor;
+
+                    &.front {
+                        transform: translateZ(0.5rem);
+                    }
+
+                    &.back {
+                        transform: rotateY(180deg) translateZ(0.5rem);
+                    }
+
+                    &.top {
+                        transform: rotateX(90deg) translateZ(0.5rem);
+                    }
+
+                    &.bottom {
+                        transform: rotateX(-90deg) translateZ(0.5rem);
+                    }
+
+                    &.left {
+                        transform: rotateY(-90deg) translateZ(0.5rem);
+                    }
+
+                    &.right {
+                        transform: rotateY(90deg) translateZ(0.5rem);
+                    }
+                }
+            }
         }
 
         .allSkill {
@@ -124,7 +175,6 @@
                 padding-block: 2rem;
                 margin-bottom: 2rem;
                 position: relative;
-                perspective: 1000px;
 
                 h4 {
                     font-size: 1.4rem;
@@ -208,51 +258,6 @@
                     }
                 }
 
-                .cube {
-                    height: 100%;
-                    position: absolute;
-                    top: -2rem;
-                    left: 5rem;
-                    transform-style: preserve-3d;
-                    animation: rotate-1 5s alternate infinite ease-in-out;
-
-                    div {
-                        position: absolute;
-                        width: 1rem;
-                        height: 1rem;
-                        background: $secondaryColor;
-                        border: 1px solid $fourthColor;
-
-                        &.front {
-                            transform: translateZ(0.5rem);
-                        }
-
-                        &.back {
-                            transform: rotateY(180deg) translateZ(0.5rem);
-                        }
-
-                        &.top {
-                            transform: rotateX(90deg) translateZ(0.5rem);
-                        }
-
-                        &.bottom {
-                            transform: rotateX(-90deg) translateZ(0.5rem);
-                        }
-
-                        &.left {
-                            transform: rotateY(-90deg) translateZ(0.5rem);
-                        }
-
-                        &.right {
-                            transform: rotateY(90deg) translateZ(0.5rem);
-                        }
-                    }
-                }
-
-                &.otherSkill .cube {
-                    animation: rotate-2 5s infinite linear;
-                }
-
                 &:hover .skillItem,
                 &:active .skillItem {
                     img {
@@ -277,7 +282,7 @@
     }
 
     100% {
-        transform: rotate3d(0.01, 0.05, -0.01, -540deg);
+        transform: rotate3d(0.8, 0.7, 0.5, 720deg);
     }
 }
 
@@ -287,7 +292,7 @@
     }
 
     100% {
-        transform: rotate3d(0.01, 0.05, -0.01, 720deg);
+        transform: rotate3d(1, 1, 1, -360deg);
     }
 }
 
