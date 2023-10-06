@@ -115,7 +115,6 @@
             margin-bottom: 2rem;
             position: relative;
             perspective: 1000px;
-            z-index: 1;
 
             .cube {
                 height: 100%;
@@ -126,6 +125,7 @@
                 animation: rotate-1 5s infinite linear;
 
                 &.cube-2 {
+                    z-index: -1;
                     left: 40%;
                     animation: rotate-2 5s infinite ease-in-out;
                 }
