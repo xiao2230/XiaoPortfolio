@@ -111,6 +111,7 @@
         h3 {
             font-size: 2rem;
             font-weight: 700;
+            text-shadow: 0 0 2px $primaryColor;
             margin-bottom: 2rem;
             position: relative;
             perspective: 1000px;
@@ -126,7 +127,7 @@
 
                 &.cube-2 {
                     left: 40%;
-                    animation: rotate-2 5s alternate infinite ease-in-out;
+                    animation: rotate-2 5s infinite ease-in-out;
                 }
 
                 div {
@@ -184,18 +185,6 @@
                     left: -2rem;
                     background-color: $fifthColor;
                     padding: 0.5rem 1rem;
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        left: 100%;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        height: 70%;
-                        width: 1px;
-                        background-color: $secondaryColor;
-                    }
-
 
                     .smoky {
                         position: absolute;
@@ -292,7 +281,7 @@
     }
 
     100% {
-        transform: rotate3d(1, 1, 1, -360deg);
+        transform: rotate3d(1, -1, 1, -360deg);
     }
 }
 
