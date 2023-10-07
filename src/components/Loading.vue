@@ -17,18 +17,18 @@ onMounted(() => {
         tl
             .to(svg.value, {
                 scale: 0,
-                duration: .8,
+                duration: 0.8,
                 ease: "circ.inOut"
             })
             .to(curtains.value.children, {
                 scaleY: 0,
-                stagger: .1,
+                stagger: 0.15,
                 ease: "circ.inOut"
-            })
+            },"-=0.3")
             .to(loading.value, {
                 zIndex: -1,
-                duration: .1
-            });
+                duration: 0.1
+            }, "-=0.1");
     });
 });
 </script>

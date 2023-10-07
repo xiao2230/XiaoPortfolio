@@ -1,15 +1,44 @@
 <script setup>
+import { ref, onMounted } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const parallax = ref(null);
+const text_1 = ref(null);
+const text_2 = ref(null);
+const planet_1 = ref(null);
+const land_1 = ref(null);
+
+onMounted(() => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: parallax.value,
+            start: "top top",
+            end: "70% top",
+            toggleClass: "active",
+            scrub: true
+        }
+    });
+
+    tl
+        .to(text_1.value, { marginTop: 250 }, "0sec")
+        .to(text_2.value, { marginTop: 250 }, "0sec")
+        .to(planet_1.value, { marginTop: -30 }, "0sec")
+        .to(land_1.value, { marginTop: -50 }, "0sec")
+});
 </script>
 
 <template>
-    <section class="parallax">
+    <section ref="parallax" class="parallax">
         <div class="bg" role="img" aria-label="bg"></div>
-        <div class="planet-1" role="img" aria-label="planet-1"></div>
         <div class="planet-2" role="img" aria-label="planet-2"></div>
-        <div class="text text-1 text-center">HELLO</div>
-        <div class="text text-2 text-center">SPACE</div>
+        <div ref="text_1" class="text text-1 text-center">HELLO</div>
+        <div ref="planet_1" class="planet-1" role="img" aria-label="planet-1"></div>
+        <div ref="text_2" class="text text-2 text-center">SPACE</div>
         <div class="planet-3" role="img" aria-label="planet-3"></div>
-        <div class="land-1" role="img" aria-label="land-1"></div>
+        <div ref="land_1" class="land-1" role="img" aria-label="land-1"></div>
         <div class="land-2" role="img" aria-label="land-2"></div>
     </section>
 </template>
@@ -35,11 +64,11 @@
     }
 
     .land-1 {
-        transform: translateY(-10vh);
+        transform: translateY(-5vh);
     }
 
     .land-2 {
-        transform: translateY(20vh);
+        transform: translateY(5vh);
     }
 }
 
@@ -55,7 +84,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 20vh;
+        height: 35vh;
         background: linear-gradient(to top, $primaryColor, transparent);
     }
 
