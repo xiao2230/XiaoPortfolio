@@ -120,14 +120,15 @@
                 height: 100%;
                 position: absolute;
                 top: 0;
-                left: 60%;
+                left: 40%;
                 transform-style: preserve-3d;
                 animation: rotate-1 5s infinite linear;
+                z-index: -1;
 
                 &.cube-2 {
-                    z-index: -1;
-                    left: 40%;
-                    animation: rotate-2 5s infinite ease-in-out;
+                    left: 60%;
+                    animation: rotate-2 5s infinite linear;
+                    z-index: 1;
                 }
 
                 div {
@@ -271,7 +272,7 @@
     }
 
     100% {
-        transform: rotate3d(0.8, 0.7, 0.5, 720deg);
+        transform: rotate3d(0.8, 1, 0, 720deg);
     }
 }
 
@@ -281,7 +282,7 @@
     }
 
     100% {
-        transform: rotate3d(1, -1, 1, -360deg);
+        transform: rotate3d(0.8, -0.7, 0.5, -720deg);
     }
 }
 
