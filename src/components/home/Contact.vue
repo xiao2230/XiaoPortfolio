@@ -1,7 +1,9 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const guestName = ref("");
 const guestEmail = ref("");
@@ -32,8 +34,6 @@ const closeToast = () => toast.value = "hide";
 onMounted(() => {
     if (sessionStorage["guestMessage"]) guestMessage.value = sessionStorage["guestMessage"];
 
-    gsap.registerPlugin(ScrollTrigger);
-    
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: contact.value,
@@ -45,7 +45,11 @@ onMounted(() => {
 
     tl
         .fromTo(h3.value, { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1 })
-        .fromTo(form.value, { y: "3vh", opacity: 0 }, { y: 0, opacity: 1 })
+        .fromTo(form.value, { y: "3vh", opacity: 0 }, { y: 0, opacity: 1 });
+});
+
+onUnmounted(() => {
+    ScrollTrigger.getAll().forEach(t => t.kill());
 });
 </script>
 

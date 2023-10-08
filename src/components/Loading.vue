@@ -24,7 +24,7 @@ onMounted(() => {
                 scaleY: 0,
                 stagger: 0.15,
                 ease: "circ.inOut"
-            },"-=0.3")
+            }, "-=0.3")
             .to(loading.value, {
                 zIndex: -1,
                 duration: 0.1

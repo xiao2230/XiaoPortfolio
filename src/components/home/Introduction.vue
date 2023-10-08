@@ -1,15 +1,15 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const introduction = ref(null);
 const text = ref(null);
 const img = ref(null);
 
 onMounted(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const mm = gsap.matchMedia();
 
     mm.add({
@@ -33,6 +33,11 @@ onMounted(() => {
             .fromTo(img.value, isDesktop ? nextAction : firstAction, { x: 0, y: 0, opacity: 1 }, "0sec")
             .fromTo(text.value, isDesktop ? firstAction : nextAction, { x: 0, y: 0, opacity: 1 }, isDesktop ? "0sec" : "-=0.1");
     });
+});
+
+onUnmounted(() => {
+    ScrollTrigger.getAll().forEach(t => t.kill());
+    ScrollTrigger.clearMatchMedia();
 });
 </script>
 

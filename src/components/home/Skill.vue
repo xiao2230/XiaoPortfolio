@@ -1,7 +1,9 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const skill = ref(null);
 const h3 = ref(null);
@@ -9,8 +11,6 @@ const frondendSkill = ref(null);
 const otherSkill = ref(null);
 
 onMounted(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const mm = gsap.matchMedia();
 
     mm.add({
@@ -35,7 +35,10 @@ onMounted(() => {
     });
 });
 
-
+onUnmounted(() => {
+    ScrollTrigger.getAll().forEach(t => t.kill());
+    ScrollTrigger.clearMatchMedia();
+});
 </script>
 
 <template>
