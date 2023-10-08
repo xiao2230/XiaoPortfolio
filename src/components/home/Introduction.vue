@@ -30,7 +30,7 @@ onMounted(() => {
         });
 
         tl
-            .fromTo(img.value, isDesktop ? nextAction : firstAction, { x: 0, y: 0, opacity: 1 })
+            .fromTo(img.value, isDesktop ? nextAction : firstAction, { x: 0, y: 0, opacity: 1 }, "0sec")
             .fromTo(text.value, isDesktop ? firstAction : nextAction, { x: 0, y: 0, opacity: 1 }, isDesktop ? "0sec" : "-=0.1");
     });
 });
