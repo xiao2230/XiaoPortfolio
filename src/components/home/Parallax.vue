@@ -23,10 +23,10 @@ onMounted(() => {
     });
 
     tl
-        .to(text_1.value, { marginTop: 250 }, "0sec")
-        .to(text_2.value, { marginTop: 250 }, "0sec")
-        .to(planet_1.value, { marginTop: -30 }, "0sec")
-        .to(land_1.value, { marginTop: -50 }, "0sec")
+        .to(text_1.value, { marginTop: "20vh" }, "0sec")
+        .to(text_2.value, { marginTop: "25vh" }, "0sec")
+        .to(planet_1.value, { marginTop: "-8vh" }, "0sec")
+        .to(land_1.value, { marginTop: "3vh" }, "0sec");
 });
 </script>
 
@@ -36,8 +36,8 @@ onMounted(() => {
         <div class="planet-2" role="img" aria-label="planet-2"></div>
         <div ref="text_1" class="text text-1 text-center">HELLO</div>
         <div ref="planet_1" class="planet-1" role="img" aria-label="planet-1"></div>
-        <div ref="text_2" class="text text-2 text-center">SPACE</div>
         <div class="planet-3" role="img" aria-label="planet-3"></div>
+        <div ref="text_2" class="text text-2 text-center">SPACE</div>
         <div ref="land_1" class="land-1" role="img" aria-label="land-1"></div>
         <div class="land-2" role="img" aria-label="land-2"></div>
     </section>
