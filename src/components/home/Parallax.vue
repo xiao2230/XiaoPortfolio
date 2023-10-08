@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -26,10 +26,6 @@ onMounted(() => {
         .to(text_2.value, { marginTop: "30vh" }, "0sec")
         .to(planet_1.value, { marginTop: "5vh" }, "0sec")
         .to(land_1.value, { marginTop: "-4vh" }, "0sec");
-});
-
-onUnmounted(() => {
-    ScrollTrigger.getAll().forEach(t => t.kill());
 });
 </script>
 

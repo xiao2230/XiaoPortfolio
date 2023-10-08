@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -46,10 +46,6 @@ onMounted(() => {
     tl
         .fromTo(h3.value, { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1 })
         .fromTo(form.value, { y: "3vh", opacity: 0 }, { y: 0, opacity: 1 });
-});
-
-onUnmounted(() => {
-    ScrollTrigger.getAll().forEach(t => t.kill());
 });
 </script>
 

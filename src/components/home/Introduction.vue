@@ -8,10 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 const introduction = ref(null);
 const text = ref(null);
 const img = ref(null);
+const mm = gsap.matchMedia();
 
 onMounted(() => {
-    const mm = gsap.matchMedia();
-
     mm.add({
         isDesktop: "(min-width: 768px)",
         isMobile: "(max-width: 767.98px)"
@@ -36,8 +35,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-    ScrollTrigger.getAll().forEach(t => t.kill());
-    ScrollTrigger.clearMatchMedia();
+    mm.kill();
 });
 </script>
 
