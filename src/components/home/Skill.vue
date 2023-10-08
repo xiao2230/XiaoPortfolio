@@ -22,7 +22,7 @@ onMounted(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: skill.value,
-                start: "top 95%",
+                start: "top 85%",
                 end: "bottom 90%",
                 scrub: true
             }
