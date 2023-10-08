@@ -1,8 +1,33 @@
 <script setup>
+import { ref, onMounted } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const introduction = ref(null);
+
+onMounted(() => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: introduction.value,
+            start: "top top",
+            end: "80% top",
+            toggleClass: "active",
+            scrub: true
+        }
+    });
+
+    // tl
+    //     .to(text_1.value, { marginTop: "30vh" }, "0sec")
+    //     .to(text_2.value, { marginTop: "35vh" }, "0sec")
+    //     .to(planet_1.value, { marginTop: "-8vh" }, "0sec")
+    //     .to(land_1.value, { marginTop: "3vh" }, "0sec");
+});
 </script>
 
 <template>
-        <section class="introduction">
+        <section ref="introduction" class="introduction">
             <div class="container">
                 <div class="text">
                     <h1>Hi！I'm Xiao</h1>
