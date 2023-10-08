@@ -13,8 +13,6 @@ const contact = ref(null);
 const h3 = ref(null);
 const form = ref(null);
 
-gsap.registerPlugin(ScrollTrigger);
-
 const send = () => {
     isDisabled.value = true;
     sendBtnText.value = "WAIT";
@@ -34,6 +32,8 @@ const closeToast = () => toast.value = "hide";
 onMounted(() => {
     if (sessionStorage["guestMessage"]) guestMessage.value = sessionStorage["guestMessage"];
 
+    gsap.registerPlugin(ScrollTrigger);
+    
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: contact.value,

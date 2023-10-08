@@ -9,9 +9,9 @@ const text_2 = ref(null);
 const planet_1 = ref(null);
 const land_1 = ref(null);
 
-gsap.registerPlugin(ScrollTrigger);
-
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: parallax.value,

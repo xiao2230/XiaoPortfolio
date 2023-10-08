@@ -7,9 +7,9 @@ const introduction = ref(null);
 const text = ref(null);
 const img = ref(null);
 
-gsap.registerPlugin(ScrollTrigger);
-
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const mm = gsap.matchMedia();
 
     mm.add({

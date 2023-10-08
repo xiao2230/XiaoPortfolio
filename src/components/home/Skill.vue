@@ -8,9 +8,9 @@ const h3 = ref(null);
 const frondendSkill = ref(null);
 const otherSkill = ref(null);
 
-gsap.registerPlugin(ScrollTrigger);
-
 onMounted(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const mm = gsap.matchMedia();
 
     mm.add({
