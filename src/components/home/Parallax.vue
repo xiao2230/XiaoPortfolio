@@ -88,7 +88,7 @@ onMounted(() => {
     }
 
     >* {
-        transition: transform 2s ease-in-out, opacity 3s ease-in-out, margin-top 0.1s linear;
+        transition: transform 2s ease-in-out, opacity 3s ease-in-out, margin-top 0.2s linear;
     }
 
     >div {

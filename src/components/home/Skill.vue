@@ -152,6 +152,7 @@ onMounted(() => {
             margin-bottom: 2rem;
             position: relative;
             perspective: 1000px;
+            transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 
             .cube {
                 height: 100%;
@@ -214,6 +215,7 @@ onMounted(() => {
                 padding-block: 2rem;
                 margin-bottom: 2rem;
                 position: relative;
+                transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 
                 h4 {
                     font-size: 1.4rem;

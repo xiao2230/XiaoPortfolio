@@ -96,6 +96,10 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
 
+    >* {
+        transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    }
+
     h3 {
         font-size: 2rem;
         font-weight: 700;

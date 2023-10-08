@@ -74,7 +74,7 @@ onMounted(() => {
 
     >* {
         flex: 1 0 50%;
-        transition: transform 0.1s ease-out;
+        transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 
         &.text {
             display: flex;
