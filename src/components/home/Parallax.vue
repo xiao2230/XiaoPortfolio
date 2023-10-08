@@ -17,7 +17,6 @@ onMounted(() => {
             trigger: parallax.value,
             start: "top top",
             end: "80% top",
-            toggleClass: "active",
             scrub: true
         }
     });
@@ -25,8 +24,8 @@ onMounted(() => {
     tl
         .to(text_1.value, { marginTop: "25vh" }, "0sec")
         .to(text_2.value, { marginTop: "30vh" }, "0sec")
-        .to(planet_1.value, { marginTop: "3vh" }, "0sec")
-        .to(land_1.value, { marginTop: "-8vh" }, "0sec");
+        .to(planet_1.value, { marginTop: "5vh" }, "0sec")
+        .to(land_1.value, { marginTop: "-4vh" }, "0sec");
 });
 </script>
 
@@ -89,7 +88,7 @@ onMounted(() => {
     }
 
     >* {
-        transition: transform 2s ease-in-out, opacity 3s ease-in-out;
+        transition: transform 2s ease-in-out, opacity 3s ease-in-out, margin-top 0.1s ease-out;
     }
 
     >div {

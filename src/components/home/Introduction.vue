@@ -6,56 +6,55 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const introduction = ref(null);
+const text = ref(null);
+const img = ref(null);
 
 onMounted(() => {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: introduction.value,
-            start: "top top",
-            end: "80% top",
-            toggleClass: "active",
+            start: "top bottom",
+            end: "55% bottom",
             scrub: true
         }
     });
 
-    // tl
-    //     .to(text_1.value, { marginTop: "30vh" }, "0sec")
-    //     .to(text_2.value, { marginTop: "35vh" }, "0sec")
-    //     .to(planet_1.value, { marginTop: "-8vh" }, "0sec")
-    //     .to(land_1.value, { marginTop: "3vh" }, "0sec");
+    tl
+        .fromTo(text.value, { x: "-20vw", y: "25vh", opacity: 0 }, { x: 0, y: 0, opacity: 1 }, "0sec")
+    // .to(img.value, {  }, "0sec");
 });
 </script>
 
 <template>
-        <section ref="introduction" class="introduction">
-            <div class="container">
-                <div class="text">
-                    <h1>Hi！I'm Xiao</h1>
-                    <div class="aniText">
-                        <h3>Frontend Developer</h3>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestias quae similique
-                        necessitatibus
-                        nemo. Tenetur modi quibusdam voluptatibus unde aliquid, facilis officiis sunt consequatur ab,
-                        tempora
-                        facere possimus alias assumenda.</p>
-                    <div class="email">
-                        <h4>Email</h4>
-                        <span>xiaobow2230@gmail.com</span>
-                    </div>
-                    <div class="socialBtn">
-                        <a href="#" target="_blank"><button type="button" class="btn circle"><font-awesome-icon
-                                    :icon="['fab', 'linkedin-in']" /></button></a>
-                        <a href="#" target="_blank"><button type="button" class="btn circle"><font-awesome-icon
-                                    :icon="['fab', 'facebook-f']" /></button></a>
-                    </div>
+    <section ref="introduction" class="introduction">
+        <div class="container">
+            <div ref="text" class="text">
+                <h1>Hi！I'm Xiao</h1>
+                <div class="aniText">
+                    <h3>Frontend Developer</h3>
                 </div>
-                <div class="img">
-                    <img class="introBg" src="@/assets/img/introBg.png" alt="introBg" title="introBg">
-                    <img class="intro" src="@/assets/img/intro.png" alt="intro" title="intro">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat molestias quae similique
+                    necessitatibus
+                    nemo. Tenetur modi quibusdam voluptatibus unde aliquid, facilis officiis sunt consequatur ab,
+                    tempora
+                    facere possimus alias assumenda.</p>
+                <div class="email">
+                    <h4>Email</h4>
+                    <span>xiaobow2230@gmail.com</span>
+                </div>
+                <div class="socialBtn">
+                    <a href="#" target="_blank"><button type="button" class="btn circle"><font-awesome-icon
+                                :icon="['fab', 'linkedin-in']" /></button></a>
+                    <a href="#" target="_blank"><button type="button" class="btn circle"><font-awesome-icon
+                                :icon="['fab', 'facebook-f']" /></button></a>
                 </div>
             </div>
-        </section>
+            <div ref="img" class="img">
+                <img class="introBg" src="@/assets/img/introBg.png" alt="introBg" title="introBg">
+                <img class="intro" src="@/assets/img/intro.png" alt="intro" title="intro">
+            </div>
+        </div>
+    </section>
 </template>
 
 <style lang="scss" scoped>
