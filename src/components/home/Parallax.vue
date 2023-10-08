@@ -16,15 +16,15 @@ onMounted(() => {
         scrollTrigger: {
             trigger: parallax.value,
             start: "top top",
-            end: "70% top",
+            end: "80% top",
             toggleClass: "active",
             scrub: true
         }
     });
 
     tl
-        .to(text_1.value, { marginTop: "20vh" }, "0sec")
-        .to(text_2.value, { marginTop: "25vh" }, "0sec")
+        .to(text_1.value, { marginTop: "30vh" }, "0sec")
+        .to(text_2.value, { marginTop: "35vh" }, "0sec")
         .to(planet_1.value, { marginTop: "-8vh" }, "0sec")
         .to(land_1.value, { marginTop: "3vh" }, "0sec");
 });
