@@ -10,18 +10,29 @@ const text = ref(null);
 const img = ref(null);
 
 onMounted(() => {
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: introduction.value,
-            start: "top bottom",
-            end: "55% bottom",
-            scrub: true
-        }
-    });
+    const mm = gsap.matchMedia();
 
-    tl
-        .fromTo(text.value, { x: "-20vw", y: "25vh", opacity: 0 }, { x: 0, y: 0, opacity: 1 }, "0sec")
-    // .to(img.value, {  }, "0sec");
+    mm.add({
+        isDesktop: "(min-width: 768px)",
+        isMobile: "(max-width: 767.98px)"
+    }, (context) => {
+        const { isDesktop, isMobile } = context.conditions;
+        const firstAction = { x: "3vw", y: "3vh", opacity: 0 };
+        const nextAction = { x: "-3vw", y: "3vh", opacity: 0 };
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: introduction.value,
+                start: "20% bottom",
+                end: isDesktop ? "bottom bottom" : "90% bottom",
+                scrub: true
+            }
+        });
+
+        tl
+            .fromTo(img.value, isDesktop ? firstAction : nextAction, { x: 0, y: 0, opacity: 1 }, "0sec")
+            .fromTo(text.value, isDesktop ? nextAction : firstAction, { x: 0, y: 0, opacity: 1 }, isDesktop ? "0sec" : "-=0.1");
+    });
 });
 </script>
 
@@ -63,6 +74,7 @@ onMounted(() => {
 
     >* {
         flex: 1 0 50%;
+        transition: transform 0.1s ease-out;
 
         &.text {
             display: flex;
