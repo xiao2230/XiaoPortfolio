@@ -23,7 +23,7 @@ onMounted(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: introduction.value,
-                start: "20% bottom",
+                start: isDesktop ? "20% bottom" : "50% bottom",
                 end: isDesktop ? "bottom bottom" : "90% bottom",
                 scrub: true
             }
