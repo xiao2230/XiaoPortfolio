@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const guestName = ref("");
 const guestEmail = ref("");
@@ -7,6 +9,11 @@ const guestMessage = ref("");
 const isDisabled = ref(false);
 const sendBtnText = ref("SEND");
 const toast = ref("hide");
+const contact = ref(null);
+const h3 = ref(null);
+const form = ref(null);
+
+gsap.registerPlugin(ScrollTrigger);
 
 const send = () => {
     isDisabled.value = true;
@@ -26,14 +33,27 @@ const closeToast = () => toast.value = "hide";
 
 onMounted(() => {
     if (sessionStorage["guestMessage"]) guestMessage.value = sessionStorage["guestMessage"];
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: contact.value,
+            start: "top 85%",
+            end: "bottom 90%",
+            scrub: true
+        }
+    });
+
+    tl
+        .fromTo(h3.value, { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1 })
+        .fromTo(form.value, { y: "3vh", opacity: 0 }, { y: 0, opacity: 1 })
 });
 </script>
 
 <template>
-    <section class="contact">
+    <section ref="contact" class="contact">
         <div class="container">
-            <h3 class="text-center">CONTACT</h3>
-            <form @submit.prevent="send">
+            <h3 ref="h3" class="text-center">CONTACT</h3>
+            <form ref="form" @submit.prevent="send">
                 <div class="group">
                     <input type="text" name="guestName" id="guestName" maxlength="30" placeholder="Name" v-model="guestName"
                         required :disabled="isDisabled">

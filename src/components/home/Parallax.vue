@@ -3,13 +3,13 @@ import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const parallax = ref(null);
 const text_1 = ref(null);
 const text_2 = ref(null);
 const planet_1 = ref(null);
 const land_1 = ref(null);
+
+gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
     const tl = gsap.timeline({

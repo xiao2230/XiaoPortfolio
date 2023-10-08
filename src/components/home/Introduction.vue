@@ -3,11 +3,11 @@ import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const introduction = ref(null);
 const text = ref(null);
 const img = ref(null);
+
+gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
     const mm = gsap.matchMedia();

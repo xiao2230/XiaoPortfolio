@@ -3,12 +3,12 @@ import { ref, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const skill = ref(null);
 const h3 = ref(null);
 const frondendSkill = ref(null);
 const otherSkill = ref(null);
+
+gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
     const mm = gsap.matchMedia();
