@@ -5,13 +5,43 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const skill = ref(null);
+const h3 = ref(null);
+const frondendSkill = ref(null);
+const otherSkill = ref(null);
+
+onMounted(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add({
+        isDesktop: "(min-width: 768px)",
+        isMobile: "(max-width: 767.98px)"
+    }, (context) => {
+        const { isDesktop, isMobile } = context.conditions;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: skill.value,
+                start: "top 95%",
+                end: "bottom 90%",
+                scrub: true
+            }
+        });
+
+        tl
+            .fromTo(h3.value, { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1 })
+            .fromTo(frondendSkill.value, { x: "-3vw", y: "3vh", opacity: 0 }, { x: 0, y: 0, opacity: 1 }, "+=0.1")
+            .fromTo(otherSkill.value, { x: "3vw", y: "3vh", opacity: 0 }, { x: 0, y: 0, opacity: 1 }, isDesktop ? "<" : "+=0.2");
+    });
+});
+
 
 </script>
 
 <template>
-    <section class="skill">
+    <section ref="skill" class="skill">
         <div class="container">
-            <h3 class="text-center">
+            <h3 ref="h3" class="text-center">
                 SKILL
                 <div class="cube cube-1">
                     <div class="front"></div>
@@ -31,7 +61,7 @@ gsap.registerPlugin(ScrollTrigger);
                 </div>
             </h3>
             <div class="allSkill">
-                <div class="frondendSkill">
+                <div ref="frondendSkill" class="frondendSkill">
                     <h4>
                         <div>Frontend</div>
                         <div class="smoky">
@@ -80,7 +110,7 @@ gsap.registerPlugin(ScrollTrigger);
                         </span>
                     </div>
                 </div>
-                <div class="otherSkill">
+                <div ref="otherSkill" class="otherSkill">
                     <h4>
                         <div>Other</div>
                         <div class="smoky">

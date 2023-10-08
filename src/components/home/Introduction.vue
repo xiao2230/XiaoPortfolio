@@ -17,21 +17,21 @@ onMounted(() => {
         isMobile: "(max-width: 767.98px)"
     }, (context) => {
         const { isDesktop, isMobile } = context.conditions;
-        const firstAction = { x: "3vw", y: "3vh", opacity: 0 };
-        const nextAction = { x: "-3vw", y: "3vh", opacity: 0 };
+        const firstAction = { x: "-3vw", y: "3vh", opacity: 0 };
+        const nextAction = { x: "3vw", y: "3vh", opacity: 0 };
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: introduction.value,
-                start: isDesktop ? "20% bottom" : "30% bottom",
-                end: isDesktop ? "bottom bottom" : "90% bottom",
+                start: "top 70%",
+                end: "bottom 90%",
                 scrub: true
             }
         });
 
         tl
-            .fromTo(img.value, isDesktop ? firstAction : nextAction, { x: 0, y: 0, opacity: 1 }, "0sec")
-            .fromTo(text.value, isDesktop ? nextAction : firstAction, { x: 0, y: 0, opacity: 1 }, isDesktop ? "0sec" : "-=0.1");
+            .fromTo(img.value, isDesktop ? nextAction : firstAction, { x: 0, y: 0, opacity: 1 })
+            .fromTo(text.value, isDesktop ? firstAction : nextAction, { x: 0, y: 0, opacity: 1 }, isDesktop ? "0sec" : "-=0.1");
     });
 });
 </script>
