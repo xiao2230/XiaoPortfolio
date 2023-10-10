@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,23 +10,25 @@ const text_1 = ref(null);
 const text_2 = ref(null);
 const planet_1 = ref(null);
 const land_1 = ref(null);
+const tl = gsap.timeline();
 
 onMounted(() => {
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: parallax.value,
-            start: "top top",
-            end: "80% top",
-            scrub: true
-        }
-    });
-
     tl
         .to(text_1.value, { marginTop: "25vh" }, "0sec")
         .to(text_2.value, { marginTop: "30vh" }, "0sec")
         .to(planet_1.value, { marginTop: "5vh" }, "0sec")
         .to(land_1.value, { marginTop: "-4vh" }, "0sec");
+
+    ScrollTrigger.create({
+        animation: tl,
+        trigger: parallax.value,
+        start: "top top",
+        end: "80% top",
+        scrub: true
+    });
 });
+
+onUnmounted(() => tl.kill());
 </script>
 
 <template>

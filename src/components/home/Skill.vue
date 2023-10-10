@@ -34,9 +34,7 @@ onMounted(() => {
     });
 });
 
-onUnmounted(() => {
-    mm.kill();
-});
+onUnmounted(() => mm.kill());
 </script>
 
 <template>

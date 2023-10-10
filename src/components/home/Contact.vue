@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted,onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -14,6 +14,7 @@ const toast = ref("hide");
 const contact = ref(null);
 const h3 = ref(null);
 const form = ref(null);
+const tl = gsap.timeline();
 
 const send = () => {
     isDisabled.value = true;
@@ -34,19 +35,20 @@ const closeToast = () => toast.value = "hide";
 onMounted(() => {
     if (sessionStorage["guestMessage"]) guestMessage.value = sessionStorage["guestMessage"];
 
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: contact.value,
-            start: "top 85%",
-            end: "bottom 90%",
-            scrub: true
-        }
-    });
-
     tl
         .fromTo(h3.value, { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1 })
         .fromTo(form.value, { y: "3vh", opacity: 0 }, { y: 0, opacity: 1 });
+
+    ScrollTrigger.create({
+        animation: tl,
+        trigger: contact.value,
+        start: "top 85%",
+        end: "bottom 90%",
+        scrub: true
+    });
 });
+
+onUnmounted(() => tl.kill());
 </script>
 
 <template>

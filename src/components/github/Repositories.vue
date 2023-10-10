@@ -1,9 +1,18 @@
 <script setup>
+import { watch } from "vue";
+import useScrollBottom from "@/composables/useScrollBottom.js";
+
+const { isBottom } = useScrollBottom();
+
+watch(isBottom, (newVal) => {
+    if (!isBottom) return;
+    console.log("isBottom=>", newVal);
+})
 </script>
 
 <template>
     <section class="repositories">
-        <div class="card">
+        <div class="card" v-for="i in 20" :key="i">
             <h4>repository title</h4>
             <a class="url" href="javascript:;">url</a>
             <div class="star">
@@ -22,6 +31,10 @@
     width: clamp(210px, 95%, 360px);
     padding: 1rem 1.5rem;
     margin: 0 auto;
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
 
     >*:not(:last-child) {
         margin-bottom: 0.5rem;
