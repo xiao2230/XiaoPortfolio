@@ -12,7 +12,7 @@
 
 <style lang="scss" scoped>
 .profilePhoto img{
-    width: clamp(168px, 70%, 300px);
+    width: clamp(168px, 60%, 300px);
     border: 2px solid $secondaryColor;
     border-radius: 50%;
 }
