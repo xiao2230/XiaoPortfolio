@@ -5,7 +5,7 @@ import useScrollBottom from "@/composables/useScrollBottom.js";
 const { isBottom } = useScrollBottom();
 
 watch(isBottom, (newVal) => {
-    if (!isBottom) return;
+    if (!isBottom.value) return;
     console.log("isBottom=>", newVal);
 })
 </script>
