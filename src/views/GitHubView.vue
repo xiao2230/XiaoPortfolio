@@ -19,7 +19,7 @@ import Repositories from "@/components/github/Repositories.vue";
 
 @media (max-width: 767.98px) {
   .container {
-    padding: 4.5rem;
+    padding: 5rem;
   }
 }
 </style>
