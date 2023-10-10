@@ -77,7 +77,7 @@ onMounted(() => {
 
         .curtain {
             flex-grow: 1;
-            background-image: linear-gradient(to bottom, $primaryColor, $secondaryColor);
+            background-image: linear-gradient(to top, $primaryColor, $secondaryColor);
             transform-origin: top;
         }
     }
