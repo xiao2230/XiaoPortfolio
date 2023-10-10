@@ -3,17 +3,27 @@
 
 <template>
     <section class="profile">
-        <div class="profilePhoto text-center">
+        <div class="avatar text-center">
             <img src="@/assets/img/404.png" alt="profilePhoto" title="profilePhoto">
         </div>
-        <div class="profileName text-center">profileName</div>
+        <h1 class="name text-center">profileName</h1>
     </section>
 </template>
 
 <style lang="scss" scoped>
-.profilePhoto img{
-    width: clamp(168px, 60%, 300px);
-    border: 2px solid $secondaryColor;
-    border-radius: 50%;
+.profile {
+    margin-bottom: 2rem;
+
+    .avatar img {
+        width: clamp(168px, 60%, 280px);
+        border: 2px solid $secondaryColor;
+        border-radius: 50%;
+        margin-bottom: 0.5rem;
+    }
+
+    .name {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
 }
 </style>
