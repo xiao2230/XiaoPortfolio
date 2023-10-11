@@ -1,6 +1,11 @@
 <script setup>
+import { provide } from "vue";
+import useGitHubStore from "@/composables/useGitHubStore.js";
 import Profile from "@/components/github/Profile.vue";
 import Repositories from "@/components/github/Repositories.vue";
+
+const githubStore = useGitHubStore;
+provide("githubStore", githubStore);
 </script>
 
 <template>
@@ -13,8 +18,13 @@ import Repositories from "@/components/github/Repositories.vue";
 </template>
 
 <style lang="scss" scoped>
-.container {
-  min-height: 100vh;
+.github {
+  overflow-x: hidden;
+
+  .container {
+    min-height: 100vh;
+  }
+
 }
 
 @media (max-width: 767.98px) {

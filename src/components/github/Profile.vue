@@ -1,12 +1,15 @@
 <script setup>
+import { inject } from "vue";
+
+const { github } = inject("githubStore");
 </script>
 
 <template>
     <section class="profile">
         <div class="avatar text-center">
-            <img src="@/assets/img/404.png" alt="profilePhoto" title="profilePhoto">
+            <img src="@/assets/img/404.png" alt="avatar" title="avatar">
         </div>
-        <h1 class="name text-center">profileName</h1>
+        <h1 class="name text-center">{{ github.profileName }}</h1>
     </section>
 </template>
 

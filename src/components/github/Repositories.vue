@@ -1,25 +1,35 @@
 <script setup>
-import { watch } from "vue";
+import { watch, onMounted, inject } from "vue";
 import useScrollBottom from "@/composables/useScrollBottom.js";
+import useFetchRepos from "@/composables/useFetchRepos.js";
 
 const { isBottom } = useScrollBottom();
+const { isLoaded, init, next } = useFetchRepos();
+const { github } = inject("githubStore");
 
 watch(isBottom, (newVal) => {
     if (!isBottom.value) return;
+    next();
     console.log("isBottom=>", newVal);
 })
+
+onMounted(() => {
+    init();
+});
 </script>
 
 <template>
     <section class="repositories">
-        <div class="card" v-for="i in 20" :key="i">
-            <h4>repository title</h4>
-            <a class="url" href="javascript:;">url</a>
+        <div class="card" v-for="item in github.repositories" :key="item">
+            <h4>{{ item.name }}</h4>
+            <a class="url" :href="item.html_url" target="_blank">{{ item.html_url }}</a>
             <div class="star">
                 <font-awesome-icon :icon="['fas', 'star']" />
-                <span>10</span>
+                <span>{{ item.stargazers_count }}</span>
             </div>
         </div>
+        <div v-show="!isLoaded" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']" spin /></div>
+        <div v-show="isLoaded" class="loaded text-center">All repositories have been loaded</div>
     </section>
 </template>
 
@@ -48,12 +58,22 @@ watch(isBottom, (newVal) => {
     .url {
         color: $primaryColor;
         display: inline-block;
+        width: 100%;
+        word-wrap: break-word;
     }
 
     .star svg {
         color: #8f7500;
         margin-right: 0.2rem;
     }
+}
+
+.loading {
+    font-size: 2rem;
+}
+
+.loaded{
+    font-size: 1.1rem;
 }
 
 @media (max-width: 575.98px) {
