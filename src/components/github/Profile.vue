@@ -31,7 +31,10 @@ onMounted(() => {
     margin-bottom: 2rem;
 
     .avatar img {
+        display: inline-block;
         width: clamp(168px, 60%, 280px);
+        aspect-ratio: 1;
+        background-color: var(--secondaryColor);
         border: 2px solid $secondaryColor;
         border-radius: 50%;
         margin-bottom: 0.5rem;
