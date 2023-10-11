@@ -3,11 +3,11 @@ import { watch, onMounted, inject } from "vue";
 import useScrollBottom from "@/composables/useScrollBottom.js";
 import useFetchRepos from "@/composables/useFetchRepos.js";
 
-const { isBottom } = useScrollBottom();
+const { isBottom, isScroll } = useScrollBottom();
 const { isLoaded, init, next } = useFetchRepos();
 const { github } = inject("githubStore");
 
-watch(isBottom, (newVal) => {
+watch([isBottom, isScroll], (newVal) => {
     if (!isBottom.value) return;
     next();
     console.log("isBottom=>", newVal);
@@ -72,7 +72,7 @@ onMounted(() => {
     font-size: 2rem;
 }
 
-.loaded{
+.loaded {
     font-size: 1.1rem;
 }
 
