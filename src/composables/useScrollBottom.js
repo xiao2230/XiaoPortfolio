@@ -14,5 +14,5 @@ export default function useScrollBottom() {
     onMounted(() => window.addEventListener("scroll", chkScrollBottom));
     onUnmounted(() => window.removeEventListener("scroll", chkScrollBottom));
 
-    return { isBottom, isScroll };
+    return { isBottom, isScroll, chkScrollBottom };
 };

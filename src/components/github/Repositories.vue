@@ -3,7 +3,7 @@ import { watch, onMounted, inject } from "vue";
 import useScrollBottom from "@/composables/useScrollBottom.js";
 import useFetchRepos from "@/composables/useFetchRepos.js";
 
-const { isBottom, isScroll } = useScrollBottom();
+const { isBottom, isScroll, chkScrollBottom } = useScrollBottom();
 const { isLoaded, isLoading, isNotFound, fetchRepos, showNextRepos, resetData } = useFetchRepos();
 const { github } = inject("githubStore");
 
@@ -18,6 +18,7 @@ watch(() => github.profileName, (newVal) => {
 });
 
 onMounted(() => {
+    chkScrollBottom();
     fetchRepos();
 });
 </script>
@@ -33,9 +34,9 @@ onMounted(() => {
             </div>
         </div>
         <div v-show="isNotFound" class="notFound text-center">User not found</div>
-        <div v-show="!isLoaded && !isLoading && !isNotFound" class="notLoading text-center">Scroll down to load new repositories</div>
-        <div v-show="isLoading" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']"
-                spin /></div>
+        <div v-show="!isLoaded && !isLoading && !isNotFound" class="notLoading text-center">Scroll down to load new
+            repositories</div>
+        <div v-show="isLoading" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']" spin /></div>
         <div v-show="isLoaded" class="loaded text-center">All repositories have been loaded</div>
     </section>
 </template>
