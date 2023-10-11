@@ -1,4 +1,4 @@
-export const debounce = (fn = () => { }, timer = 300) => {
+export const debounce = (fn = () => { }, timer = 100) => {
     let reTimes = null;
     return () => {
         if (reTimes) {
