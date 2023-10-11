@@ -7,8 +7,8 @@ export default function useScrollBottom() {
 
     const chkScrollBottom = debounce(() => {
         isScroll.value = !isScroll.value
-        const { clientHeight, scrollTop, offsetHeight } = document.documentElement;
-        Math.ceil(clientHeight + scrollTop) === offsetHeight ? isBottom.value = true : isBottom.value = false;
+        const { clientHeight, scrollTop, scrollHeight } = document.documentElement;
+        Math.ceil(clientHeight + scrollTop) === scrollHeight ? isBottom.value = true : isBottom.value = false;
     });
 
     onMounted(() => window.addEventListener("scroll", chkScrollBottom));
