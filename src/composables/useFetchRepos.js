@@ -5,16 +5,17 @@ import useGitHubStore from "@/composables/useGitHubStore.js";
 export default function useFetchRepos() {
     const isLoaded = ref(false);
     const isLoading = ref(true);
+    const isNotFound = ref(false);
     const pageIdx = ref(0);
-    const { setRepositories } = useGitHubStore;
+    const { github, setRepositories, clearRepositories } = useGitHubStore;
     const newRepos = ref([]);
 
-    const init = async () => {
+    const fetchRepos = async () => {
         pageIdx.value += 1;
         isLoading.value = true;
 
         const data = {
-            profileName: "MikeCheng1208",
+            profileName: github.profileName,
             page: pageIdx.value
         }
 
@@ -25,14 +26,24 @@ export default function useFetchRepos() {
             newRepos.value = res.data;
             isLoading.value = false;
         } catch (error) {
-            console.log("取得Repos錯誤", error);
+            isLoading.value = false;
+            isNotFound.value = true;
         }
     };
 
-    const next = () => {
+    const showNextRepos = () => {
         if (newRepos.value.length === 0) return;
-        init();
+        fetchRepos();
     };
 
-    return { isLoaded, isLoading, init, next };
+    const resetData = () => {
+        isLoaded.value = false;
+        isLoading.value = true;
+        isNotFound.value = false;
+        pageIdx.value = 0;
+        newRepos.value = [];
+        clearRepositories();
+    };
+
+    return { isLoaded, isLoading, isNotFound, fetchRepos, showNextRepos, resetData };
 };

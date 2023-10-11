@@ -18,10 +18,11 @@ import D3 from "@/assets/img/skill/D3.png";
 import GSAP from "@/assets/img/skill/GSAP.png";
 import GitHub from "@/assets/img/skill/GitHub.png";
 import Netlify from "@/assets/img/skill/Netlify.png";
+import avatar404 from "@/assets/img/avatar404.png";
 
 export const useLoadStore = defineStore("load", () => {
     const load = ref("loading");
-    const imgsUrl = [bg, planet_1, planet_2, planet_3, land_1, land_2, intro, introBg, HTML5, CSS3, JavaScript, JQuery, Bootstrap, Vue, D3, GSAP, GitHub, Netlify];
+    const imgsUrl = [bg, planet_1, planet_2, planet_3, land_1, land_2, intro, introBg, HTML5, CSS3, JavaScript, JQuery, Bootstrap, Vue, D3, GSAP, GitHub, Netlify,avatar404];
     const chkLoad = imgsUrl => {
         let i = 0;
         imgsUrl.forEach(imgUrl => {

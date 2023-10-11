@@ -4,16 +4,21 @@ import useScrollBottom from "@/composables/useScrollBottom.js";
 import useFetchRepos from "@/composables/useFetchRepos.js";
 
 const { isBottom, isScroll } = useScrollBottom();
-const { isLoaded, isLoading, init, next } = useFetchRepos();
+const { isLoaded, isLoading, isNotFound, fetchRepos, showNextRepos, resetData } = useFetchRepos();
 const { github } = inject("githubStore");
 
 watch([isBottom, isScroll], (newVal) => {
     if (!isBottom.value) return;
-    next();
+    showNextRepos();
 })
 
+watch(() => github.profileName, (newVal) => {
+    resetData();
+    fetchRepos();
+});
+
 onMounted(() => {
-    init();
+    fetchRepos();
 });
 </script>
 
@@ -27,6 +32,7 @@ onMounted(() => {
                 <span>{{ item.stargazers_count }}</span>
             </div>
         </div>
+        <div v-show="isNotFound" class="notFound text-center">User not found</div>
         <div v-show="!isLoaded && !isLoading" class="notLoading text-center">Scroll down to load new repositories</div>
         <div v-show="!isLoaded && isLoading" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']"
                 spin /></div>
@@ -73,6 +79,8 @@ onMounted(() => {
     font-size: 2rem;
 }
 
+.notFound,
+.notLoading,
 .loaded {
     font-size: 1.1rem;
 }
