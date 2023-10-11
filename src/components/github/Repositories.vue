@@ -27,8 +27,6 @@ onMounted(() => {
                 <span>{{ item.stargazers_count }}</span>
             </div>
         </div>
-        {{ isLoaded }}
-        {{ isBottom }}
         <div v-show="!isLoaded && !isBottom" class="notLoading text-center">Scroll down to load new repositories</div>
         <div v-show="!isLoaded && isBottom" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']"
                 spin /></div>
