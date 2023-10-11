@@ -28,8 +28,7 @@ onMounted(() => {
             </div>
         </div>
         <div v-show="!isLoaded && !isBottom" class="notLoading text-center">Scroll down to load new repositories</div>
-        <div v-show="!isLoaded && isBottom" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']"
-                spin /></div>
+        <div v-show="!isLoaded && isBottom" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']" spin /></div>
         <div v-show="isLoaded" class="loaded text-center">All repositories have been loaded</div>
     </section>
 </template>
