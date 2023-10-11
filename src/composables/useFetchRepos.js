@@ -4,12 +4,14 @@ import useGitHubStore from "@/composables/useGitHubStore.js";
 
 export default function useFetchRepos() {
     const isLoaded = ref(false);
+    const isLoading = ref(true);
     const pageIdx = ref(0);
     const { setRepositories } = useGitHubStore;
     const newRepos = ref([]);
 
     const init = async () => {
         pageIdx.value += 1;
+        isLoading.value = true;
 
         const data = {
             profileName: "MikeCheng1208",
@@ -21,6 +23,7 @@ export default function useFetchRepos() {
             setRepositories(res.data);
             if (res.data.length === 0) isLoaded.value = true;
             newRepos.value = res.data;
+            isLoading.value = false;
         } catch (error) {
             console.log("取得Repos錯誤", error);
         }
@@ -31,5 +34,5 @@ export default function useFetchRepos() {
         init();
     };
 
-    return { isLoaded, init, next };
+    return { isLoaded, isLoading, init, next };
 };

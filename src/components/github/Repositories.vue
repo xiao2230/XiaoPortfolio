@@ -4,7 +4,7 @@ import useScrollBottom from "@/composables/useScrollBottom.js";
 import useFetchRepos from "@/composables/useFetchRepos.js";
 
 const { isBottom, isScroll } = useScrollBottom();
-const { isLoaded, init, next } = useFetchRepos();
+const { isLoaded, isLoading, init, next } = useFetchRepos();
 const { github } = inject("githubStore");
 
 watch([isBottom, isScroll], (newVal) => {
@@ -27,9 +27,9 @@ onMounted(() => {
                 <span>{{ item.stargazers_count }}</span>
             </div>
         </div>
-        {{ isBottom }}
-        <div v-show="!isLoaded && !isBottom" class="notLoading text-center">Scroll down to load new repositories</div>
-        <div v-show="!isLoaded && isBottom" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']" spin /></div>
+        <div v-show="!isLoaded && !isLoading" class="notLoading text-center">Scroll down to load new repositories</div>
+        <div v-show="!isLoaded && isLoading" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']"
+                spin /></div>
         <div v-show="isLoaded" class="loaded text-center">All repositories have been loaded</div>
     </section>
 </template>
