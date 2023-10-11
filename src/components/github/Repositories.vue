@@ -10,7 +10,6 @@ const { github } = inject("githubStore");
 watch([isBottom, isScroll], (newVal) => {
     if (!isBottom.value) return;
     next();
-    console.log("isBottom=>", newVal);
 })
 
 onMounted(() => {
@@ -28,7 +27,7 @@ onMounted(() => {
                 <span>{{ item.stargazers_count }}</span>
             </div>
         </div>
-        <div v-show="!isLoaded" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']" spin /></div>
+        <div v-show="!isLoaded && isBottom" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']" spin /></div>
         <div v-show="isLoaded" class="loaded text-center">All repositories have been loaded</div>
     </section>
 </template>
