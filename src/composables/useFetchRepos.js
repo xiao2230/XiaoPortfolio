@@ -8,7 +8,6 @@ export default function useFetchRepos() {
     const isNotFound = ref(false);
     const pageIdx = ref(0);
     const { github, setRepositories, clearRepositories } = useGitHubStore;
-    const newRepos = ref([]);
 
     const fetchRepos = async () => {
         pageIdx.value += 1;
@@ -23,7 +22,6 @@ export default function useFetchRepos() {
             const res = await apiGetRepositories(data);
             setRepositories(res.data);
             if (res.data.length === 0) isLoaded.value = true;
-            newRepos.value = res.data;
             isLoading.value = false;
         } catch (error) {
             isLoading.value = false;
@@ -32,7 +30,7 @@ export default function useFetchRepos() {
     };
 
     const showNextRepos = () => {
-        if (newRepos.value.length === 0) return;
+        if (isLoaded.value) return;
         fetchRepos();
     };
 
@@ -41,7 +39,6 @@ export default function useFetchRepos() {
         isLoading.value = true;
         isNotFound.value = false;
         pageIdx.value = 0;
-        newRepos.value = [];
         clearRepositories();
     };
 
