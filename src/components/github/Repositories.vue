@@ -57,21 +57,22 @@ onMounted(() => {
         margin-bottom: 1rem;
     }
 
-    >*:not(:last-child) {
-        margin-bottom: 0.5rem;
-    }
-
     h4 {
-        font-size: 1.2rem;
-        font-weight: 500;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
-        span+span {
-            font-size: 1rem;
-            border: 1px solid $primaryColor;
-            border-radius: 5px;
-            padding-inline: 0.3rem;
+        span {
+            font-size: 1.3rem;
+            font-weight: 500;
+
+            &+span {
+                font-size: 1rem;
+                border: 2px solid $primaryColor;
+                border-radius: 5px;
+                padding-inline: 0.3rem;
+                background-color: $fourthColor;
+            }
         }
     }
 
@@ -80,6 +81,7 @@ onMounted(() => {
         display: inline-block;
         width: 100%;
         word-wrap: break-word;
+        margin-block: 0.8rem;
     }
 
     .star svg {
@@ -100,7 +102,7 @@ onMounted(() => {
 
 @media (max-width: 575.98px) {
     .card {
-        padding: 0.5rem 1rem;
+        padding: 1rem;
     }
 }
 </style>
