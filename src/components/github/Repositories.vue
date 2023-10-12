@@ -48,10 +48,46 @@ onMounted(() => {
 .card {
     font-size: 1.1rem;
     color: $primaryColor;
-    background-color: $secondaryColor;
+    background-color: $fourthColor;
     width: clamp(210px, 95%, 360px);
     padding: 1rem 1.5rem;
     margin: 0 auto;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    z-index: 1;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+    }
+
+    &::before {
+        top: -100%;
+        left: -100%;
+        width: 300%;
+        height: 300%;
+        background-image: conic-gradient($primaryColor 0deg,
+                transparent 60deg,
+                transparent 180deg,
+                $primaryColor 180deg,
+                transparent 240deg);
+        animation: border 3s linear infinite;
+        z-index: -2;
+    }
+
+    &::after {
+        top: 0;
+        left: 0;
+        inset: 0.25rem;
+        background-color: $secondaryColor;
+        z-index: -1;
+    }
+
+    &:hover::before {
+        animation-play-state: paused;
+    }
 
     &:not(:last-child) {
         margin-bottom: 1rem;
@@ -77,11 +113,18 @@ onMounted(() => {
     }
 
     .url {
-        color: $primaryColor;
+        font-size: 1.1rem;
+        color: transparent;
+        -webkit-text-stroke: 0.5px $primaryColor;
         display: inline-block;
         width: 100%;
         word-wrap: break-word;
         margin-block: 0.8rem;
+        transition: color 0.3s ease-in-out;
+
+        &:hover{
+            color: $thirdColor;
+        }
     }
 
     .star svg {
@@ -98,6 +141,12 @@ onMounted(() => {
 .notLoading,
 .loaded {
     font-size: 1.1rem;
+}
+
+@keyframes border {
+    to {
+        transform: rotateZ(-360deg);
+    }
 }
 
 @media (max-width: 575.98px) {
