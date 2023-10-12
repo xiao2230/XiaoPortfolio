@@ -36,7 +36,6 @@ onMounted(() => {
                 <span>{{ item.stargazers_count }}</span>
             </div>
         </div>
-        isBottom：{{ isBottom }}，isLoading:{{ isLoading }}
         <div v-show="isNotFound" class="notFound text-center">User not found</div>
         <div v-show="!isLoaded && !isLoading && !isNotFound" class="notLoading text-center">Scroll down to load new
             repositories</div>
