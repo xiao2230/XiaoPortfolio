@@ -1,5 +1,5 @@
 import { ref, onMounted, onUnmounted } from "vue";
-import { debounce } from "@/lib/debounce.js";
+import { debounce } from "@/lib/Debounce.js";
 
 export default function useScrollBottom() {
     const isBottom = ref(false);
