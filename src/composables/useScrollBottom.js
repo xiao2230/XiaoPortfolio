@@ -13,7 +13,7 @@ export default function useScrollBottom() {
         clientHeight + scrollTop >= scrollHeight - triggerEarly ? isBottom.value = true : isBottom.value = false;
         console.log("documentElement：", document.documentElement.scrollHeight);
         console.log("body：", document.body.scrollHeight);
-        msg.value = "clientHeight：" + document.body.clientHeight + "offsetHeight：" + document.body.offsetHeight + "scrollHeight：" + document.documentElement.scrollHeight + "@@@" + (clientHeight + scrollTop);
+        msg.value = "github：" + document.querySelector(".github").clientHeight + "scrollHeight：" + document.documentElement.scrollHeight + "@@@" + (clientHeight + scrollTop);
     });
 
     onMounted(() => window.addEventListener("scroll", chkScrollBottom));
