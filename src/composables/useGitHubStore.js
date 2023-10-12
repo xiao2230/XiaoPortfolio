@@ -6,13 +6,14 @@ const github = reactive({
     repositories: []
 });
 
-const setProfile = ({ profileAvatar, profileName }) => {
-    github.profileAvatar = profileAvatar;
-    github.profileName = profileName;
-};
+const setProfileAvatar = (profileAvatar) => github.profileAvatar = profileAvatar;
+
+const setProfileName = (profileName) => github.profileName = profileName;
 
 const setRepositories = (repos) => github.repositories = [...github.repositories, ...repos];
 
+const clearProfileAvatar = () => github.profileAvatar = "";
+
 const clearRepositories = () => github.repositories = [];
 
-export default { github, setProfile, setRepositories, clearRepositories };
+export default { github, setProfileAvatar, setProfileName, setRepositories, clearProfileAvatar, clearRepositories };

@@ -4,24 +4,20 @@ import useGitHubStore from "@/composables/useGitHubStore.js";
 import avatar404 from "@/assets/img/avatar404.png";
 
 export default function useFetchProfile() {
-    const { setProfile } = useGitHubStore;
+    const isLoaded = ref(false);
+    const { setProfileAvatar } = useGitHubStore;
 
     const fetchProfile = async (profileName) => {
+        isLoaded.value = false;
         try {
             const res = await apiGetProfile(profileName);
-            const data = {
-                profileAvatar: res.data.avatar_url,
-                profileName: res.data.login
-            };
-            setProfile(data);
+            setProfileAvatar(res.data.avatar_url);
+            isLoaded.value = true;
         } catch (error) {
-            const data = {
-                profileAvatar: avatar404,
-                profileName: profileName
-            };
-            setProfile(data);
+            setProfileAvatar(avatar404);
+            isLoaded.value = true;
         }
     };
 
-    return { fetchProfile };
+    return { isLoaded, fetchProfile };
 };
