@@ -101,27 +101,27 @@ onUnmounted(() => tl.kill());
         left: 0;
 
         &.bg {
-            background: url(@/assets/img/bg.png) no-repeat center / cover;
+            background: url(@/assets/img/parallax/bg.png) no-repeat center / cover;
         }
 
         &.planet-1 {
-            background: url(@/assets/img/planet_1.png) no-repeat center / cover;
+            background: url(@/assets/img/parallax/planet_1.png) no-repeat center / cover;
         }
 
         &.planet-2 {
-            background: url(@/assets/img/planet_2.png) no-repeat center / cover;
+            background: url(@/assets/img/parallax/planet_2.png) no-repeat center / cover;
         }
 
         &.planet-3 {
-            background: url(@/assets/img/planet_3.png) no-repeat center / cover;
+            background: url(@/assets/img/parallax/planet_3.png) no-repeat center / cover;
         }
 
         &.land-1 {
-            background: url(@/assets/img/land_1.png) no-repeat center / cover;
+            background: url(@/assets/img/parallax/land_1.png) no-repeat center / cover;
         }
 
         &.land-2 {
-            background: url(@/assets/img/land_2.png) no-repeat center / cover;
+            background: url(@/assets/img/parallax/land_2.png) no-repeat center / cover;
         }
     }
 

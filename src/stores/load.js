@@ -1,11 +1,11 @@
 import { ref, onMounted } from "vue";
 import { defineStore } from "pinia";
-import bg from "@/assets/img/bg.png";
-import planet_1 from "@/assets/img/planet_1.png";
-import planet_2 from "@/assets/img/planet_2.png";
-import planet_3 from "@/assets/img/planet_3.png";
-import land_1 from "@/assets/img/land_1.png";
-import land_2 from "@/assets/img/land_2.png";
+import bg from "@/assets/img/parallax/bg.png";
+import planet_1 from "@/assets/img/parallax/planet_1.png";
+import planet_2 from "@/assets/img/parallax/planet_2.png";
+import planet_3 from "@/assets/img/parallax/planet_3.png";
+import land_1 from "@/assets/img/parallax/land_1.png";
+import land_2 from "@/assets/img/parallax/land_2.png";
 import intro from "@/assets/img/intro.png";
 import introBg from "@/assets/img/introBg.png";
 import HTML5 from "@/assets/img/skill/HTML5.png";
