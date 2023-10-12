@@ -35,6 +35,7 @@ onMounted(() => {
 
     .avatar {
         position: relative;
+        margin-bottom: 0.5rem;
 
         img {
             display: inline-block;
@@ -43,7 +44,6 @@ onMounted(() => {
             background-color: var(--secondaryColor);
             border: 2px solid $secondaryColor;
             border-radius: 50%;
-            margin-bottom: 0.5rem;
         }
 
         svg {
