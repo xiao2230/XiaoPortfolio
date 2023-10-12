@@ -18,9 +18,12 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 // add icons to the library
-library.add(faHouse, faGithub, faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faCircleHalfStroke, faMoon, faSun, faLinkedinIn, faFacebookF, faStar, faSpinner);
+library.add(faHouse, faGithub, faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faCircleHalfStroke, faMoon, faSun, faLinkedinIn, faFacebookF, faStar, faSpinner, faXmark, faCheck, faPen);
 
 import App from "@/App.vue";
 import router from "@/router";
@@ -47,6 +50,8 @@ app.directive("save", {
         el.removeEventListener("change", el.setSessionStorage);
     },
 });
+
+app.directive("focus", el => el.focus());
 
 app.component("font-awesome-icon", FontAwesomeIcon);
 

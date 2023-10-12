@@ -2,7 +2,7 @@ import { reactive } from "vue";
 
 const github = reactive({
     profileAvatar: "",
-    profileName: "MikeCheng1208",
+    profileName: "vuejs",
     repositories: []
 });
 
