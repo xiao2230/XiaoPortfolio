@@ -47,8 +47,9 @@ onMounted(() => {
 <style lang="scss" scoped>
 .card {
     font-size: 1.1rem;
-    color: $primaryColor;
-    background-color: $fourthColor;
+    color: $secondaryColor;
+    border-radius: 8px;
+    background-color: $thirdColor;
     width: clamp(210px, 95%, 360px);
     padding: 1rem 1.5rem;
     margin: 0 auto;
@@ -68,10 +69,10 @@ onMounted(() => {
         left: -100%;
         width: 300%;
         height: 300%;
-        background-image: conic-gradient($primaryColor 0deg,
+        background-image: conic-gradient($secondaryColor 0deg,
                 transparent 60deg,
                 transparent 180deg,
-                $primaryColor 180deg,
+                $secondaryColor 180deg,
                 transparent 240deg);
         animation: border 3s linear infinite;
         z-index: -2;
@@ -81,7 +82,8 @@ onMounted(() => {
         top: 0;
         left: 0;
         inset: 0.25rem;
-        background-color: $secondaryColor;
+        background-color: $primaryColor;
+        border-radius: 5px;
         z-index: -1;
     }
 
@@ -104,10 +106,8 @@ onMounted(() => {
 
             &+span {
                 font-size: 1rem;
-                border: 2px solid $primaryColor;
-                border-radius: 5px;
-                padding-inline: 0.3rem;
-                background-color: $fourthColor;
+                border: 2px solid $secondaryColor;
+                padding: 0.3rem;
             }
         }
     }
@@ -115,15 +115,16 @@ onMounted(() => {
     .url {
         font-size: 1.1rem;
         color: transparent;
-        -webkit-text-stroke: 0.5px $primaryColor;
+        -webkit-text-stroke: 0.5px $secondaryColor;
         display: inline-block;
         width: 100%;
         word-wrap: break-word;
         margin-block: 0.8rem;
-        transition: color 0.3s ease-in-out;
+        transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 
-        &:hover{
-            color: $thirdColor;
+        &:hover {
+            color: $secondaryColor;
+            text-shadow: 0 0 10px $secondaryColor;
         }
     }
 

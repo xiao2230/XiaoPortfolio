@@ -1,10 +1,10 @@
 import { ref, onMounted, onUnmounted } from "vue";
-import { debounce } from "@/lib/Debounce.js";
+import { debounce } from "@/lib/debounce.js";
 
 export default function useScrollBottom() {
     const isBottom = ref(false);
     const isScroll = ref(false);
-    const triggerEarly = 5;
+    const triggerEarly = 10;
 
     const chkScrollBottom = debounce(() => {
         isScroll.value = !isScroll.value
