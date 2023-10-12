@@ -107,6 +107,7 @@ onMounted(() => {
             top: 50%;
             transform: translateY(-50%);
             padding: 0.5rem;
+            color: $secondaryColor;
         }
 
         &.edited button {

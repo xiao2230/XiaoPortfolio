@@ -26,7 +26,10 @@ onMounted(() => {
 <template>
     <section class="repositories">
         <div class="card" v-for="item in github.repositories" :key="item">
-            <h4>{{ item.name }}</h4>
+            <h4>
+                <span>{{ item.name }}</span>
+                <span>{{ item.visibility }}</span>
+            </h4>
             <a class="url" :href="item.html_url" target="_blank">{{ item.html_url }}</a>
             <div class="star">
                 <font-awesome-icon :icon="['fas', 'star']" />
@@ -61,6 +64,15 @@ onMounted(() => {
     h4 {
         font-size: 1.2rem;
         font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+
+        span+span {
+            font-size: 1rem;
+            border: 1px solid $primaryColor;
+            border-radius: 5px;
+            padding-inline: 0.3rem;
+        }
     }
 
     .url {
