@@ -25,6 +25,7 @@ onMounted(() => {
 
 <template>
     <section class="repositories">
+        <div class="fixBottom">{{ isBottom }}</div>
         <div class="card" v-for="item in github.repositories" :key="item">
             <h4>
                 <span>{{ item.name }}</span>
@@ -45,6 +46,14 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+.fixBottom{
+    position: fixed;
+    top: 10%;
+    left: 0;
+    background-color: #fff;
+    color: black;
+    font-size: 4rem;
+}
 .card {
     font-size: 1.1rem;
     color: $secondaryColor;
