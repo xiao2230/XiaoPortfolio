@@ -29,7 +29,7 @@ provide("githubStore", githubStore);
 
 @media (max-width: 767.98px) {
   .container {
-    padding: 5rem 2rem;
+    padding: 0;
   }
 }
 </style>
