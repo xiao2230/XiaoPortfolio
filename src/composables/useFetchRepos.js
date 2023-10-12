@@ -21,7 +21,7 @@ export default function useFetchRepos() {
         try {
             const res = await apiGetRepositories(data);
             setRepositories(res.data);
-            if (res.data.length === 0) isLoaded.value = true;
+            if (res.data.length === 0 || res.data.length < 10) isLoaded.value = true;
             isLoading.value = false;
         } catch (error) {
             isLoading.value = false;
