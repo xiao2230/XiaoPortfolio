@@ -108,6 +108,11 @@ onMounted(() => {
             transform: translateY(-50%);
             padding: 0.5rem;
             color: $secondaryColor;
+            cursor: pointer;
+
+            &:hover{
+                filter: drop-shadow(0 0 2px var(--secondaryColor)) drop-shadow(0 0 8px var(--secondaryColor));
+            }
         }
 
         &.edited button {

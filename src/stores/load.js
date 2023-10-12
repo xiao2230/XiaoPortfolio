@@ -19,10 +19,15 @@ import GSAP from "@/assets/img/skill/GSAP.png";
 import GitHub from "@/assets/img/skill/GitHub.png";
 import Netlify from "@/assets/img/skill/Netlify.png";
 import avatar404 from "@/assets/img/avatar404.png";
+import astronaut from "@/assets/img/notFound/astronaut.png";
+import planetGroup_1 from "@/assets/img/notFound/planetGroup_1.png";
+import planetGroup_2 from "@/assets/img/notFound/planetGroup_2.png";
+import planetGroup_3 from "@/assets/img/notFound/planetGroup_3.png";
+import spaceWindow from "@/assets/img/notFound/spaceWindow.png";
 
 export const useLoadStore = defineStore("load", () => {
     const load = ref("loading");
-    const imgsUrl = [bg, planet_1, planet_2, planet_3, land_1, land_2, intro, introBg, HTML5, CSS3, JavaScript, JQuery, Bootstrap, Vue, D3, GSAP, GitHub, Netlify,avatar404];
+    const imgsUrl = [bg, planet_1, planet_2, planet_3, land_1, land_2, intro, introBg, HTML5, CSS3, JavaScript, JQuery, Bootstrap, Vue, D3, GSAP, GitHub, Netlify, avatar404, astronaut, planetGroup_1, planetGroup_2, planetGroup_3, spaceWindow];
     const chkLoad = imgsUrl => {
         let i = 0;
         imgsUrl.forEach(imgUrl => {
