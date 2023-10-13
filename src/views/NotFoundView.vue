@@ -45,6 +45,10 @@ const backHome = () => router.push({ path: "/" });
     transform-origin: bottom;
 
     &.astronaut {
+      width: 80%;
+      height: 80%;
+      top: 20%;
+      left: 10%;
       transform: translateX(calc(var(--scrollX) / -20)) scale(calc(1 + (var(--scale) / 2500)));
     }
 
