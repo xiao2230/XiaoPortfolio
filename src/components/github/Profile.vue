@@ -48,6 +48,17 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+[data-load="loading"] .profile {
+    .avatar {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .name {
+        opacity: 0;
+    }
+}
+
 .profile {
     margin-bottom: 2rem;
 
@@ -60,6 +71,7 @@ onMounted(() => {
         background-color: var(--secondaryColor);
         border-radius: 50%;
         overflow: hidden;
+        transition: transform 2s ease-in-out, opacity 3s ease-in-out;
 
         img {
             width: 100%;
@@ -77,59 +89,63 @@ onMounted(() => {
         }
     }
 
-    .name>* {
-        position: relative;
+    .name {
+        transition: opacity 3s ease-in-out;
 
-        h3,
-        input {
-            font-size: 1.5rem;
-            font-weight: 500;
-            line-height: 2rem;
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            width: clamp(168px, 60%, 280px);
-            text-align: center;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        &>* {
+            position: relative;
 
-        input {
-            color: $primaryColor;
-            background-color: $fourthColor;
-            border: none;
 
-            &:focus {
-                background-color: $secondaryColor;
-                outline-color: $fourthColor;
+            h3,
+            input {
+                font-size: 1.5rem;
+                font-weight: 500;
+                line-height: 2rem;
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                width: clamp(168px, 60%, 280px);
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            input {
+                color: $primaryColor;
+                background-color: $fourthColor;
+                border: none;
+
+                &:focus {
+                    background-color: $secondaryColor;
+                    outline-color: $fourthColor;
+                }
+            }
+
+            button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 0.5rem;
+                color: $secondaryColor;
+                cursor: pointer;
+
+                &:hover {
+                    filter: drop-shadow(0 0 2px var(--secondaryColor)) drop-shadow(0 0 8px var(--secondaryColor));
+                }
+            }
+
+            &.edited button {
+                font-size: 1.3rem;
+            }
+
+            &.editing button {
+                font-size: 1.5rem;
+
+                &:last-child {
+                    font-size: 1.6rem;
+                    margin-left: 2rem;
+                }
             }
         }
-
-        button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 0.5rem;
-            color: $secondaryColor;
-            cursor: pointer;
-
-            &:hover {
-                filter: drop-shadow(0 0 2px var(--secondaryColor)) drop-shadow(0 0 8px var(--secondaryColor));
-            }
-        }
-
-        &.edited button {
-            font-size: 1.3rem;
-        }
-
-        &.editing button {
-            font-size: 1.5rem;
-
-            &:last-child {
-                font-size: 1.6rem;
-                margin-left: 2rem;
-            }
-        }
-
     }
 }
 </style>

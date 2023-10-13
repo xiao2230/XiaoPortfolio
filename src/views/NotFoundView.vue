@@ -22,9 +22,32 @@ const backHome = () => router.push({ path: "/" });
 </template>
 
 <style lang="scss" scoped>
-// [data-load="loading"] .notFound {
-  
-// }
+[data-load="loading"] .notFound {
+  .planetGroup-1 {
+    margin-top: -10vh;
+  }
+
+  .planetGroup-2 {
+    margin-top: -20vh;
+  }
+
+  .planetGroup-3 {
+    margin-top: -25vh;
+  }
+
+  .astronaut{
+    margin-top: 30vh;
+  }
+
+  .text {
+    margin-top: -5vh;
+    opacity: 0;
+  }
+
+  .backHomeBtn {
+    opacity: 0;
+  }
+}
 
 .notFound {
   height: 100vh;
@@ -34,8 +57,12 @@ const backHome = () => router.push({ path: "/" });
   justify-content: center;
   align-items: flex-end;
 
-  >*:not(button) {
-    pointer-events: none;
+  >* {
+    transition: margin-top 2s ease-in-out, opacity 3s ease-in-out;
+
+    &:not(.backHomeBtn) {
+      pointer-events: none;
+    }
   }
 
   img {
