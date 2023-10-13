@@ -39,7 +39,7 @@ onMounted(() => {
         <div v-show="isNotFound" class="notFound text-center">User not found</div>
         <div v-show="!isLoaded && !isLoading && !isNotFound" class="notLoading text-center">Scroll down to load new
             repositories</div>
-        <div v-show="isLoading" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']" spin /></div>
+        <div v-show="isLoading && !isNotFound" class="loading text-center"><font-awesome-icon :icon="['fas', 'spinner']" spin /></div>
         <div v-show="isLoaded" class="loaded text-center">All repositories have been loaded</div>
     </section>
 </template>
