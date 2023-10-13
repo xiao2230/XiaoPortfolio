@@ -10,14 +10,16 @@ const text_1 = ref(null);
 const text_2 = ref(null);
 const planet_1 = ref(null);
 const land_1 = ref(null);
+const land_2 = ref(null);
 const tl = gsap.timeline();
 
 onMounted(() => {
     tl
-        .to(text_1.value, { marginTop: "25vh" }, "0sec")
-        .to(text_2.value, { marginTop: "30vh" }, "0sec")
-        .to(planet_1.value, { marginTop: "5vh" }, "0sec")
-        .to(land_1.value, { marginTop: "-4vh" }, "0sec");
+        .to(text_1.value, { y: "30vh" }, "0sec")
+        .to(text_2.value, { y: "35vh" }, "0sec")
+        .to(planet_1.value, { y: "8vh" }, "0sec")
+        .to(land_1.value, { y: "-4vh", scale: 1.1 }, "0sec")
+        .to(land_2.value, { scale: 1.2 }, "0sec");
 
     ScrollTrigger.create({
         animation: tl,
@@ -40,7 +42,7 @@ onUnmounted(() => tl.kill());
         <div class="planet-3" role="img" aria-label="planet-3"></div>
         <div ref="text_2" class="text text-2 text-center">SPACE</div>
         <div ref="land_1" class="land-1" role="img" aria-label="land-1"></div>
-        <div class="land-2" role="img" aria-label="land-2"></div>
+        <div ref="land_2" class="land-2" role="img" aria-label="land-2"></div>
     </section>
 </template>
 
@@ -48,28 +50,28 @@ onUnmounted(() => tl.kill());
 [data-load="loading"] .parallax {
     .text-1 {
         opacity: 0;
-        transform: translateY(-50vh);
+        margin-top: -50vh;
     }
 
     .text-2 {
         opacity: 0;
-        transform: translateY(30vh);
+        margin-top: 30vh;
     }
 
     .planet-2 {
-        transform: translateY(50vh);
+        margin-top: 50vh;
     }
 
     .planet-3 {
-        transform: translateY(10vh);
+        margin-top: 10vh;
     }
 
     .land-1 {
-        transform: translateY(-5vh);
+        margin-top: -5vh;
     }
 
     .land-2 {
-        transform: translateY(5vh);
+        margin-top: 5vh;
     }
 }
 
@@ -90,7 +92,7 @@ onUnmounted(() => tl.kill());
     }
 
     >* {
-        transition: transform 2s ease-in-out, opacity 3s ease-in-out, margin-top 0.1s linear;
+        transition: margin-top 2s ease-in-out, opacity 3s ease-in-out, transform 0.1s linear;
     }
 
     >div {
@@ -117,11 +119,11 @@ onUnmounted(() => tl.kill());
         }
 
         &.land-1 {
-            background: url(@/assets/img/parallax/land_1.png) no-repeat center / cover;
+            background: url(@/assets/img/parallax/land_1.png) no-repeat bottom / cover;
         }
 
         &.land-2 {
-            background: url(@/assets/img/parallax/land_2.png) no-repeat center / cover;
+            background: url(@/assets/img/parallax/land_2.png) no-repeat bottom / cover;
         }
     }
 
