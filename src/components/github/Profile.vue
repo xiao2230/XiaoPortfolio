@@ -93,12 +93,12 @@ onMounted(() => {
 
         input {
             color: $primaryColor;
-            background-color: $secondaryColor;
+            background-color: $fourthColor;
             border: none;
 
             &:focus {
-                background-color: $fourthColor;
-                outline-color: $secondaryColor;
+                background-color: $secondaryColor;
+                outline-color: $fourthColor;
             }
         }
 

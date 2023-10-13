@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted,onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -15,6 +15,7 @@ const contact = ref(null);
 const h3 = ref(null);
 const form = ref(null);
 const tl = gsap.timeline();
+let timer = null;
 
 const send = () => {
     isDisabled.value = true;
@@ -26,11 +27,14 @@ const send = () => {
         isDisabled.value = false;
         sendBtnText.value = "SEND";
         toast.value = "show";
-        setTimeout(() => toast.value = "hide", 5000);
+        timer = setTimeout(() => toast.value = "hide", 5000);
     }, 2000);
 }
 
-const closeToast = () => toast.value = "hide";
+const closeToast = () => {
+    toast.value = "hide";
+    clearTimeout(timer);
+};
 
 onMounted(() => {
     if (sessionStorage["guestMessage"]) guestMessage.value = sessionStorage["guestMessage"];
@@ -84,7 +88,7 @@ onUnmounted(() => tl.kill());
             <div class="toastHeader">
                 <span class="logo">XP</span>
                 <strong class="name">XiaoPortfolio</strong>
-                <button type="button" class="close" @click="closeToast"><span></span></button>
+                <button type="button" class="closeToastBtn" @click="closeToast"><span></span></button>
             </div>
             <div class="toastBody">
                 Sent successfully
@@ -125,12 +129,12 @@ onUnmounted(() => tl.kill());
                 width: 100%;
                 line-height: 2rem;
                 padding: 1.5rem 1rem 0.5rem;
-                background-color: $secondaryColor;
+                background-color: $fourthColor;
                 border: none;
 
                 &:focus {
-                    background-color: $fourthColor;
-                    outline-color: $secondaryColor;
+                    background-color: $secondaryColor;
+                    outline-color: $fourthColor;
                 }
             }
 
@@ -183,7 +187,7 @@ onUnmounted(() => tl.kill());
             margin-right: 0.5rem;
         }
 
-        .close {
+        .closeToastBtn {
             width: 1.5rem;
             aspect-ratio: 1;
             float: right;
