@@ -22,10 +22,10 @@ export default function useFetchRepos() {
             const res = await apiGetRepositories(data);
             setRepositories(res.data);
             if (res.data.length === 0 || res.data.length < 10) isLoaded.value = true;
-            isLoading.value = false;
         } catch (error) {
-            isLoading.value = false;
             isNotFound.value = true;
+        } finally {
+            isLoading.value = false;
         }
     };
 
