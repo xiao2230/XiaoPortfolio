@@ -47,49 +47,8 @@ onMounted(() => {
 <style lang="scss" scoped>
 .card {
     font-size: 1.1rem;
-    color: $secondaryColor;
-    border-radius: 8px;
-    background-color: $thirdColor;
     width: clamp(210px, 95%, 360px);
-    padding: 1rem 1.5rem;
     margin: 0 auto;
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    z-index: 1;
-
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-    }
-
-    &::before {
-        top: -100%;
-        left: -100%;
-        width: 300%;
-        height: 300%;
-        background-image: conic-gradient($secondaryColor 0deg,
-                transparent 60deg,
-                transparent 180deg,
-                $secondaryColor 180deg,
-                transparent 240deg);
-        animation: border 3s linear infinite;
-        z-index: -2;
-    }
-
-    &::after {
-        top: 0;
-        left: 0;
-        inset: 0.25rem;
-        background-color: $primaryColor;
-        border-radius: 5px;
-        z-index: -1;
-    }
-
-    &:hover::before {
-        animation-play-state: paused;
-    }
 
     &:not(:last-child) {
         margin-bottom: 1rem;

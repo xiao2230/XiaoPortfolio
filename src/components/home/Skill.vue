@@ -60,7 +60,7 @@ onUnmounted(() => mm.kill());
                 </div>
             </h3>
             <div class="allSkill">
-                <div ref="frondendSkill" class="frondendSkill">
+                <div ref="frondendSkill" class="card frondendSkill">
                     <h4>
                         <div>Frontend</div>
                         <div class="smoky">
@@ -109,7 +109,7 @@ onUnmounted(() => mm.kill());
                         </span>
                     </div>
                 </div>
-                <div ref="otherSkill" class="otherSkill">
+                <div ref="otherSkill" class="card otherSkill">
                     <h4>
                         <div>Other</div>
                         <div class="smoky">
@@ -207,22 +207,15 @@ onUnmounted(() => mm.kill());
             justify-content: space-between;
             flex-grow: 1;
 
-            >div {
+            .card {
                 flex-basis: calc(50% - 2rem);
-                border: 1px solid $secondaryColor;
-                border-radius: 5px;
-                padding-block: 2rem;
                 margin-bottom: 2rem;
-                position: relative;
                 transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 
                 h4 {
                     font-size: 1.4rem;
                     line-height: 2rem;
-                    position: absolute;
-                    top: -1.5rem;
-                    left: -2rem;
-                    background-color: $fifthColor;
+                    position: relative;
                     padding: 0.5rem 1rem;
 
                     .smoky {
@@ -248,7 +241,7 @@ onUnmounted(() => mm.kill());
                 .skillList {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    height: 100%;
+                    height: calc(100% - 2rem);
 
                     .skillItem {
                         display: flex;

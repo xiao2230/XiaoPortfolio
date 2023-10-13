@@ -35,11 +35,11 @@ const backHome = () => router.push({ path: "/" });
   }
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 130%;
+    height: 130%;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -15%;
+    left: -15%;
     object-fit: cover;
     object-position: top center;
     transform-origin: bottom;
