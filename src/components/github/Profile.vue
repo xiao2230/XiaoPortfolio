@@ -89,6 +89,8 @@ onMounted(() => {
             padding: 0.5rem 1rem;
             width: clamp(168px, 60%, 280px);
             text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         input {
@@ -110,7 +112,7 @@ onMounted(() => {
             color: $secondaryColor;
             cursor: pointer;
 
-            &:hover{
+            &:hover {
                 filter: drop-shadow(0 0 2px var(--secondaryColor)) drop-shadow(0 0 8px var(--secondaryColor));
             }
         }
@@ -120,7 +122,7 @@ onMounted(() => {
         }
 
         &.editing button {
-                font-size: 1.5rem;
+            font-size: 1.5rem;
 
             &:last-child {
                 font-size: 1.6rem;

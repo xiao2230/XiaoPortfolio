@@ -21,7 +21,11 @@ const backHome = () => router.push({ path: "/" });
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+// [data-load="loading"] .notFound {
+  
+// }
+
 .notFound {
   height: 100vh;
   position: relative;
