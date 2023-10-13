@@ -32,9 +32,9 @@ onMounted(() => {
     <Loading />
     <Sidebar />
     <RouterView v-slot="{ Component }">
-      <Transition name="router-fade" mode="out-in">
+      <!-- <Transition name="router-fade" mode="out-in"> -->
           <component :is="Component" />
-      </Transition>
+      <!-- </Transition> -->
     </RouterView>
   </div>
 </template>
