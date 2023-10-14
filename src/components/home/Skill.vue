@@ -209,7 +209,7 @@ onUnmounted(() => mm.kill());
 
             .card {
                 flex-basis: calc(50% - 0.5rem);
-                padding: 1.5rem;
+                padding: 0.5rem 0.5rem 1.5rem;
                 margin-bottom: 2rem;
                 transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 
@@ -242,7 +242,6 @@ onUnmounted(() => mm.kill());
                 .skillList {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    height: calc(100% - 2rem);
 
                     .skillItem {
                         display: flex;
@@ -250,6 +249,7 @@ onUnmounted(() => mm.kill());
                         align-items: center;
                         padding-block: 0.5rem;
                         position: relative;
+                        z-index: 1;
 
                         &::after {
                             content: "";
@@ -351,7 +351,7 @@ onUnmounted(() => mm.kill());
     }
 }
 
-@media (max-width: 319.98px) {
+@media (max-width: 374.98px) {
     .skill .container .allSkill .card .skillList {
         grid-template-columns: repeat(2, 1fr);
     }
