@@ -194,10 +194,12 @@ aside {
                 transition: filter 0.2s ease-in-out;
 
                 &.menuBtn-enter-active {
+                    will-change: transform, opacity;
                     transition: transform 0.3s ease-in-out 0.1s, opacity 0.3s ease-in-out 0.1s;
                 }
 
                 &.menuBtn-leave-active {
+                    will-change: transform, opacity;
                     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
                 }
 
@@ -228,7 +230,7 @@ aside {
                 height: 3rem;
                 line-height: 3rem;
                 border-right: 0rem solid $secondaryColor;
-                transition: border-right 0.2s ease-in-out,filter 0.2s ease-in-out;
+                transition: border-right 0.2s ease-in-out, filter 0.2s ease-in-out;
 
                 &.router-link-exact-active {
                     border-right: 0.3rem solid $secondaryColor;
@@ -256,10 +258,12 @@ aside {
                     position: absolute;
 
                     &.themeBtn-enter-active {
+                        will-change: transform, opacity;
                         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
                     }
 
                     &.themeBtn-leave-active {
+                        will-change: transform, opacity;
                         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
                     }
 

@@ -227,6 +227,7 @@ onUnmounted(() => tl.kill());
 
     &.toast-enter-active,
     &.toast-leave-active {
+        will-change: transform, opacity;
         transition: opacity 0.5s ease, transform 0.8s ease;
     }
 
