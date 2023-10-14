@@ -44,9 +44,9 @@ onMounted(() => {
 
 <style lang="scss">
 .BACKTOP {
-  position: fixed;
+  position: sticky;
+  top: 90vh;
   right: 5vw;
-  bottom: 10vh;
   z-index: 9999;
   color: aqua;
   background-color: blue;
