@@ -22,10 +22,7 @@ const changeMenu = () => {
     localStorage.setItem(storedKey, menu.value);
 };
 const closeMenu = () => {
-    setTimeout(() => {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }, 300);
+    setTimeout(() => window.location.href = "#app", 300);
     if (menu.value === "close") return;
     changeMenu();
 };
