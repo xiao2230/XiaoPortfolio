@@ -25,7 +25,11 @@ const router = createRouter({
       name: "NotFound",
       component: NotFoundView
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // 始终滚动到顶部
+    return { top: 0 }
+  },
 })
 
 export default router;

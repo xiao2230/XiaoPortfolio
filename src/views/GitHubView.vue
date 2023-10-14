@@ -1,16 +1,11 @@
 <script setup>
-import { provide, onMounted } from "vue";
+import { provide } from "vue";
 import useGitHubStore from "@/composables/useGitHubStore.js";
 import Profile from "@/components/github/Profile.vue";
 import Repositories from "@/components/github/Repositories.vue";
 
 const githubStore = useGitHubStore;
 provide("githubStore", githubStore);
-
-onMounted(() => {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-});
 </script>
 
 <template>
