@@ -7,6 +7,7 @@ import { useThemeStore } from "@/stores/theme.js";
 import { useLoadStore } from "@/stores/load.js";
 import Sidebar from "@/components/Sidebar.vue";
 import Loading from "@/components/Loading.vue";
+import ScrollTopBtn from "@/components/ScrollTopBtn.vue";
 
 const themeStore = useThemeStore();
 const { theme } = storeToRefs(themeStore);
@@ -15,8 +16,6 @@ const loadStore = useLoadStore();
 const { load } = storeToRefs(loadStore);
 
 const app = ref(null);
-
-const scrolltop = () => document.documentElement.scrollTop = 0;
 
 onMounted(() => {
   watch(load, () => {
@@ -38,20 +37,11 @@ onMounted(() => {
         <component :is="Component" />
       </Transition>
     </RouterView>
-    <button type="button" class="BACKTOP" @click="scrolltop">BACKTOP</button>
+    <ScrollTopBtn />
   </div>
 </template>
 
 <style lang="scss">
-.BACKTOP {
-  position: sticky;
-  top: 10vh;
-  left: 10vw;
-  z-index: 9999;
-  color: aqua;
-  background-color: blue;
-}
-
 .app {
   color: $secondaryColor;
   background-color: $primaryColor;

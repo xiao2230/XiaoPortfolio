@@ -21,9 +21,10 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
 // add icons to the library
-library.add(faHouse, faGithub, faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faCircleHalfStroke, faMoon, faSun, faLinkedinIn, faFacebookF, faStar, faSpinner, faXmark, faCheck, faPen);
+library.add(faHouse, faGithub, faDownLeftAndUpRightToCenter, faUpRightAndDownLeftFromCenter, faCircleHalfStroke, faMoon, faSun, faLinkedinIn, faFacebookF, faStar, faSpinner, faXmark, faCheck, faPen, faRocket);
 
 import App from "@/App.vue";
 import router from "@/router";

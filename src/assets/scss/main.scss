@@ -77,11 +77,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", "NotoSansTC", sans-serif;
-    font-weight: 400;
 }
 
-html {
+html,
+body {
+    font-family: "Poppins", "NotoSansTC", sans-serif;
+    font-weight: 400;
     scroll-behavior: smooth;
 }
 
