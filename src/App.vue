@@ -50,12 +50,11 @@ onMounted(() => {
 
 .router-fade-enter-active,
 .router-fade-leave-active {
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .router-fade-enter-from,
 .router-fade-leave-to {
   opacity: 0;
-  transform: translateX(2rem);
 }
 </style>
