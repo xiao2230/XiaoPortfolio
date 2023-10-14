@@ -208,7 +208,8 @@ onUnmounted(() => mm.kill());
             flex-grow: 1;
 
             .card {
-                flex-basis: calc(50% - 2rem);
+                flex-basis: calc(50% - 0.5rem);
+                padding: 1.5rem;
                 margin-bottom: 2rem;
                 transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 
@@ -338,20 +339,20 @@ onUnmounted(() => mm.kill());
 
         flex-direction: column;
 
-        &>div .skillList {
+        .card .skillList {
             grid-template-columns: repeat(4, 1fr);
         }
     }
 }
 
 @media (max-width: 575.98px) {
-    .skill .container .allSkill>div .skillList {
+    .skill .container .allSkill .card .skillList {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 319.98px) {
-    .skill .container .allSkill>div .skillList {
+    .skill .container .allSkill .card .skillList {
         grid-template-columns: repeat(2, 1fr);
     }
 }
