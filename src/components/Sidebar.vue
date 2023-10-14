@@ -22,7 +22,6 @@ const changeMenu = () => {
     localStorage.setItem(storedKey, menu.value);
 };
 const closeMenu = () => {
-    setTimeout(() => window.location.href = "#app", 300);
     if (menu.value === "close") return;
     changeMenu();
 };
@@ -229,7 +228,7 @@ aside {
                 height: 3rem;
                 line-height: 3rem;
                 border-right: 0rem solid $secondaryColor;
-                transition: border-right 0.2s ease-in-out, filter 0.2s ease-in-out;
+                transition: border-right 0.2s ease-in-out,filter 0.2s ease-in-out;
 
                 &.router-link-exact-active {
                     border-right: 0.3rem solid $secondaryColor;

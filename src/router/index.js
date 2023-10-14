@@ -26,16 +26,13 @@ const router = createRouter({
       component: NotFoundView
     }
   ],
-  // scrollBehavior(to, from, savedPosition) {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve({
-  //         el: 'body',
-  //         top: 0
-  //       })
-  //     }, 300)
-  //   })
-  // },
+  scrollBehavior(to, from, savedPosition) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 })
+      }, 300)
+    })
+  },
 })
 
 export default router;
