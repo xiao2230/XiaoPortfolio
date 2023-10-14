@@ -47,9 +47,12 @@ onMounted(() => {
   overflow-y: hidden;
 }
 
-.router-fade-enter-active,
-.router-fade-leave-active {
+.router-fade-enter-active {
   transition: opacity 0.3s ease-in-out;
+}
+
+.router-fade-leave-active{
+  transition: opacity 0.1s ease-in-out;
 }
 
 .router-fade-enter-from,
