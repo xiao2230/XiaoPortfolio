@@ -31,11 +31,12 @@ onMounted(() => {
   <div ref="app" :data-load="load" :data-theme="theme" class="app">
     <Loading />
     <Sidebar />
-    <RouterView v-slot="{ Component }">
+    <RouterView />
+    <!-- <RouterView v-slot="{ Component }">
       <Transition name="router-fade" mode="out-in">
         <component :is="Component" />
       </Transition>
-    </RouterView>
+    </RouterView> -->
   </div>
 </template>
 
@@ -47,13 +48,13 @@ onMounted(() => {
   overflow-y: hidden;
 }
 
-.router-fade-enter-active,
-.router-fade-leave-active {
-  transition: opacity 0.3s ease-in-out;
-}
+// .router-fade-enter-active,
+// .router-fade-leave-active {
+//   transition: opacity 0.3s ease-in-out;
+// }
 
-.router-fade-enter-from,
-.router-fade-leave-to {
-  opacity: 0;
-}
+// .router-fade-enter-from,
+// .router-fade-leave-to {
+//   opacity: 0;
+// }
 </style>
