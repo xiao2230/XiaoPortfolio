@@ -45,8 +45,8 @@ onMounted(() => {
 <style lang="scss">
 .BACKTOP {
   position: sticky;
-  top: 90vh;
-  right: 5vw;
+  top: 10vh;
+  left: 10vw;
   z-index: 9999;
   color: aqua;
   background-color: blue;
@@ -61,11 +61,13 @@ onMounted(() => {
 
 .router-fade-enter-active,
 .router-fade-leave-active {
-  transition: opacity 0.3s ease-in-out;
+  will-change: transform;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .router-fade-enter-from,
 .router-fade-leave-to {
   opacity: 0;
+  transform: translateX(3rem);
 }
 </style>
