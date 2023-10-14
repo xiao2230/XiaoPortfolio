@@ -34,7 +34,7 @@ const router = createRouter({
 })
 
 router.afterEach((to, from) => {
-  window.scrollTo(0, 0);
+  setTimeout(() => window.scrollTo(0, 0), 300)
 })
 
 export default router;
