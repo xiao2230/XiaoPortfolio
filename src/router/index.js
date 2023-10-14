@@ -27,8 +27,11 @@ const router = createRouter({
     }
   ],
   scrollBehavior(to, from, savedPosition) {
-    // 始终滚动到顶部
-    return { top: 0 }
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ left: 0, top: 0 })
+      }, 300)
+    })
   },
 })
 
