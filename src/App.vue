@@ -61,13 +61,12 @@ onMounted(() => {
 
 .router-fade-enter-active,
 .router-fade-leave-active {
-  will-change: transform, opacity;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  will-change: opacity;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .router-fade-enter-from,
 .router-fade-leave-to {
   opacity: 0;
-  transform: translateX(3rem);
 }
 </style>
