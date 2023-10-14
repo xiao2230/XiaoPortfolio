@@ -15,7 +15,7 @@ const tl = gsap.timeline();
 
 onMounted(() => {
     tl
-        .to(text_1.value, { y: "32vh" }, "0sec")
+        .to(text_1.value, { y: "55vh" }, "0sec")
         .to(text_2.value, { y: "35vh" }, "0sec")
         .to(planet_1.value, { y: "8vh" }, "0sec")
         .to(land_1.value, { y: "-4vh", scale: 1.1 }, "0sec")
