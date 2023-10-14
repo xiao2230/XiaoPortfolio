@@ -135,10 +135,14 @@ onUnmounted(() => tl.kill());
         top: 25vh;
         letter-spacing: calc($rule / 120);
         text-shadow: 0 0 20px $primaryColor;
-        mix-blend-mode: overlay;
+
+        &.text-1 {
+            mix-blend-mode: overlay;
+        }
 
         &.text-2 {
             top: calc(25vh + $rule / 20);
+            mix-blend-mode: luminosity;
         }
     }
 }
