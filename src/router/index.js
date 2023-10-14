@@ -25,10 +25,7 @@ const router = createRouter({
       name: "NotFound",
       component: NotFoundView
     }
-  ],
-  scrollBehavior(to, from, savedPosition) {
-    return { top: 0 };
-  },
+  ]
 })
 
 export default router;

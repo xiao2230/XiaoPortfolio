@@ -33,7 +33,7 @@ onMounted(() => {
     <Sidebar />
     <RouterView v-slot="{ Component }">
       <Transition name="router-fade" mode="out-in">
-          <component :is="Component" />
+        <component :is="Component" />
       </Transition>
     </RouterView>
   </div>
@@ -45,13 +45,17 @@ onMounted(() => {
   background-color: $primaryColor;
   height: 100vh;
   overflow-y: hidden;
+  scroll-behavior: smooth;
 }
 
-.router-fade-enter-active {
-  transition: opacity 0.3s ease-in-out;
+.router-fade-enter-active,
+.router-fade-leave-active {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.router-fade-enter-from {
+.router-fade-enter-from,
+.router-fade-leave-to {
   opacity: 0;
+  transform: translateX(2rem);
 }
 </style>
