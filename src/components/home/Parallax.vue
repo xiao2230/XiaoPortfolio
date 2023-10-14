@@ -40,8 +40,8 @@ onUnmounted(() => tl.kill());
         <div ref="text_1" class="text text-1 text-center">HELLO</div>
         <div ref="planet_1" class="planet-1" role="img" aria-label="planet-1"></div>
         <div class="planet-3" role="img" aria-label="planet-3"></div>
-        <div ref="land_1" class="land-1" role="img" aria-label="land-1"></div>
         <div ref="text_2" class="text text-2 text-center">SPACE</div>
+        <div ref="land_1" class="land-1" role="img" aria-label="land-1"></div>
         <div ref="land_2" class="land-2" role="img" aria-label="land-2"></div>
     </section>
 </template>
