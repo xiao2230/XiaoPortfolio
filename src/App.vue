@@ -36,10 +36,20 @@ onMounted(() => {
         <component :is="Component" />
       </Transition>
     </RouterView>
+    <a href="#app" class="BACKTOP"><button type="button">BACKTOP</button></a>
   </div>
 </template>
 
 <style lang="scss">
+.BACKTOP{
+  position: fixed;
+  right: 5vw;
+  bottom: 10vh;
+  z-index: 9999;
+  color: aqua;
+  background-color: blue;
+}
+
 .app {
   color: $secondaryColor;
   background-color: $primaryColor;
