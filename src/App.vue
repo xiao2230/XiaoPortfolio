@@ -45,7 +45,6 @@ onMounted(() => {
   background-color: $primaryColor;
   height: 100vh;
   overflow-y: hidden;
-  scroll-behavior: smooth;
 }
 
 .router-fade-enter-active,
