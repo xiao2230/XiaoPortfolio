@@ -14,12 +14,17 @@ const land_2 = ref(null);
 const tl = gsap.timeline();
 
 onMounted(() => {
+    // tl
+    //     .to(text_1.value, { y: "30vh" }, "0sec")
+    //     .to(text_2.value, { y: "35vh" }, "0sec")
+    //     .to(planet_1.value, { y: "8vh" }, "0sec")
+    //     .to(land_1.value, { y: "-4vh", scale: 1.1 }, "0sec")
+    //     .to(land_2.value, { scale: 1.2 }, "0sec");
     tl
-        .to(text_1.value, { y: "30vh" }, "0sec")
-        .to(text_2.value, { y: "35vh" }, "0sec")
-        .to(planet_1.value, { y: "8vh" }, "0sec")
-        .to(land_1.value, { y: "-4vh", scale: 1.1 }, "0sec")
-        .to(land_2.value, { scale: 1.2 }, "0sec");
+        .to(text_1.value, { marginTop: "30vh" }, "0sec")
+        .to(text_2.value, { marginTop: "35vh" }, "0sec")
+        .to(planet_1.value, { marginTop: "8vh" }, "0sec")
+        .to(land_1.value, { marginTop: "-4vh" }, "0sec")
 
     ScrollTrigger.create({
         animation: tl,
@@ -47,33 +52,33 @@ onUnmounted(() => tl.kill());
 </template>
 
 <style lang="scss" scoped>
-[data-load="loading"] .parallax {
-    .text-1 {
-        opacity: 0;
-        margin-top: -50vh;
-    }
+// [data-load="loading"] .parallax {
+//     .text-1 {
+//         opacity: 0;
+//         margin-top: -50vh;
+//     }
 
-    .text-2 {
-        opacity: 0;
-        margin-top: 30vh;
-    }
+//     .text-2 {
+//         opacity: 0;
+//         margin-top: 30vh;
+//     }
 
-    .planet-2 {
-        margin-top: 50vh;
-    }
+//     .planet-2 {
+//         margin-top: 50vh;
+//     }
 
-    .planet-3 {
-        margin-top: 10vh;
-    }
+//     .planet-3 {
+//         margin-top: 10vh;
+//     }
 
-    .land-1 {
-        margin-top: -5vh;
-    }
+//     .land-1 {
+//         margin-top: -5vh;
+//     }
 
-    .land-2 {
-        margin-top: 5vh;
-    }
-}
+//     .land-2 {
+//         margin-top: 5vh;
+//     }
+// }
 
 .parallax {
     height: 100vh;
@@ -92,7 +97,8 @@ onUnmounted(() => tl.kill());
     }
 
     >* {
-        transition: margin-top 2s ease-in-out, opacity 3s ease-in-out, transform 0.1s linear;
+        transition: margin-top 0.1s linear;
+        // transition: margin-top 2s ease-in-out, opacity 3s ease-in-out, transform 0.1s linear;
     }
 
     >div {
