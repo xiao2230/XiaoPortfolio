@@ -16,6 +16,8 @@ const { load } = storeToRefs(loadStore);
 
 const app = ref(null);
 
+const scrolltop = () => document.documentElement.scrollTop = 0;
+
 onMounted(() => {
   watch(load, () => {
     gsap.to(app.value, {
@@ -36,12 +38,12 @@ onMounted(() => {
         <component :is="Component" />
       </Transition>
     </RouterView>
-    <a href="#app" class="BACKTOP"><button type="button">BACKTOP</button></a>
+    <button type="button" class="BACKTOP" @click="scrolltop">BACKTOP</button>
   </div>
 </template>
 
 <style lang="scss">
-.BACKTOP{
+.BACKTOP {
   position: fixed;
   right: 5vw;
   bottom: 10vh;
