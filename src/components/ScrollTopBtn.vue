@@ -20,28 +20,28 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <Transition name="scroll">
-        <div v-show="isShow" class="scrollTopBtn">
+    <Transition name="scrollBtn">
+        <div v-show="isShow" class="scrollBtn">
             <button type="button" @click="scrollTop"><font-awesome-icon :icon="['fas', 'rocket']" /></button>
         </div>
     </Transition>
 </template>
 
 <style lang="scss" scoped>
-.scrollTopBtn {
+.scrollBtn {
     position: fixed;
     bottom: 3rem;
     right: 3rem;
     z-index: 998;
 
-    &.scroll-enter-active,
-    &.scroll-leave-active {
+    &.scrollBtn-enter-active,
+    &.scrollBtn-leave-active {
         will-change: transform, opacity;
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
-    &.scroll-enter-from,
-    &.scroll-leave-to {
+    &.scrollBtn-enter-from,
+    &.scrollBtn-leave-to {
         transform: scale(0);
         opacity: 0;
     }
