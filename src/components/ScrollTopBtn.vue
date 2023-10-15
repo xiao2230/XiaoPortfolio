@@ -1,13 +1,14 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import { throttle } from "@/lib/Throttle.js";
 
 const isShow = ref(false);
 
 const scrollTop = () => window.scrollTo({ top: 0 });
-const showBtn = () => {
+const showBtn = throttle(() => {
     const otop = document.body.scrollTop || document.documentElement.scrollTop;
     otop === 0 ? isShow.value = false : isShow.value = true;
-};
+}, 100);
 
 onMounted(() => {
     window.addEventListener("scroll", showBtn);
@@ -16,7 +17,6 @@ onMounted(() => {
 onUnmounted(() => {
     window.removeEventListener("scroll", showBtn);
 });
-
 </script>
 
 <template>
@@ -53,6 +53,12 @@ onUnmounted(() => {
         border-radius: 50%;
         cursor: pointer;
 
+        &:hover svg {
+            color: $primaryColor;
+            stroke-width: 0;
+            filter: drop-shadow(0 0 12px $primaryColor);
+        }
+
         svg {
             width: 2rem;
             height: 2rem;
@@ -60,6 +66,7 @@ onUnmounted(() => {
             stroke: $primaryColor;
             stroke-width: 2.5rem;
             transform: translate(2px, 3px) rotateZ(-90deg);
+            transition: color 0.2 ease-in-out, filter 0.2s ease-in-out;
         }
     }
 }
