@@ -1,39 +1,48 @@
 <script setup>
-const scrollTop = () => window.scrollTo(0, 0);
+import { ref, onMounted } from "vue";
+
+const isShow = ref(false);
+
+const scrollTop = () => window.scrollTo({ top: 0 });
+const showSrollBtn = () => {
+    const otop = document.body.scrollTop || document.documentElement.scrollTop;
+    otop === 0 ? isShow.value = false : isShow.value = true;
+};
+
+onMounted(() => {
+    window.addEventListener("scroll", showSrollBtn);
+});
 
 </script>
 
 <template>
-    <div class="scrollTopBtn">
-        <button type="button" @click="scrollTop"><font-awesome-icon :icon="['fas', 'rocket']" flip="horizontal" /></button>
+    <div v-show="isShow" class="scrollBtn">
+        <button type="button" @click="scrollTop"><font-awesome-icon :icon="['fas', 'rocket']" /></button>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .scrollTopBtn {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 998;
 
     button {
+        padding: 0.5rem;
+        background-color: $secondaryColor;
+        border: 5px solid $fourthColor;
+        border-radius: 50%;
         cursor: pointer;
 
         svg {
             width: 2rem;
             height: 2rem;
-
-            path {
-                fill: transparent;
-                stroke: $secondaryColor;
-                stroke-width: 1rem;
-            }
+            color: transparent;
+            stroke: $primaryColor;
+            stroke-width: 2.5rem;
+            transform: translate(2px, 3px) rotateZ(-90deg);
         }
-    }
-
-    path {
-        fill: transparent;
-        stroke: $secondaryColor;
-        stroke-width: 1rem;
     }
 }
 </style>

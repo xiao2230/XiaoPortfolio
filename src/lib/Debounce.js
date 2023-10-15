@@ -1,7 +1,7 @@
-export const debounce = (fn, timer = 100) => {
-    let reTimes;
+export const debounce = (fn, timeout = 100) => {
+    let timer;
     return () => {
-        if (reTimes) clearTimeout(reTimes);
-        reTimes = setTimeout(fn, timer);
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(fn, timeout);
     };
 };
