@@ -63,4 +63,11 @@ onUnmounted(() => {
         }
     }
 }
+
+@media (max-width: 575.98px) {
+    .scrollBtn {
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
 </style>
