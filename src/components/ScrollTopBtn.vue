@@ -1,24 +1,30 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 const isShow = ref(false);
 
 const scrollTop = () => window.scrollTo({ top: 0 });
-const showSrollBtn = () => {
+const showBtn = () => {
     const otop = document.body.scrollTop || document.documentElement.scrollTop;
     otop === 0 ? isShow.value = false : isShow.value = true;
 };
 
 onMounted(() => {
-    window.addEventListener("scroll", showSrollBtn);
+    window.addEventListener("scroll", showBtn);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", showBtn);
 });
 
 </script>
 
 <template>
-    <div v-show="isShow" class="scrollBtn">
-        <button type="button" @click="scrollTop"><font-awesome-icon :icon="['fas', 'rocket']" /></button>
-    </div>
+    <Transition name="scroll">
+        <div v-show="isShow" class="scrollTopBtn">
+            <button type="button" @click="scrollTop"><font-awesome-icon :icon="['fas', 'rocket']" /></button>
+        </div>
+    </Transition>
 </template>
 
 <style lang="scss" scoped>
@@ -27,6 +33,18 @@ onMounted(() => {
     bottom: 3rem;
     right: 3rem;
     z-index: 998;
+
+    &.scroll-enter-active,
+    &.scroll-leave-active {
+        will-change: transform, opacity;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    &.scroll-enter-from,
+    &.scroll-leave-to {
+        transform: scale(0);
+        opacity: 0;
+    }
 
     button {
         padding: 0.5rem;
