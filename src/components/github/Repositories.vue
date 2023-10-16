@@ -18,7 +18,6 @@ watch(() => github.profileName, (newVal) => {
 });
 
 onMounted(() => {
-    chkScrollBottom();
     fetchRepos();
 });
 </script>
